@@ -1,0 +1,13 @@
+{
+    "name": "DonViHanhChinh",
+    "alias": "donvihanhchinh",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\DonViHanhChinh\\Providers\\DonViHanhChinhServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

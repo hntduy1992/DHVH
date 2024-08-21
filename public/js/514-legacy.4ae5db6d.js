@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkSaDec"]=self["webpackChunkSaDec"]||[]).push([[514],{55514:function(n,t,e){e.r(t),e.d(t,{default:function(){return h}});var u,c,a={name:"check-auth",created:function(){this.fnStart()},methods:{fnStart:function(){window.location.href="/Auth"}}},f=a,l=e(1001),r=(0,l.Z)(f,u,c,!1,null,null,null),h=r.exports}}]);
+//# sourceMappingURL=514-legacy.4ae5db6d.js.map

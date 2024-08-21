@@ -1,0 +1,13 @@
+{
+    "name": "KhaoSat",
+    "alias": "khaosat",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\KhaoSat\\Providers\\KhaoSatServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

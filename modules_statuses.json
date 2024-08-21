@@ -1,0 +1,9 @@
+{
+    "KhaoSat": true,
+    "DonViHanhChinh": true,
+    "Sidebars": true,
+    "FileManager": true,
+    "Users": true,
+    "Roles": true,
+    "Auth": true
+}
