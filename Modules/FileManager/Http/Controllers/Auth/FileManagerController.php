@@ -40,9 +40,10 @@ class FileManagerController extends Controller
      */
     public function exportToWord(Request $request): JsonResponse
     {
+        error_log($request->get('donVi'),4);
         $year = Carbon::now()->year;
+
         $url = Storage::disk('public')->path("$year/BienBanTuDanhGia.docx");
-        
 
         $templateProcessor = new TemplateProcessor($url);
 
@@ -133,7 +134,7 @@ class FileManagerController extends Controller
         $templateProcessor->setValue('tongDiemDanhGia', $tongDiemDanhGia);
         $templateProcessor->setValue('tongDiemThamDinh', $tongDiemThamDinh);
 
-        
+
         $templateProcessor->saveAs("./storage/files/BienBan/{$year}/{$name}-{$char}.docx");
 
         return response()->json(['file' => "{$year}/{$name}-{$char}.docx"]);
