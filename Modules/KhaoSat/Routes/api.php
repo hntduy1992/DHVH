@@ -79,6 +79,8 @@ Route::prefix('auth/khao-sat')->middleware('auth:api')->group(function () {
     Route::prefix('/thong-ke')->group(function () {
         Route::get('/bang-xep-hang', [ThongKeController::class, 'bangXepHang']);
         Route::get('/bang-xep-hang-don-vi', [ThongKeController::class, 'bangXepHangDonVi']);
+        Route::get('/danh-hieu-van-hoa', [ThongKeController::class, 'danhHieuVanHoa']);
+
     });
 });
 

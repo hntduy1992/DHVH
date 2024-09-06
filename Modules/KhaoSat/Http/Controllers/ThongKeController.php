@@ -6,6 +6,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\DonViHanhChinh\Entities\DonViHanhChinh;
+use Modules\KhaoSat\Entities\BangThongKe;
 use Modules\KhaoSat\Entities\DiemTongHop;
 
 class ThongKeController extends Controller
@@ -13,7 +14,7 @@ class ThongKeController extends Controller
    public function bangXepHang() {
        $results = DonViHanhChinh::with(['diemtong' => function($q) {
            $q->where('namApDung', request('namApDung'));
-       }])->where('hienThi','=',1)->get();
+       }])->where('phanLoai','=',1)->get();
        foreach ($results as $result) {
            $result->diemtonghop = $result->diemtong?->diem ?? 0;
            $result->makeHidden('diemtong');
@@ -23,5 +24,9 @@ class ThongKeController extends Controller
    public function bangXepHangDonVi() {
        $results = DiemTongHop::where('maDonVi', auth('api')->user()->organizationId)->get();
        return response()->json(['data' => $results->sortBy('namApDung')->pluck('diem', 'namApDung')]);
+   }
+   public  function danhHieuVanHoa(){
+        $result = BangThongKe::all();
+        return response()->json(['data' => $result->sortBy('nam')]);
    }
 }

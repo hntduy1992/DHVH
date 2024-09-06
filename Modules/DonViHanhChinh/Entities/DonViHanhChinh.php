@@ -12,7 +12,7 @@ use Modules\KhaoSat\Entities\DiemTongHop;
 class DonViHanhChinh extends Model
 {
     protected $table = 'donvihanhchinh';
-    protected $fillable = ['parentId', 'tenDonVi', 'image', 'email', 'dienThoai', 'sapXep', 'trangThai'];
+    protected $fillable = ['parentId', 'tenDonVi', 'image', 'email', 'dienThoai', 'sapXep', 'trangThai','phanLoai'];
 
     public function parent()
     {
