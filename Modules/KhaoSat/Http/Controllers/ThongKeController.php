@@ -13,7 +13,7 @@ class ThongKeController extends Controller
    public function bangXepHang() {
        $results = DonViHanhChinh::with(['diemtong' => function($q) {
            $q->where('namApDung', request('namApDung'));
-       }])->get();
+       }])->where('hienThi','=',1)->get();
        foreach ($results as $result) {
            $result->diemtonghop = $result->diemtong?->diem ?? 0;
            $result->makeHidden('diemtong');
