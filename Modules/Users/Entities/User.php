@@ -13,8 +13,8 @@ class User extends Authenticatable implements JWTSubject
 {
     use HasRoles, Notifiable;
     protected $guarded = 'api';
-    public const CREATED_AT = 'createdAt';
-    public const UPDATED_AT = 'updatedAt';
+    public const CREATED_AT = 'created_at';
+    public const UPDATED_AT = 'updated_at';
     protected $hidden = ['password'];
     protected $fillable = ['userName', 'password', 'fullName', 'image', 'email', 'phone', 'provinceId', 'districtId', 'wardId', 'organizationId', 'status'];
 

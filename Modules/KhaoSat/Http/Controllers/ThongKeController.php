@@ -11,10 +11,11 @@ use Modules\KhaoSat\Entities\DiemTongHop;
 
 class ThongKeController extends Controller
 {
-   public function bangXepHang() {
+   public function bangXepHang(Request $request) {
+      $phanLoai = $request->input('phanLoai');
        $results = DonViHanhChinh::with(['diemtong' => function($q) {
            $q->where('namApDung', request('namApDung'));
-       }])->where('phanLoai','=',1)->get();
+       }])->where('phanLoai','=',$phanLoai)->get();
        foreach ($results as $result) {
            $result->diemtonghop = $result->diemtong?->diem ?? 0;
            $result->makeHidden('diemtong');
@@ -26,7 +27,7 @@ class ThongKeController extends Controller
        return response()->json(['data' => $results->sortBy('namApDung')->pluck('diem', 'namApDung')]);
    }
    public  function danhHieuVanHoa(){
-        $result = BangThongKe::all();
-        return response()->json(['data' => $result->sortBy('nam')]);
+        $result = BangThongKe::query()->orderByDesc('nam')->get();
+        return response()->json(['data' => $result]);
    }
 }

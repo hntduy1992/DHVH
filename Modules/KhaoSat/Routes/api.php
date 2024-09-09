@@ -24,6 +24,7 @@ use Modules\KhaoSat\Http\Controllers\XacNhanController;
 Route::prefix('auth/khao-sat')->middleware('auth:api')->group(function () {
     Route::prefix('/danh-muc')->group(function () {
         Route::get('/', [DanhMucController::class, 'danhSachPhanTrang'])->middleware('role_or_permission:admin|botieuchi');
+        Route::get('/select-nam-ap-dung', [DanhMucController::class, 'namApDung']);
         Route::get('/select', [DanhMucController::class, 'danhSachSelect'])->middleware('role_or_permission:admin|botieuchi');
         Route::post('/them-moi', [DanhMucController::class, 'themMoi'])->middleware('role_or_permission:admin|botieuchi');
         Route::get('/id/{id}', [DanhMucController::class, 'layChiTiet'])->middleware('role_or_permission:admin|botieuchi');
