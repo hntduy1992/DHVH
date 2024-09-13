@@ -11,8 +11,8 @@ use Modules\KhaoSat\Entities\DanhMucDonVi;
 class DanhMucController extends Controller
 {
     public function namApDung(){
-        $namApDung =array_unique( DanhMuc::query()->select(['namApDung'])->orderBy('namApDung','desc')->get()->toArray());
-        return response()->json(['data'=>$namApDung]);
+        $namApDung =DanhMuc::query()->orderBy('namApDung','desc')->pluck('namApDung');
+        return response()->json(['data'=>array_unique($namApDung->toArray())]);
     }
     public function danhSachPhanTrang()
     {
