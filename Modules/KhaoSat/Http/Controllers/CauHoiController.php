@@ -11,7 +11,7 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class CauHoiController extends Controller
 {
-   //Lưu lại khi nào xong mở ra 
+   //Lưu lại khi nào xong mở ra
   /*
     public function danhSachPhanTrang()
     {
@@ -26,7 +26,7 @@ class CauHoiController extends Controller
 
     public function danhSachPhanTrang()
     {
-        $cauHoi = CauHoi::with(['danhmuc:id,tenDanhMuc','parent:id,tenCauHoi'])->when(!empty(request('content')), function ($query) {
+        $cauHoi = CauHoi::with(['danhmuc:id,tenDanhMuc','parent:id,tenCauHoi'])->where('maDanhMuc','=',request('maDanhMuc'))->when(!empty(request('content')), function ($query) {
             $content = request('content');
             //$query->where('tenCauHoi', 'like', "%${content}%");
              $query->whereHas('danhmuc', function ($q) use ($content) {
