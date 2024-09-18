@@ -14,7 +14,24 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
--- Dumping data for table cscc_sadec_db.activity_log: ~243 rows (approximately)
+-- Dumping structure for table cscc_sadec_db.activity_log
+CREATE TABLE IF NOT EXISTS `activity_log` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `log_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subject_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `event` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `subject_id` bigint unsigned DEFAULT NULL,
+  `causer_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `causer_id` bigint unsigned DEFAULT NULL,
+  `properties` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `batch_uuid` char(36) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=177 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+
+-- Dumping data for table cscc_sadec_db.activity_log: ~0 rows (approximately)
 REPLACE INTO `activity_log` (`id`, `log_name`, `description`, `subject_type`, `event`, `subject_id`, `causer_type`, `causer_id`, `properties`, `batch_uuid`, `created_at`, `updated_at`) VALUES
 	(1, 'default', 'created', 'Modules\\KhaoSat\\Entities\\DanhMuc', 'created', 1, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":1,"tenDanhMuc":"TI\\u00caU CHU\\u1ea8N DANH HI\\u1ec6U KH\\u00d3M, \\u1ea4P V\\u0102N H\\u00d3A 2024","namApDung":2024,"noiDung":"K\\u00e8m theo Quy\\u1ebft \\u0111\\u1ecbnh   \\/2024\\/Q\\u0110-UBND ng\\u00e0y       th\\u00e1ng      n\\u0103m 2024 c\\u1ee7a \\u1ee6y ban nh\\u00e2n d\\u00e2n t\\u1ec9nh \\u0110\\u1ed3ng Th\\u00e1p","trangThai":1,"created_at":"2024-09-10T03:24:44.000000Z","updated_at":"2024-09-10T03:24:44.000000Z"}}', NULL, '2024-09-09 20:24:44', '2024-09-09 20:24:44'),
 	(2, 'default', 'created', 'Modules\\KhaoSat\\Entities\\DanhMucDonVi', 'created', 1, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":1,"maDanhMuc":1,"maDonVi":60}}', NULL, '2024-09-09 20:24:44', '2024-09-09 20:24:44'),
@@ -180,87 +197,33 @@ REPLACE INTO `activity_log` (`id`, `log_name`, `description`, `subject_type`, `e
 	(162, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\CauHoi', 'updated', 58, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":58,"parentId":57,"maDanhMuc":1,"stt":null,"tenCauHoi":"C\\u00e1c m\\u00f4 h\\u00ecnh: H\\u1ed9i qu\\u00e1n, T\\u1ed5 Nh\\u00e2n d\\u00e2n t\\u1ef1 qu\\u1ea3n\\u2026 ho\\u1ea1t \\u0111\\u1ed9ng hi\\u1ec7u qu\\u1ea3. (C\\u00f3 t\\u1eeb 40%  \\u0111\\u1ebfn 45% c\\u00e1c t\\u00f4\\u0309 ch\\u01b0\\u0301c tr\\u00ean ho\\u1ea1t \\u0111\\u1ed9ng y\\u1ebfu, k\\u00e9m thi\\u0300 ch\\u00e2\\u0301m 0 \\u0111i\\u00ea\\u0309m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":3,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-12T08:03:02.000000Z","updated_at":"2024-09-12T08:16:51.000000Z"},"old":{"id":58,"parentId":57,"maDanhMuc":1,"stt":null,"tenCauHoi":"C\\u00e1c m\\u00f4 h\\u00ecnh: H\\u1ed9i qu\\u00e1n, T\\u1ed5 Nh\\u00e2n d\\u00e2n t\\u1ef1 qu\\u1ea3n\\u2026 ho\\u1ea1t \\u0111\\u1ed9ng hi\\u1ec7u qu\\u1ea3. (C\\u00f3 t\\u1eeb 40%  \\u0111\\u1ebfn 45% c\\u00e1c t\\u00f4\\u0309 ch\\u01b0\\u0301c tr\\u00ean ho\\u1ea1t \\u0111\\u1ed9ng y\\u1ebfu, k\\u00e9m thi\\u0300 ch\\u00e2\\u0301m 0 \\u0111i\\u00ea\\u0309m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":3,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-12T08:03:02.000000Z","updated_at":"2024-09-12T08:03:02.000000Z"}}', NULL, '2024-09-12 01:16:51', '2024-09-12 01:16:51'),
 	(163, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\CauHoi', 'updated', 56, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":56,"parentId":55,"maDanhMuc":1,"stt":null,"tenCauHoi":"Tri\\u1ec3n khai Phong tr\\u00e0o \\u201cTo\\u00e0n d\\u00e2n \\u0111o\\u00e0n k\\u1ebft x\\u00e2y d\\u1ef1ng \\u0111\\u1eddi s\\u1ed1ng v\\u0103n h\\u00f3a\\u201d g\\u1eafn v\\u1edbi Ch\\u01b0\\u01a1ng tr\\u00ecnh m\\u1ee5c ti\\u00eau qu\\u1ed1c gia x\\u00e2y d\\u1ef1ng n\\u00f4ng th\\u00f4n m\\u1edbi\\u201d, Cu\\u1ed9c v\\u1eadn \\u0111\\u1ed9ng \\u201cTo\\u00e0n d\\u00e2n \\u0111o\\u00e0n k\\u1ebft x\\u00e2y d\\u1ef1ng n\\u00f4ng th\\u00f4n m\\u1edbi, \\u0111\\u00f4 th\\u1ecb v\\u0103n minh\\u201d v\\u00e0 c\\u00e1c phong tr\\u00e0o, cu\\u1ed9c v\\u1eadn \\u0111\\u1ed9ng thi \\u0111ua kh\\u00e1c b\\u1eb1ng nhi\\u1ec1u h\\u00ecnh th\\u1ee9c thi\\u1ebft th\\u1ef1c, hi\\u1ec7u qu\\u1ea3, nh\\u1eb1m n\\u00e2ng cao \\u0111\\u1eddi s\\u1ed1ng v\\u1eadt ch\\u1ea5t v\\u00e0 tinh th\\u1ea7n cho nh\\u00e2n d\\u00e2n. (N\\u1ebfu kh\\u00f4ng th\\u1ef1c hi\\u1ec7n th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-12T08:01:59.000000Z","updated_at":"2024-09-12T08:17:00.000000Z"},"old":{"id":56,"parentId":55,"maDanhMuc":1,"stt":null,"tenCauHoi":"Tri\\u1ec3n khai Phong tr\\u00e0o \\u201cTo\\u00e0n d\\u00e2n \\u0111o\\u00e0n k\\u1ebft x\\u00e2y d\\u1ef1ng \\u0111\\u1eddi s\\u1ed1ng v\\u0103n h\\u00f3a\\u201d g\\u1eafn v\\u1edbi Ch\\u01b0\\u01a1ng tr\\u00ecnh m\\u1ee5c ti\\u00eau qu\\u1ed1c gia x\\u00e2y d\\u1ef1ng n\\u00f4ng th\\u00f4n m\\u1edbi\\u201d, Cu\\u1ed9c v\\u1eadn \\u0111\\u1ed9ng \\u201cTo\\u00e0n d\\u00e2n \\u0111o\\u00e0n k\\u1ebft x\\u00e2y d\\u1ef1ng n\\u00f4ng th\\u00f4n m\\u1edbi, \\u0111\\u00f4 th\\u1ecb v\\u0103n minh\\u201d v\\u00e0 c\\u00e1c phong tr\\u00e0o, cu\\u1ed9c v\\u1eadn \\u0111\\u1ed9ng thi \\u0111ua kh\\u00e1c b\\u1eb1ng nhi\\u1ec1u h\\u00ecnh th\\u1ee9c thi\\u1ebft th\\u1ef1c, hi\\u1ec7u qu\\u1ea3, nh\\u1eb1m n\\u00e2ng cao \\u0111\\u1eddi s\\u1ed1ng v\\u1eadt ch\\u1ea5t v\\u00e0 tinh th\\u1ea7n cho nh\\u00e2n d\\u00e2n. (N\\u1ebfu kh\\u00f4ng th\\u1ef1c hi\\u1ec7n th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-12T08:01:59.000000Z","updated_at":"2024-09-12T08:01:59.000000Z"}}', NULL, '2024-09-12 01:17:00', '2024-09-12 01:17:00'),
 	(164, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\CauHoi', 'updated', 59, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":59,"parentId":57,"maDanhMuc":1,"stt":null,"tenCauHoi":"C\\u00f3 Quy \\u01b0\\u1edbc kh\\u00f3m, \\u1ea5p \\u0111\\u01b0\\u1ee3c ph\\u00ea duy\\u1ec7t \\u0111\\u00fang quy \\u0111\\u1ecbnh (N\\u1ebfu kh\\u00f4ng c\\u00f3 thi\\u0300 ch\\u00e2\\u0301m 0 \\u0111i\\u00ea\\u0309m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":2,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-12T08:03:15.000000Z","updated_at":"2024-09-12T08:17:20.000000Z"},"old":{"id":59,"parentId":57,"maDanhMuc":1,"stt":null,"tenCauHoi":"C\\u00f3 Quy \\u01b0\\u1edbc kh\\u00f3m, \\u1ea5p \\u0111\\u01b0\\u1ee3c ph\\u00ea duy\\u1ec7t \\u0111\\u00fang quy \\u0111\\u1ecbnh (N\\u1ebfu kh\\u00f4ng c\\u00f3 thi\\u0300 ch\\u00e2\\u0301m 0 \\u0111i\\u00ea\\u0309m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":2,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-12T08:03:15.000000Z","updated_at":"2024-09-12T08:03:15.000000Z"}}', NULL, '2024-09-12 01:17:20', '2024-09-12 01:17:20'),
-	(165, 'default', 'created', 'Modules\\KhaoSat\\Entities\\DanhMuc', 'created', 2, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":2,"tenDanhMuc":"TI\\u00caU CHU\\u1ea8N DANH HI\\u1ec6U X\\u00c3, PH\\u01af\\u1edcNG, TH\\u1eca TR\\u1ea4N TI\\u00caU BI\\u1ec2U 2024","namApDung":2024,"noiDung":"K\\u00e8m theo Quy\\u1ebft \\u0111\\u1ecbnh   \\/2024\\/Q\\u0110-UBND ng\\u00e0y       th\\u00e1ng      n\\u0103m 2024 c\\u1ee7a \\u1ee6y ban nh\\u00e2n d\\u00e2n t\\u1ec9nh \\u0110\\u1ed3ng Th\\u00e1p","trangThai":1,"created_at":"2024-09-13T03:26:45.000000Z","updated_at":"2024-09-13T03:26:45.000000Z"}}', NULL, '2024-09-12 20:26:45', '2024-09-12 20:26:45'),
-	(166, 'default', 'created', 'Modules\\KhaoSat\\Entities\\DanhMucDonVi', 'created', 38, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":38,"maDanhMuc":2,"maDonVi":15}}', NULL, '2024-09-12 20:26:45', '2024-09-12 20:26:45'),
-	(167, 'default', 'created', 'Modules\\KhaoSat\\Entities\\DanhMucDonVi', 'created', 39, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":39,"maDanhMuc":2,"maDonVi":16}}', NULL, '2024-09-12 20:26:45', '2024-09-12 20:26:45'),
-	(168, 'default', 'created', 'Modules\\KhaoSat\\Entities\\DanhMucDonVi', 'created', 40, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":40,"maDanhMuc":2,"maDonVi":17}}', NULL, '2024-09-12 20:26:45', '2024-09-12 20:26:45'),
-	(169, 'default', 'created', 'Modules\\KhaoSat\\Entities\\DanhMucDonVi', 'created', 41, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":41,"maDanhMuc":2,"maDonVi":18}}', NULL, '2024-09-12 20:26:45', '2024-09-12 20:26:45'),
-	(170, 'default', 'created', 'Modules\\KhaoSat\\Entities\\DanhMucDonVi', 'created', 42, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":42,"maDanhMuc":2,"maDonVi":19}}', NULL, '2024-09-12 20:26:45', '2024-09-12 20:26:45'),
-	(171, 'default', 'created', 'Modules\\KhaoSat\\Entities\\DanhMucDonVi', 'created', 43, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":43,"maDanhMuc":2,"maDonVi":20}}', NULL, '2024-09-12 20:26:45', '2024-09-12 20:26:45'),
-	(172, 'default', 'created', 'Modules\\KhaoSat\\Entities\\DanhMucDonVi', 'created', 44, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":44,"maDanhMuc":2,"maDonVi":1}}', NULL, '2024-09-12 20:26:45', '2024-09-12 20:26:45'),
-	(173, 'default', 'created', 'Modules\\KhaoSat\\Entities\\DanhMucDonVi', 'created', 45, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":45,"maDanhMuc":2,"maDonVi":23}}', NULL, '2024-09-12 20:26:45', '2024-09-12 20:26:45'),
-	(174, 'default', 'created', 'Modules\\KhaoSat\\Entities\\DanhMucDonVi', 'created', 46, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":46,"maDanhMuc":2,"maDonVi":21}}', NULL, '2024-09-12 20:26:45', '2024-09-12 20:26:45'),
-	(175, 'default', 'created', 'Modules\\KhaoSat\\Entities\\DanhMucDonVi', 'created', 47, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":47,"maDanhMuc":2,"maDonVi":22}}', NULL, '2024-09-12 20:26:45', '2024-09-12 20:26:45'),
-	(176, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 76, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":76,"parentId":0,"maDanhMuc":2,"stt":"1","tenCauHoi":"Th\\u1ef1c hi\\u1ec7n t\\u1ed1t c\\u00e1c nhi\\u1ec7m v\\u1ee5 kinh t\\u1ebf - x\\u00e3 h\\u1ed9i, qu\\u1ed1c ph\\u00f2ng, an ninh, tr\\u1eadt t\\u1ef1, an to\\u00e0n x\\u00e3 h\\u1ed9i \\u0111\\u01b0\\u1ee3c giao","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":20,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":0,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:24:59.000000Z","updated_at":"2024-09-18T03:24:59.000000Z"}}', NULL, '2024-09-17 20:24:59', '2024-09-17 20:24:59'),
-	(177, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 77, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":77,"parentId":76,"maDanhMuc":2,"stt":"1.1","tenCauHoi":"B\\u1ea3o \\u0111\\u1ea3m tr\\u1eadt t\\u1ef1, an to\\u00e0n x\\u00e3 h\\u1ed9i, \\u0111\\u1ea5u tranh, ph\\u00f2ng, ch\\u1ed1ng t\\u1ed9i ph\\u1ea1m v\\u00e0 c\\u00e1c h\\u00e0nh vi vi ph\\u1ea1m ph\\u00e1p lu\\u1eadt kh\\u00e1c","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":7,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":1,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:25:22.000000Z","updated_at":"2024-09-18T03:25:22.000000Z"}}', NULL, '2024-09-17 20:25:22', '2024-09-17 20:25:22'),
-	(178, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 78, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":78,"parentId":77,"maDanhMuc":2,"stt":null,"tenCauHoi":"X\\u00e3, ph\\u01b0\\u1eddng, th\\u1ecb tr\\u1ea5n \\u0111\\u1ea1t ti\\u00eau chu\\u1ea9n \\u201cAn to\\u00e0n v\\u1ec1 an ninh tr\\u1eadt t\\u1ef1\\u201d theo H\\u01b0\\u1edbng d\\u1eabn s\\u1ed1 03-HD\\/BCDD138 ng\\u00e0y 02\\/6\\/2022 c\\u1ee7a Ban Ch\\u1ec9 \\u0111\\u1ea1o 138\\/\\u0110P T\\u1ec9nh. (N\\u1ebfu kh\\u00f4ng \\u0111\\u1ea1t th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":7,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:25:40.000000Z","updated_at":"2024-09-18T03:25:40.000000Z"}}', NULL, '2024-09-17 20:25:40', '2024-09-17 20:25:40'),
-	(179, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 79, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":79,"parentId":76,"maDanhMuc":2,"stt":"1.2","tenCauHoi":"H\\u1ee3p t\\u00e1c v\\u00e0 li\\u00ean k\\u1ebft ph\\u00e1t tri\\u1ec3n kinh t\\u1ebf x\\u00e3 h\\u1ed9i","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":7,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":1,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:26:03.000000Z","updated_at":"2024-09-18T03:26:03.000000Z"}}', NULL, '2024-09-17 20:26:03', '2024-09-17 20:26:03'),
-	(180, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 80, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":80,"parentId":79,"maDanhMuc":2,"stt":null,"tenCauHoi":"C\\u00f3 m\\u1ed9t trong c\\u00e1c m\\u00f4 h\\u00ecnh: H\\u1ee3p t\\u00e1c x\\u00e3, T\\u1ed5 h\\u1ee3p t\\u00e1c, h\\u1ed9i qu\\u00e1n, li\\u00ean doanh, li\\u00ean k\\u1ebft trong s\\u1ea3n xu\\u1ea5t, kinh doanh\\u2026 ho\\u1eb7c h\\u00ecnh th\\u1ee9c kh\\u00e1c \\u0111\\u1ea1t hi\\u1ec7u qu\\u1ea3.  (N\\u1ebfu kh\\u00f4ng c\\u00f3 m\\u00f4 h\\u00ecnh n\\u00e0o ho\\u1eb7c m\\u00f4 h\\u00ecnh kh\\u00f4ng ho\\u1ea1t \\u0111\\u1ed9ng hi\\u1ec7u qu\\u1ea3 th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":7,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:26:19.000000Z","updated_at":"2024-09-18T03:26:19.000000Z"}}', NULL, '2024-09-17 20:26:19', '2024-09-17 20:26:19'),
-	(181, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 81, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":81,"parentId":76,"maDanhMuc":2,"stt":"1.3","tenCauHoi":"Th\\u1ef1c hi\\u1ec7n t\\u1ed1t c\\u00f4ng t\\u00e1c qu\\u00e2n s\\u1ef1, qu\\u1ed1c ph\\u00f2ng c\\u1ee7a \\u0111\\u1ecba ph\\u01b0\\u01a1ng","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":6,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":1,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:26:51.000000Z","updated_at":"2024-09-18T03:26:51.000000Z"}}', NULL, '2024-09-17 20:26:51', '2024-09-17 20:26:51'),
-	(182, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 82, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":82,"parentId":81,"maDanhMuc":2,"stt":null,"tenCauHoi":"T\\u1ed5 ch\\u1ee9c qu\\u00e1n tri\\u1ec7t, tri\\u1ec3n khai th\\u1ef1c hi\\u1ec7n nghi\\u00eam c\\u00e1c ngh\\u1ecb quy\\u1ebft c\\u1ee7a \\u0110\\u1ea3ng, Qu\\u00e2n \\u1ee7y Trung \\u01b0\\u01a1ng, ch\\u1ec9 th\\u1ecb, m\\u1ec7nh l\\u1ec7nh c\\u1ee7a B\\u1ed9 Qu\\u1ed1c ph\\u00f2ng, B\\u1ed9 T\\u01b0 l\\u1ec7nh Qu\\u00e2n khu v\\u1ec1 th\\u1ef1c hi\\u1ec7n nhi\\u1ec7m v\\u1ee5 qu\\u00e2n s\\u1ef1 qu\\u1ed1c ph\\u00f2ng, s\\u1eb5n s\\u00e0ng chi\\u1ebfn \\u0111\\u1ea5u, c\\u1ee9u h\\u1ed9, c\\u1ee9u n\\u1ea1n;      (N\\u1ebfu kh\\u00f4ng th\\u1ef1c hi\\u1ec7n t\\u1ed1t th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":3,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:27:19.000000Z","updated_at":"2024-09-18T03:27:19.000000Z"}}', NULL, '2024-09-17 20:27:19', '2024-09-17 20:27:19'),
-	(183, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 83, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":83,"parentId":81,"maDanhMuc":2,"stt":null,"tenCauHoi":"\\u0110\\u1ea9y m\\u1ea1nh n\\u00e2ng cao ch\\u1ea5t l\\u01b0\\u1ee3ng x\\u00e2y d\\u1ef1ng c\\u00e1c m\\u00f4 h\\u00ecnh v\\u1ec1 qu\\u1ed1c ph\\u00f2ng \\u0111\\u1ecba ph\\u01b0\\u01a1ng, d\\u00e2n qu\\u00e2n t\\u1ef1 v\\u1ec7; (N\\u1ebfu kh\\u00f4ng th\\u1ef1c hi\\u1ec7n t\\u1ed1t th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":3,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:27:41.000000Z","updated_at":"2024-09-18T03:27:41.000000Z"}}', NULL, '2024-09-17 20:27:41', '2024-09-17 20:27:41'),
-	(184, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 84, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":84,"parentId":null,"maDanhMuc":2,"stt":"2","tenCauHoi":"\\u0110\\u1eddi s\\u1ed1ng kinh t\\u1ebf \\u1ed5n \\u0111\\u1ecbnh v\\u00e0 t\\u1eebng b\\u01b0\\u1edbc ph\\u00e1t tri\\u1ec3n","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":20,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":0,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:28:16.000000Z","updated_at":"2024-09-18T03:28:16.000000Z"}}', NULL, '2024-09-17 20:28:16', '2024-09-17 20:28:16'),
-	(185, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 85, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":85,"parentId":84,"maDanhMuc":2,"stt":"2.1","tenCauHoi":"Thu nh\\u1eadp b\\u00ecnh qu\\u00e2n \\u0111\\u1ea7u ng\\u01b0\\u1eddi b\\u1eb1ng ho\\u1eb7c cao h\\u01a1n n\\u0103m tr\\u01b0\\u1edbc","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":1,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:28:35.000000Z","updated_at":"2024-09-18T03:28:35.000000Z"}}', NULL, '2024-09-17 20:28:35', '2024-09-17 20:28:35'),
-	(186, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 86, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":86,"parentId":85,"maDanhMuc":2,"stt":null,"tenCauHoi":"T\\u1ef7 l\\u1ec7 ng\\u01b0\\u1eddi c\\u00f3 vi\\u1ec7c l\\u00e0m tr\\u00ean d\\u00e2n s\\u1ed1 trong \\u0111\\u1ed9 tu\\u1ed5i lao \\u0111\\u1ed9ng c\\u00f3 kh\\u1ea3 n\\u0103ng tham gia lao \\u0111\\u1ed9ng t\\u1eeb 90% tr\\u1edf l\\u00ean (\\u0111\\u1ed1i v\\u1edbi ph\\u01b0\\u1eddng), 80% tr\\u1edf l\\u00ean (\\u0111\\u1ed1i v\\u1edbi th\\u1ecb tr\\u1ea5n), 70% tr\\u1edf l\\u00ean (\\u0111\\u1ed1i v\\u1edbi x\\u00e3).   (N\\u1ebfu kh\\u00f4ng \\u0111\\u1ea1t th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":2,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:28:53.000000Z","updated_at":"2024-09-18T03:28:53.000000Z"}}', NULL, '2024-09-17 20:28:53', '2024-09-17 20:28:53'),
-	(187, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 87, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":87,"parentId":85,"maDanhMuc":2,"stt":null,"tenCauHoi":"Thu nh\\u1eadp b\\u00ecnh qu\\u00e2n \\u0111\\u1ea7u ng\\u01b0\\u1eddi b\\u1eb1ng ho\\u1eb7c cao h\\u01a1n thu nh\\u1eadp b\\u00ecnh qu\\u00e2n \\u0111\\u1ea7u ng\\u01b0\\u1eddi c\\u1ee7a to\\u00e0n huy\\u1ec7n, th\\u00e0nh ph\\u1ed1  (N\\u1ebfu kh\\u00f4ng \\u0111\\u1ea1t th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":3,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:29:17.000000Z","updated_at":"2024-09-18T03:29:17.000000Z"}}', NULL, '2024-09-17 20:29:17', '2024-09-17 20:29:17'),
-	(188, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 88, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":88,"parentId":84,"maDanhMuc":2,"stt":"2.2","tenCauHoi":"T\\u1ef7 l\\u1ec7 h\\u1ed9 ngh\\u00e8o \\u0111a chi\\u1ec1u th\\u1ea5p h\\u01a1n so v\\u1edbi m\\u1ee9c trung b\\u00ecnh c\\u1ee7a c\\u00e1c x\\u00e3, ph\\u01b0\\u1eddng, th\\u1ecb tr\\u1ea5n tr\\u00ean \\u0111\\u1ecba b\\u00e0n huy\\u1ec7n, th\\u00e0nh ph\\u1ed1","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":1,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:29:39.000000Z","updated_at":"2024-09-18T03:29:39.000000Z"}}', NULL, '2024-09-17 20:29:39', '2024-09-17 20:29:39'),
-	(189, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 89, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":89,"parentId":88,"maDanhMuc":2,"stt":null,"tenCauHoi":"T\\u1ef7 l\\u1ec7 h\\u1ed9 ngh\\u00e8o \\u0111a chi\\u1ec1u th\\u1ea5p h\\u01a1n so v\\u1edbi m\\u1ee9c trung b\\u00ecnh c\\u1ee7a c\\u00e1c x\\u00e3, ph\\u01b0\\u1eddng, th\\u1ecb tr\\u1ea5n tr\\u00ean \\u0111\\u1ecba b\\u00e0n huy\\u1ec7n, th\\u00e0nh ph\\u1ed1 (N\\u1ebfu kh\\u00f4ng \\u0111\\u1ea1t th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:29:57.000000Z","updated_at":"2024-09-18T03:29:57.000000Z"}}', NULL, '2024-09-17 20:29:57', '2024-09-17 20:29:57'),
-	(190, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 90, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":90,"parentId":null,"maDanhMuc":2,"stt":"3","tenCauHoi":"H\\u1ec7 th\\u1ed1ng \\u0111\\u01b0\\u1eddng \\u0111i\\u1ec7n \\u0111\\u1ea3m b\\u1ea3o an to\\u00e0n tr\\u00ean \\u0111\\u1ecba b\\u00e0n","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":0,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:30:15.000000Z","updated_at":"2024-09-18T03:30:15.000000Z"}}', NULL, '2024-09-17 20:30:15', '2024-09-17 20:30:15'),
-	(191, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 91, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":91,"parentId":90,"maDanhMuc":2,"stt":null,"tenCauHoi":"Tri\\u1ec3n khai th\\u1ef1c hi\\u1ec7n t\\u1ed1t c\\u00e1c quy \\u0111\\u1ecbnh v\\u1ec1 an to\\u00e0n \\u0111i\\u1ec7n. (N\\u1ebfu kh\\u00f4ng \\u0111\\u1ea1t th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":1,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:30:53.000000Z","updated_at":"2024-09-18T03:30:53.000000Z"}}', NULL, '2024-09-17 20:30:53', '2024-09-17 20:30:53'),
-	(192, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 92, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":92,"parentId":90,"maDanhMuc":2,"stt":null,"tenCauHoi":"100% h\\u1ed9 gia \\u0111\\u00ecnh, c\\u01a1 s\\u1edf s\\u1ea3n xu\\u1ea5t, kinh doanh tr\\u00ean \\u0111\\u1ecba b\\u00e0n \\u0111\\u01b0\\u1ee3c cung c\\u1ea5p \\u0111\\u1ea3m b\\u1ea3o ngu\\u1ed3n \\u0111i\\u1ec7n cho sinh ho\\u1ea1t v\\u00e0 s\\u1ea3n xu\\u1ea5t. (N\\u1ebfu kh\\u00f4ng \\u0111\\u1ea1t th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":2,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:31:20.000000Z","updated_at":"2024-09-18T03:31:20.000000Z"}}', NULL, '2024-09-17 20:31:20', '2024-09-17 20:31:20'),
-	(193, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 93, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":93,"parentId":90,"maDanhMuc":2,"stt":null,"tenCauHoi":"\\u0110\\u1ecbnh k\\u1ef3 ki\\u1ec3m \\u0111\\u1ecbnh, ki\\u1ec3m tra an to\\u00e0n k\\u1ef9 thu\\u1eadt c\\u00e1c thi\\u1ebft b\\u1ecb; th\\u01b0\\u1eddng xuy\\u00ean b\\u1ea3o d\\u01b0\\u1ee1ng, thay th\\u1ebf d\\u1ee5ng c\\u1ee5 \\u0111i\\u1ec7n tr\\u00ean \\u0111\\u1ecba b\\u00e0n. (N\\u1ebfu kh\\u00f4ng \\u0111\\u1ea1t th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":2,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:31:44.000000Z","updated_at":"2024-09-18T03:31:44.000000Z"}}', NULL, '2024-09-17 20:31:44', '2024-09-17 20:31:44'),
-	(194, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 94, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":94,"parentId":84,"maDanhMuc":2,"stt":"2.4","tenCauHoi":"T\\u1ed5 ch\\u1ee9c, qu\\u1ea3n l\\u00fd, s\\u1eed d\\u1ee5ng \\u0111\\u00fang m\\u1ee5c \\u0111\\u00edch v\\u00e0 ho\\u1ea1t \\u0111\\u1ed9ng c\\u00f3 hi\\u1ec7u qu\\u1ea3 c\\u00e1c c\\u00f4ng tr\\u00ecnh c\\u00f4ng c\\u1ed9ng, tr\\u01b0\\u1eddng h\\u1ecdc, tr\\u1ea1m y t\\u1ebf","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":1,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:32:07.000000Z","updated_at":"2024-09-18T03:32:07.000000Z"}}', NULL, '2024-09-17 20:32:07', '2024-09-17 20:32:07'),
-	(195, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 95, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":95,"parentId":94,"maDanhMuc":2,"stt":null,"tenCauHoi":"100% c\\u00e1c c\\u00f4ng tr\\u00ecnh c\\u00f4ng c\\u1ed9ng, tr\\u01b0\\u1eddng h\\u1ecdc, tr\\u1ea1m y t\\u1ebf tr\\u00ean \\u0111\\u1ecba b\\u00e0n \\u0111\\u01b0\\u1ee3c \\u0111\\u01b0a v\\u00e0o s\\u1eed d\\u1ee5ng \\u0111\\u00fang m\\u1ee5c \\u0111\\u00edch, c\\u00f4ng n\\u0103ng, ho\\u1ea1t \\u0111\\u1ed9ng \\u0111\\u1ea1t hi\\u1ec7u qu\\u1ea3 t\\u1ed1t. (N\\u1ebfu kh\\u00f4ng \\u0111\\u1ea1t th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":1,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:32:29.000000Z","updated_at":"2024-09-18T03:32:29.000000Z"}}', NULL, '2024-09-17 20:32:29', '2024-09-17 20:32:29'),
-	(196, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 96, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":96,"parentId":94,"maDanhMuc":2,"stt":null,"tenCauHoi":"X\\u00e3, ph\\u01b0\\u1eddng, th\\u1ecb tr\\u1ea5n \\u0111\\u1ea1t ti\\u00eau ch\\u00ed qu\\u1ed1c gia v\\u1ec1 y t\\u1ebf; \\u0111\\u1ea1t 90% ng\\u01b0\\u1eddi d\\u00e2n tham gia b\\u1ea3o hi\\u1ec3m y t\\u1ebf. (N\\u1ebfu kh\\u00f4ng \\u0111\\u1ea1t th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":2,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:33:09.000000Z","updated_at":"2024-09-18T03:33:09.000000Z"}}', NULL, '2024-09-17 20:33:09', '2024-09-17 20:33:09'),
-	(197, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 97, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":97,"parentId":94,"maDanhMuc":2,"stt":null,"tenCauHoi":"C\\u00f3 t\\u1eeb 90% tr\\u1edf l\\u00ean tr\\u01b0\\u1eddng h\\u1ecdc c\\u00e1c c\\u1ea5p (m\\u1ea7m non, ti\\u1ec3u h\\u1ecdc, THCS ho\\u1eb7c tr\\u01b0\\u1eddng ph\\u1ed5 th\\u00f4ng c\\u00f3 nhi\\u1ec1u c\\u1ea5p h\\u1ecdc c\\u00f3 c\\u1ea5p h\\u1ecdc cao nh\\u1ea5t l\\u00e0 trung h\\u1ecdc c\\u01a1 s\\u1edf) \\u0111\\u1ea1t ti\\u00eau chu\\u1ea9n c\\u01a1 s\\u1edf v\\u1eadt ch\\u1ea5t theo quy \\u0111\\u1ecbnh c\\u1ee7a B\\u1ed9 Gi\\u00e1o d\\u1ee5c v\\u00e0 \\u0110\\u00e0o t\\u1ea1o v\\u00e0 c\\u00f3 \\u00edt nh\\u1ea5t 60% tr\\u1edf l\\u00ean s\\u1ed1 tr\\u01b0\\u1eddng h\\u1ecdc tr\\u00ean \\u0111\\u1ecba b\\u00e0n \\u0111\\u01b0\\u1ee3c c\\u00f4ng nh\\u1eadn \\u0111\\u1ea1t chu\\u1ea9n qu\\u1ed1c gia.","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":2,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:33:33.000000Z","updated_at":"2024-09-18T03:33:33.000000Z"}}', NULL, '2024-09-17 20:33:33', '2024-09-17 20:33:33'),
-	(198, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 98, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":98,"parentId":null,"maDanhMuc":2,"stt":"3","tenCauHoi":"\\u0110\\u1eddi s\\u1ed1ng v\\u0103n h\\u00f3a, tinh th\\u1ea7n l\\u00e0nh m\\u1ea1nh, phong ph\\u00fa","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":20,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":0,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:33:54.000000Z","updated_at":"2024-09-18T03:33:54.000000Z"}}', NULL, '2024-09-17 20:33:54', '2024-09-17 20:33:54'),
-	(199, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 99, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":99,"parentId":98,"maDanhMuc":2,"stt":"3.1","tenCauHoi":"T\\u1ef7 l\\u1ec7 kh\\u00f3m, \\u1ea5p \\u0111\\u1ea1t danh hi\\u1ec7u kh\\u00f3m, \\u1ea5p v\\u0103n h\\u00f3a trong n\\u0103m","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":1,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:34:14.000000Z","updated_at":"2024-09-18T03:34:14.000000Z"}}', NULL, '2024-09-17 20:34:14', '2024-09-17 20:34:14'),
-	(200, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 100, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":100,"parentId":99,"maDanhMuc":2,"stt":null,"tenCauHoi":"\\u0110\\u1ea1t t\\u1eeb 80% tr\\u1edf l\\u00ean","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Radio","sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:46:53.000000Z","updated_at":"2024-09-18T03:46:53.000000Z"}}', NULL, '2024-09-17 20:46:53', '2024-09-17 20:46:53'),
-	(201, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 101, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":101,"parentId":99,"maDanhMuc":2,"stt":null,"tenCauHoi":"\\u0110\\u1ea1t t\\u1eeb 65% \\u0111\\u1ebfn d\\u01b0\\u1edbi 80%","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":3,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Radio","sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:47:21.000000Z","updated_at":"2024-09-18T03:47:21.000000Z"}}', NULL, '2024-09-17 20:47:21', '2024-09-17 20:47:21'),
-	(202, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 102, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":102,"parentId":99,"maDanhMuc":2,"stt":null,"tenCauHoi":"\\u0110\\u1ea1t d\\u01b0\\u1edbi 65%","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":0,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Radio","sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:47:56.000000Z","updated_at":"2024-09-18T03:47:56.000000Z"}}', NULL, '2024-09-17 20:47:56', '2024-09-17 20:47:56'),
-	(203, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\CauHoi', 'updated', 90, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":90,"parentId":84,"maDanhMuc":2,"stt":"3","tenCauHoi":"H\\u1ec7 th\\u1ed1ng \\u0111\\u01b0\\u1eddng \\u0111i\\u1ec7n \\u0111\\u1ea3m b\\u1ea3o an to\\u00e0n tr\\u00ean \\u0111\\u1ecba b\\u00e0n","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":0,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:30:15.000000Z","updated_at":"2024-09-18T03:51:06.000000Z"},"old":{"id":90,"parentId":null,"maDanhMuc":2,"stt":"3","tenCauHoi":"H\\u1ec7 th\\u1ed1ng \\u0111\\u01b0\\u1eddng \\u0111i\\u1ec7n \\u0111\\u1ea3m b\\u1ea3o an to\\u00e0n tr\\u00ean \\u0111\\u1ecba b\\u00e0n","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":0,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:30:15.000000Z","updated_at":"2024-09-18T03:30:15.000000Z"}}', NULL, '2024-09-17 20:51:06', '2024-09-17 20:51:06'),
-	(204, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\CauHoi', 'updated', 99, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":99,"parentId":98,"maDanhMuc":2,"stt":"3.1","tenCauHoi":"T\\u1ef7 l\\u1ec7 kh\\u00f3m, \\u1ea5p \\u0111\\u1ea1t danh hi\\u1ec7u kh\\u00f3m, \\u1ea5p v\\u0103n h\\u00f3a trong n\\u0103m","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"OR","danhDauCau":1,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:34:14.000000Z","updated_at":"2024-09-18T03:51:32.000000Z"},"old":{"id":99,"parentId":98,"maDanhMuc":2,"stt":"3.1","tenCauHoi":"T\\u1ef7 l\\u1ec7 kh\\u00f3m, \\u1ea5p \\u0111\\u1ea1t danh hi\\u1ec7u kh\\u00f3m, \\u1ea5p v\\u0103n h\\u00f3a trong n\\u0103m","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":1,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:34:14.000000Z","updated_at":"2024-09-18T03:34:14.000000Z"}}', NULL, '2024-09-17 20:51:32', '2024-09-17 20:51:32'),
-	(205, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\CauHoi', 'updated', 90, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":90,"parentId":84,"maDanhMuc":2,"stt":"2.3","tenCauHoi":"H\\u1ec7 th\\u1ed1ng \\u0111\\u01b0\\u1eddng \\u0111i\\u1ec7n \\u0111\\u1ea3m b\\u1ea3o an to\\u00e0n tr\\u00ean \\u0111\\u1ecba b\\u00e0n","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":1,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:30:15.000000Z","updated_at":"2024-09-18T03:53:08.000000Z"},"old":{"id":90,"parentId":84,"maDanhMuc":2,"stt":"3","tenCauHoi":"H\\u1ec7 th\\u1ed1ng \\u0111\\u01b0\\u1eddng \\u0111i\\u1ec7n \\u0111\\u1ea3m b\\u1ea3o an to\\u00e0n tr\\u00ean \\u0111\\u1ecba b\\u00e0n","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":0,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:30:15.000000Z","updated_at":"2024-09-18T03:51:06.000000Z"}}', NULL, '2024-09-17 20:53:08', '2024-09-17 20:53:08'),
-	(206, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 103, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":103,"parentId":98,"maDanhMuc":2,"stt":"3.2","tenCauHoi":"Thi\\u1ebft ch\\u1ebf v\\u0103n h\\u00f3a, th\\u1ec3 thao c\\u00f3 c\\u01a1 s\\u1edf v\\u1eadt ch\\u1ea5t, trang thi\\u1ebft b\\u1ecb b\\u1ea3o \\u0111\\u1ea3m; \\u0111\\u01b0\\u1ee3c qu\\u1ea3n l\\u00fd, s\\u1eed d\\u1ee5ng \\u0111\\u00fang m\\u1ee5c \\u0111\\u00edch, ho\\u1ea1t \\u0111\\u1ed9ng th\\u01b0\\u1eddng xuy\\u00ean, hi\\u1ec7u qu\\u1ea3","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":6,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":1,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:55:38.000000Z","updated_at":"2024-09-18T03:55:38.000000Z"}}', NULL, '2024-09-17 20:55:38', '2024-09-17 20:55:38'),
-	(207, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 104, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":104,"parentId":103,"maDanhMuc":2,"stt":null,"tenCauHoi":"100% Trung t\\u00e2m V\\u0103n h\\u00f3a-H\\u1ecdc t\\u1eadp c\\u1ed9ng \\u0111\\u1ed3ng x\\u00e3, ph\\u01b0\\u1eddng, th\\u1ecb tr\\u1ea5n, Nh\\u00e0 V\\u0103n h\\u00f3a  c\\u00f3 c\\u01a1 s\\u1edf v\\u1eadt ch\\u1ea5t, trang thi\\u1ebft b\\u1ecb b\\u1ea3o \\u0111\\u1ea3m; \\u0111\\u01b0\\u1ee3c qu\\u1ea3n l\\u00fd, s\\u1eed d\\u1ee5ng \\u0111\\u00fang m\\u1ee5c \\u0111\\u00edch, ho\\u1ea1t \\u0111\\u1ed9ng th\\u01b0\\u1eddng xuy\\u00ean, hi\\u1ec7u qu\\u1ea3. (N\\u1ebfu th\\u1ef1c hi\\u1ec7n kh\\u00f4ng t\\u1ed1t th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":2,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:56:00.000000Z","updated_at":"2024-09-18T03:56:00.000000Z"}}', NULL, '2024-09-17 20:56:00', '2024-09-17 20:56:00'),
-	(208, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 105, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":105,"parentId":103,"maDanhMuc":2,"stt":null,"tenCauHoi":"100% kh\\u00f3m, \\u1ea5p tr\\u00ean \\u0111\\u1ecba b\\u00e0n x\\u00e3, ph\\u01b0\\u1eddng, th\\u1ecb tr\\u1ea5n c\\u00f3 th\\u00e0nh l\\u1eadp c\\u00e1c C\\u00e2u l\\u1ea1c b\\u1ed9 v\\u0103n h\\u00f3a v\\u0103n ngh\\u1ec7, th\\u1ec3 thao th\\u1ec3 thao v\\u00e0 th\\u01b0\\u1eddng xuy\\u00ean ho\\u1ea1t \\u0111\\u1ed9ng hi\\u1ec7u qu\\u1ea3. (N\\u1ebfu th\\u1ef1c hi\\u1ec7n kh\\u00f4ng t\\u1ed1t th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":2,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:56:16.000000Z","updated_at":"2024-09-18T03:56:16.000000Z"}}', NULL, '2024-09-17 20:56:16', '2024-09-17 20:56:16'),
-	(209, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 106, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":106,"parentId":103,"maDanhMuc":2,"stt":null,"tenCauHoi":"Trung t\\u00e2m V\\u0103n h\\u00f3a-H\\u1ecdc t\\u1eadp c\\u1ed9ng \\u0111\\u1ed3ng x\\u00e3, ph\\u01b0\\u1eddng, th\\u1ecb tr\\u1ea5n ph\\u1ea3i \\u0111\\u1ea3m b\\u1ea3o \\u0111\\u1ee7 c\\u00e1c ph\\u00f2ng ch\\u1ee9c n\\u0103ng theo quy \\u0111\\u1ecbnh; th\\u01b0\\u1eddng xuy\\u00ean b\\u1ed5 sung trang thi\\u1ebft b\\u1ecb, c\\u1eadp nh\\u1eadt c\\u00e1c \\u0111\\u1ea7u s\\u00e1ch, b\\u00e1o, t\\u00e0i li\\u1ec7u tuy\\u00ean truy\\u1ec1n c\\u00e1c quy \\u0111\\u1ecbnh c\\u1ee7a ph\\u00e1p lu\\u1eadt\\u2026 (N\\u1ebfu th\\u1ef1c hi\\u1ec7n kh\\u00f4ng t\\u1ed1t th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":2,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:56:55.000000Z","updated_at":"2024-09-18T03:56:55.000000Z"}}', NULL, '2024-09-17 20:56:55', '2024-09-17 20:56:55'),
-	(210, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 107, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":107,"parentId":98,"maDanhMuc":2,"stt":"3.3","tenCauHoi":"T\\u1ef7 l\\u1ec7 h\\u1ed9 gia \\u0111\\u00ecnh th\\u1ef1c hi\\u1ec7n n\\u1ebfp s\\u1ed1ng v\\u0103n minh trong vi\\u1ec7c c\\u01b0\\u1edbi, vi\\u1ec7c tang, l\\u1ec5 h\\u1ed9i","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":3,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":1,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:57:13.000000Z","updated_at":"2024-09-18T03:57:13.000000Z"}}', NULL, '2024-09-17 20:57:13', '2024-09-17 20:57:13'),
-	(211, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 108, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":108,"parentId":107,"maDanhMuc":2,"stt":null,"tenCauHoi":"C\\u00f3 t\\u1eeb 90% tr\\u1edf l\\u00ean h\\u1ed9 gia \\u0111\\u00ecnh th\\u1ef1c hi\\u1ec7n t\\u1ed1t n\\u1ebfp s\\u1ed1ng v\\u0103n minh trong vi\\u1ec7c c\\u01b0\\u1edbi, vi\\u1ec7c tang, l\\u1ec5 h\\u1ed9i theo quy \\u0111\\u1ecbnh hi\\u1ec7n h\\u00e0nh.  (N\\u1ebfu kh\\u00f4ng \\u0111\\u1ea1t th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m).","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":3,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:57:29.000000Z","updated_at":"2024-09-18T03:57:29.000000Z"}}', NULL, '2024-09-17 20:57:29', '2024-09-17 20:57:29'),
-	(212, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 109, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":109,"parentId":98,"maDanhMuc":2,"stt":"3.4","tenCauHoi":"B\\u1ea3o t\\u1ed3n, ph\\u00e1t huy c\\u00e1c gi\\u00e1 tr\\u1ecb l\\u1ecbch s\\u1eed - v\\u0103n h\\u00f3a, danh lam th\\u1eafng c\\u1ea3nh v\\u00e0 c\\u00e1c h\\u00ecnh th\\u1ee9c sinh ho\\u1ea1t v\\u0103n h\\u00f3a, th\\u1ec3 thao d\\u00e2n gian truy\\u1ec1n th\\u1ed1ng c\\u1ee7a \\u0111\\u1ecba ph\\u01b0\\u01a1ng","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":1,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:58:05.000000Z","updated_at":"2024-09-18T03:58:05.000000Z"}}', NULL, '2024-09-17 20:58:05', '2024-09-17 20:58:05'),
-	(213, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 110, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":110,"parentId":109,"maDanhMuc":2,"stt":null,"tenCauHoi":"C\\u00e1c di t\\u00edch l\\u1ecbch s\\u1eed - v\\u0103n h\\u00f3a, danh lam th\\u1eafng c\\u1ea3nh tr\\u00ean \\u0111\\u1ecba b\\u00e0n x\\u00e3, ph\\u01b0\\u1eddng, th\\u1ecb tr\\u1ea5n th\\u01b0\\u1eddng xuy\\u00ean \\u0111\\u01b0\\u1ee3c ki\\u1ec3m k\\u00ea, ghi danh, b\\u1ea3o v\\u1ec7, tu b\\u1ed5, t\\u00f4n t\\u1ea1o v\\u00e0 ph\\u00e1t huy gi\\u00e1 tr\\u1ecb theo quy \\u0111\\u1ecbnh ph\\u00e1p lu\\u1eadt v\\u1ec1 di s\\u1ea3n v\\u0103n h\\u00f3a; (N\\u1ebfu th\\u1ef1c hi\\u1ec7n kh\\u00f4ng t\\u1ed1t th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":3,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:58:23.000000Z","updated_at":"2024-09-18T03:58:23.000000Z"}}', NULL, '2024-09-17 20:58:23', '2024-09-17 20:58:23'),
-	(214, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 111, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":111,"parentId":109,"maDanhMuc":2,"stt":null,"tenCauHoi":"Co\\u0301 th\\u00e0nh l\\u1eadp c\\u00e1c C\\u00e2u l\\u1ea1c b\\u1ed9 sinh hoa\\u0323t v\\u0103n ho\\u0301a, th\\u00ea\\u0309 thao d\\u00e2n gian truy\\u00ea\\u0300n th\\u00f4\\u0301ng \\u01a1\\u0309 \\u0111i\\u0323a ph\\u01b0\\u01a1ng v\\u00e0 ho\\u1ea1t \\u0111\\u1ed9ng hi\\u1ec7u qu\\u1ea3.   (N\\u1ebfu th\\u1ef1c hi\\u1ec7n kh\\u00f4ng t\\u1ed1t th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":2,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:58:41.000000Z","updated_at":"2024-09-18T03:58:41.000000Z"}}', NULL, '2024-09-17 20:58:41', '2024-09-17 20:58:41'),
-	(215, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 112, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":112,"parentId":null,"maDanhMuc":2,"stt":"4","tenCauHoi":"M\\u00f4i tr\\u01b0\\u1eddng an to\\u00e0n, th\\u00e2n thi\\u1ec7n, c\\u1ea3nh quan s\\u1ea1ch \\u0111\\u1eb9p","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":20,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":0,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:59:07.000000Z","updated_at":"2024-09-18T03:59:07.000000Z"}}', NULL, '2024-09-17 20:59:07', '2024-09-17 20:59:07'),
-	(216, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 113, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":113,"parentId":112,"maDanhMuc":2,"stt":"4.1","tenCauHoi":"Th\\u1ef1c hi\\u1ec7n c\\u00e1c bi\\u1ec7n ph\\u00e1p b\\u1ea3o v\\u1ec7 m\\u00f4i tr\\u01b0\\u1eddng, ph\\u00f2ng, ch\\u1ed1ng ch\\u00e1y, n\\u1ed5","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":1,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:59:33.000000Z","updated_at":"2024-09-18T03:59:33.000000Z"}}', NULL, '2024-09-17 20:59:33', '2024-09-17 20:59:33'),
-	(217, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 114, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":114,"parentId":113,"maDanhMuc":2,"stt":null,"tenCauHoi":"100% Doanh nghi\\u1ec7p, c\\u01a1 s\\u1edf s\\u1ea3n xu\\u1ea5t kinh doanh, h\\u1ed9 s\\u1ea3n xu\\u1ea5t kinh doanh c\\u00e1 th\\u1ec3, h\\u1ed9 d\\u00e2n tr\\u00ean \\u0111\\u1ecba b\\u00e0n ph\\u1ea3i \\u0111\\u1ea1t c\\u00e1c ti\\u00eau chu\\u1ea9n v\\u1ec7 sinh m\\u00f4i tr\\u01b0\\u1eddng theo quy \\u0111\\u1ecbnh; ch\\u1ea5t th\\u1ea3i, n\\u01b0\\u1edbc th\\u1ea3i, r\\u00e1c th\\u1ea3i \\u0111\\u01b0\\u1ee3c thu gom, x\\u1eed l\\u00fd \\u0111\\u00fang quy \\u0111\\u1ecbnh. (C\\u00f3 tr\\u01b0\\u1eddng h\\u1ee3p vi ph\\u1ea1m th\\u00ec tr\\u1eeb 01 \\u0111i\\u1ec3m, t\\u1ed5ng \\u0111i\\u1ec3m tr\\u1eeb kh\\u00f4ng qu\\u00e1 03 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":1,"diemLonNhat":3,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T03:59:50.000000Z","updated_at":"2024-09-18T03:59:50.000000Z"}}', NULL, '2024-09-17 20:59:50', '2024-09-17 20:59:50'),
-	(218, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 115, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":115,"parentId":113,"maDanhMuc":2,"stt":null,"tenCauHoi":"Tri\\u1ec3n khai c\\u00f3 hi\\u1ec7u qu\\u1ea3 c\\u00e1c m\\u00f4 h\\u00ecnh v\\u1ec1 an ninh tr\\u1eadt t\\u1ef1 v\\u00e0 ph\\u00f2ng ch\\u00e1y ch\\u1eefa ch\\u00e1y do \\u0111\\u1ecba ph\\u01b0\\u01a1ng ph\\u00e1t \\u0111\\u1ed9ng nh\\u01b0: m\\u00f4 h\\u00ecnh Camera an ninh, \\u201cT\\u1ed5 li\\u00ean gia an to\\u00e0n v\\u1ec1 ph\\u00f2ng ch\\u00e1y, ch\\u1eefa ch\\u00e1y\\u201d. (N\\u1ebfu th\\u1ef1c hi\\u1ec7n kh\\u00f4ng t\\u1ed1t th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":2,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:00:11.000000Z","updated_at":"2024-09-18T04:00:11.000000Z"}}', NULL, '2024-09-17 21:00:11', '2024-09-17 21:00:11'),
-	(219, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 116, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":116,"parentId":112,"maDanhMuc":2,"stt":"4.2","tenCauHoi":"Ngh\\u0129a trang, c\\u01a1 s\\u1edf h\\u1ecfa t\\u00e1ng (n\\u1ebfu c\\u00f3) \\u0111\\u00e1p \\u1ee9ng c\\u00e1c quy \\u0111\\u1ecbnh c\\u1ee7a ph\\u00e1p lu\\u1eadt v\\u00e0 theo quy ho\\u1ea1ch t\\u1ea1i \\u0111\\u1ecba ph\\u01b0\\u01a1ng","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"OR","danhDauCau":1,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:00:57.000000Z","updated_at":"2024-09-18T04:00:57.000000Z"}}', NULL, '2024-09-17 21:00:57', '2024-09-17 21:00:57'),
-	(220, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 117, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":117,"parentId":116,"maDanhMuc":2,"stt":null,"tenCauHoi":"Th\\u1ef1c hi\\u1ec7n t\\u1ed1t","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Radio","sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:01:40.000000Z","updated_at":"2024-09-18T04:01:40.000000Z"}}', NULL, '2024-09-17 21:01:40', '2024-09-17 21:01:40'),
-	(221, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 118, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":118,"parentId":116,"maDanhMuc":2,"stt":null,"tenCauHoi":"Th\\u1ef1c hi\\u1ec7n kh\\u00f4ng t\\u1ed1t","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":0,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Radio","sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:01:55.000000Z","updated_at":"2024-09-18T04:01:55.000000Z"}}', NULL, '2024-09-17 21:01:55', '2024-09-17 21:01:55'),
-	(222, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\CauHoi', 'updated', 116, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":116,"parentId":112,"maDanhMuc":2,"stt":"4.2","tenCauHoi":"Ngh\\u0129a trang, c\\u01a1 s\\u1edf h\\u1ecfa t\\u00e1ng (n\\u1ebfu c\\u00f3) \\u0111\\u00e1p \\u1ee9ng c\\u00e1c quy \\u0111\\u1ecbnh c\\u1ee7a ph\\u00e1p lu\\u1eadt v\\u00e0 theo quy ho\\u1ea1ch t\\u1ea1i \\u0111\\u1ecba ph\\u01b0\\u01a1ng","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":1,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:00:57.000000Z","updated_at":"2024-09-18T04:03:29.000000Z"},"old":{"id":116,"parentId":112,"maDanhMuc":2,"stt":"4.2","tenCauHoi":"Ngh\\u0129a trang, c\\u01a1 s\\u1edf h\\u1ecfa t\\u00e1ng (n\\u1ebfu c\\u00f3) \\u0111\\u00e1p \\u1ee9ng c\\u00e1c quy \\u0111\\u1ecbnh c\\u1ee7a ph\\u00e1p lu\\u1eadt v\\u00e0 theo quy ho\\u1ea1ch t\\u1ea1i \\u0111\\u1ecba ph\\u01b0\\u01a1ng","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"OR","danhDauCau":1,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:00:57.000000Z","updated_at":"2024-09-18T04:00:57.000000Z"}}', NULL, '2024-09-17 21:03:29', '2024-09-17 21:03:29'),
-	(223, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\CauHoi', 'updated', 117, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":117,"parentId":116,"maDanhMuc":2,"stt":null,"tenCauHoi":"100% c\\u01a1 s\\u1edf d\\u1ecbch v\\u1ee5 mai t\\u00e1ng v\\u00e0 90% tr\\u1edf l\\u00ean h\\u1ed9 gia \\u0111\\u00ecnh t\\u1ed5 ch\\u1ee9c mai t\\u00e1ng, h\\u1ecfa t\\u00e1ng (n\\u1ebfu c\\u00f3) \\u0111\\u1ea3m b\\u1ea3o n\\u1ebfp s\\u1ed1ng v\\u0103n minh theo quy \\u0111\\u1ecbnh c\\u1ee7a ph\\u00e1p lu\\u1eadt.","diemNhoNhat":0,"buocNhay":1,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Radio","sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:01:40.000000Z","updated_at":"2024-09-18T04:03:58.000000Z"},"old":{"id":117,"parentId":116,"maDanhMuc":2,"stt":null,"tenCauHoi":"Th\\u1ef1c hi\\u1ec7n t\\u1ed1t","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Radio","sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:01:40.000000Z","updated_at":"2024-09-18T04:01:40.000000Z"}}', NULL, '2024-09-17 21:03:58', '2024-09-17 21:03:58'),
-	(224, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\CauHoi', 'updated', 117, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":117,"parentId":116,"maDanhMuc":2,"stt":null,"tenCauHoi":"100% c\\u01a1 s\\u1edf d\\u1ecbch v\\u1ee5 mai t\\u00e1ng v\\u00e0 90% tr\\u1edf l\\u00ean h\\u1ed9 gia \\u0111\\u00ecnh t\\u1ed5 ch\\u1ee9c mai t\\u00e1ng, h\\u1ecfa t\\u00e1ng (n\\u1ebfu c\\u00f3) \\u0111\\u1ea3m b\\u1ea3o n\\u1ebfp s\\u1ed1ng v\\u0103n minh theo quy \\u0111\\u1ecbnh c\\u1ee7a ph\\u00e1p lu\\u1eadt.","diemNhoNhat":0,"buocNhay":1,"diemLonNhat":3,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:01:40.000000Z","updated_at":"2024-09-18T04:04:13.000000Z"},"old":{"id":117,"parentId":116,"maDanhMuc":2,"stt":null,"tenCauHoi":"100% c\\u01a1 s\\u1edf d\\u1ecbch v\\u1ee5 mai t\\u00e1ng v\\u00e0 90% tr\\u1edf l\\u00ean h\\u1ed9 gia \\u0111\\u00ecnh t\\u1ed5 ch\\u1ee9c mai t\\u00e1ng, h\\u1ecfa t\\u00e1ng (n\\u1ebfu c\\u00f3) \\u0111\\u1ea3m b\\u1ea3o n\\u1ebfp s\\u1ed1ng v\\u0103n minh theo quy \\u0111\\u1ecbnh c\\u1ee7a ph\\u00e1p lu\\u1eadt.","diemNhoNhat":0,"buocNhay":1,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Radio","sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:01:40.000000Z","updated_at":"2024-09-18T04:03:58.000000Z"}}', NULL, '2024-09-17 21:04:13', '2024-09-17 21:04:13'),
-	(225, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\CauHoi', 'updated', 118, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":118,"parentId":116,"maDanhMuc":2,"stt":null,"tenCauHoi":"Vi\\u1ec7c quy ho\\u1ea1ch v\\u00e0 ho\\u1ea1t \\u0111\\u1ed9ng c\\u1ee7a ngh\\u0129a trang ph\\u1ea3i th\\u1ef1c hi\\u1ec7n theo \\u0111\\u00fang quy \\u0111\\u1ecbnh hi\\u1ec7n h\\u00e0nh v\\u00e0 ph\\u00f9 h\\u1ee3p v\\u1edbi \\u0111i\\u1ec1u ki\\u1ec7n th\\u1ef1c t\\u1ebf, t\\u00edn ng\\u01b0\\u1ee1ng, phong t\\u1ee5c, t\\u1eadp qu\\u00e1n t\\u1eebng \\u0111\\u1ecba ph\\u01b0\\u01a1ng.  (N\\u1ebfu th\\u1ef1c hi\\u1ec7n kh\\u00f4ng t\\u1ed1t th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":2,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:01:55.000000Z","updated_at":"2024-09-18T04:04:33.000000Z"},"old":{"id":118,"parentId":116,"maDanhMuc":2,"stt":null,"tenCauHoi":"Th\\u1ef1c hi\\u1ec7n kh\\u00f4ng t\\u1ed1t","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":0,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Radio","sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:01:55.000000Z","updated_at":"2024-09-18T04:01:55.000000Z"}}', NULL, '2024-09-17 21:04:33', '2024-09-17 21:04:33'),
-	(226, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 119, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":119,"parentId":112,"maDanhMuc":2,"stt":"4.3","tenCauHoi":"T\\u1ef7 l\\u1ec7 h\\u1ed9 gia \\u0111\\u00ecnh \\u0111\\u01b0\\u1ee3c s\\u1eed d\\u1ee5ng n\\u01b0\\u1edbc s\\u1ea1ch theo quy chu\\u1ea9n t\\u1eeb h\\u1ec7 th\\u1ed1ng c\\u1ea5p n\\u01b0\\u1edbc t\\u1eadp trung","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":1,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:05:19.000000Z","updated_at":"2024-09-18T04:05:19.000000Z"}}', NULL, '2024-09-17 21:05:19', '2024-09-17 21:05:19'),
-	(227, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 120, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":120,"parentId":119,"maDanhMuc":2,"stt":null,"tenCauHoi":"100% h\\u1ed9 gia \\u0111\\u00ecnh s\\u1eed d\\u1ee5ng n\\u01b0\\u1edbc s\\u1ea1ch theo quy \\u0111\\u1ecbnh; c\\u00f3 nh\\u00e0 ti\\u00eau, nh\\u00e0 t\\u1eafm, b\\u1ec3 ch\\u1ee9a n\\u01b0\\u1edbc sinh ho\\u1ea1t h\\u1ee3p v\\u1ec7 sinh. (N\\u1ebfu kh\\u00f4ng \\u0111\\u1ea1t th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:05:33.000000Z","updated_at":"2024-09-18T04:05:33.000000Z"}}', NULL, '2024-09-17 21:05:33', '2024-09-17 21:05:33'),
-	(228, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 121, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":121,"parentId":112,"maDanhMuc":2,"stt":"4.4","tenCauHoi":"C\\u1ea3nh quan, kh\\u00f4ng gian xanh - s\\u1ea1ch - \\u0111\\u1eb9p, an to\\u00e0n; kh\\u00f4ng \\u0111\\u1ec3 x\\u1ea3y ra t\\u1ed3n \\u0111\\u1ecdng n\\u01b0\\u1edbc th\\u1ea3i sinh ho\\u1ea1t t\\u1ea1i c\\u00e1c khu d\\u00e2n c\\u01b0 t\\u1eadp trung","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":1,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:06:01.000000Z","updated_at":"2024-09-18T04:06:01.000000Z"}}', NULL, '2024-09-17 21:06:01', '2024-09-17 21:06:01'),
-	(229, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 122, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":122,"parentId":121,"maDanhMuc":2,"stt":null,"tenCauHoi":"Th\\u1ef1c hi\\u1ec7n tr\\u1ed3ng c\\u00e2y xanh c\\u00f4ng c\\u1ed9ng t\\u1ea1i c\\u00e1c tuy\\u1ebfn \\u0111\\u01b0\\u1eddng, khu vui ch\\u01a1i; c\\u00e1c h\\u1ed9 gia \\u0111\\u00ecnh tr\\u1ed3ng hoa, c\\u00e2y xanh trong khu\\u00f4n vi\\u00ean gia \\u0111\\u00ecnh, tr\\u00ean \\u0111\\u1ecba b\\u00e0n khu d\\u00e2n c\\u01b0. (N\\u1ebfu th\\u1ef1c hi\\u1ec7n kh\\u00f4ng t\\u1ed1t th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":2,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:07:16.000000Z","updated_at":"2024-09-18T04:07:16.000000Z"}}', NULL, '2024-09-17 21:07:16', '2024-09-17 21:07:16'),
-	(230, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 123, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":123,"parentId":121,"maDanhMuc":2,"stt":null,"tenCauHoi":"100% Doanh nghi\\u1ec7p, c\\u01a1 s\\u1edf s\\u1ea3n xu\\u1ea5t kinh doanh, h\\u1ed9 s\\u1ea3n xu\\u1ea5t kinh doanh c\\u00e1 th\\u1ec3, h\\u1ed9 d\\u00e2n tr\\u00ean \\u0111\\u1ecba b\\u00e0n ph\\u1ea3i \\u0111\\u1ea1t c\\u00e1c ti\\u00eau chu\\u1ea9n v\\u1ec7 sinh m\\u00f4i tr\\u01b0\\u1eddng theo quy \\u0111\\u1ecbnh; ch\\u1ea5t th\\u1ea3i, n\\u01b0\\u1edbc th\\u1ea3i, r\\u00e1c th\\u1ea3i \\u0111\\u01b0\\u1ee3c thu gom, x\\u1eed l\\u00fd \\u0111\\u00fang quy \\u0111\\u1ecbnh, kh\\u00f4ng \\u0111\\u1ec3 x\\u1ea3y ra t\\u1ed3n \\u0111\\u1ecdng t\\u1ea1i c\\u00e1c khu d\\u00e2n c\\u01b0 t\\u1eadp trung. (C\\u00f3 tr\\u01b0\\u1eddng h\\u1ee3p vi ph\\u1ea1m th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":3,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:07:35.000000Z","updated_at":"2024-09-18T04:07:35.000000Z"}}', NULL, '2024-09-17 21:07:35', '2024-09-17 21:07:35'),
-	(231, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 124, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":124,"parentId":null,"maDanhMuc":2,"stt":"5","tenCauHoi":"Ch\\u1ea5p h\\u00e0nh t\\u1ed1t ch\\u1ee7 tr\\u01b0\\u01a1ng c\\u1ee7a \\u0110\\u1ea3ng, ch\\u00ednh s\\u00e1ch, ph\\u00e1p lu\\u1eadt c\\u1ee7a Nh\\u00e0 n\\u01b0\\u1edbc","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":20,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":0,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:07:50.000000Z","updated_at":"2024-09-18T04:07:50.000000Z"}}', NULL, '2024-09-17 21:07:50', '2024-09-17 21:07:50'),
-	(232, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 125, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":125,"parentId":124,"maDanhMuc":2,"stt":"5.1","tenCauHoi":"Tuy\\u00ean truy\\u1ec1n, t\\u1ed5 ch\\u1ee9c th\\u1ef1c hi\\u1ec7n nghi\\u00eam c\\u00e1c ch\\u1ee7 tr\\u01b0\\u01a1ng, c\\u1ee7a \\u0110\\u1ea3ng, ch\\u00ednh s\\u00e1ch, ph\\u00e1p lu\\u1eadt c\\u1ee7a Nh\\u00e0 n\\u01b0\\u1edbc","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":1,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:08:03.000000Z","updated_at":"2024-09-18T04:08:03.000000Z"}}', NULL, '2024-09-17 21:08:03', '2024-09-17 21:08:03'),
-	(233, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 126, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":126,"parentId":125,"maDanhMuc":2,"stt":null,"tenCauHoi":"\\u0110\\u1ecbnh k\\u1ef3 c\\u00f3 t\\u1ed5 ch\\u1ee9c ho\\u1ea1t \\u0111\\u1ed9ng tuy\\u00ean tuy\\u1ec1n, ph\\u1ed5 bi\\u1ebfn th\\u1ef1c hi\\u1ec7n c\\u00e1c ch\\u1ee7 tr\\u01b0\\u01a1ng c\\u1ee7a \\u0110\\u1ea3ng, ch\\u00ednh s\\u00e1ch, ph\\u00e1p lu\\u1eadt c\\u1ee7a Nh\\u00e0 n\\u01b0\\u1edbc v\\u00e0 c\\u00e1c quy \\u0111\\u1ecbnh c\\u1ee7a \\u0111\\u1ecba ph\\u01b0\\u01a1ng t\\u1edbi Nh\\u00e2n d\\u00e2n;   (N\\u1ebfu kh\\u00f4ng th\\u1ef1c hi\\u1ec7n ho\\u1eb7c th\\u1ef1c hi\\u1ec7n kh\\u00f4ng th\\u01b0\\u1eddng xuy\\u00ean th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":2,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:08:26.000000Z","updated_at":"2024-09-18T04:08:26.000000Z"}}', NULL, '2024-09-17 21:08:26', '2024-09-17 21:08:26'),
-	(234, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 127, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":127,"parentId":125,"maDanhMuc":2,"stt":null,"tenCauHoi":"T\\u1ea1o \\u0111i\\u1ec1u ki\\u1ec7n cho c\\u00e1c t\\u1ea7ng l\\u1edbp Nh\\u00e2n d\\u00e2n tham gia gi\\u00e1m s\\u00e1t ho\\u1ea1t \\u0111\\u1ed9ng c\\u01a1 quan Nh\\u00e0 n\\u01b0\\u1edbc, \\u0111\\u1ea1i bi\\u1ec3u d\\u00e2n c\\u1eed, c\\u00e1n b\\u1ed9, c\\u00f4ng ch\\u1ee9c th\\u00f4ng qua vi\\u1ec7c t\\u1ed5 ch\\u1ee9c t\\u1ed1t ti\\u1ebfp x\\u00fac c\\u1eed tri v\\u00e0 \\u0111\\u1ed1i tho\\u1ea1i tr\\u1ef1c ti\\u1ebfp c\\u00f4ng d\\u00e2n v\\u1edbi c\\u1ea5p l\\u00e3nh \\u0111\\u1ea1o theo \\u0111\\u1ecbnh k\\u1ef3. (N\\u1ebfu kh\\u00f4ng th\\u1ef1c hi\\u1ec7n ho\\u1eb7c th\\u1ef1c hi\\u1ec7n kh\\u00f4ng th\\u01b0\\u1eddng xuy\\u00ean th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":2,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:08:42.000000Z","updated_at":"2024-09-18T04:08:42.000000Z"}}', NULL, '2024-09-17 21:08:42', '2024-09-17 21:08:42'),
-	(235, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 128, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":128,"parentId":125,"maDanhMuc":2,"stt":null,"tenCauHoi":"C\\u00f3 t\\u1eeb 90% tr\\u1edf l\\u00ean h\\u1ed9 gia \\u0111\\u00ecnh \\u0111\\u01b0\\u1ee3c ph\\u1ed5 bi\\u1ebfn v\\u00e0 nghi\\u00eam ch\\u1ec9nh th\\u1ef1c hi\\u1ec7n c\\u00e1c \\u0111\\u01b0\\u1eddng l\\u1ed1i, ch\\u1ee7 tr\\u01b0\\u01a1ng c\\u1ee7a \\u0110\\u1ea3ng, ch\\u00ednh s\\u00e1ch, ph\\u00e1p lu\\u1eadt c\\u1ee7a Nh\\u00e0 n\\u01b0\\u1edbc v\\u00e0 c\\u00e1c quy \\u0111\\u1ecbnh c\\u1ee7a \\u0111\\u1ecba ph\\u01b0\\u01a1ng.  (C\\u00f3 tr\\u01b0\\u1eddng h\\u1ee3p vi ph\\u1ea1m th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":1,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:09:00.000000Z","updated_at":"2024-09-18T04:09:00.000000Z"}}', NULL, '2024-09-17 21:09:00', '2024-09-17 21:09:00'),
-	(236, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 129, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":129,"parentId":124,"maDanhMuc":2,"stt":"5.2","tenCauHoi":"Tri\\u1ec3n khai d\\u1ecbch v\\u1ee5 c\\u00f4ng tr\\u1ef1c tuy\\u1ebfn ph\\u1ee5c v\\u1ee5 ng\\u01b0\\u1eddi d\\u00e2n, doanh nghi\\u1ec7p theo \\u0111\\u00fang quy \\u0111\\u1ecbnh","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":1,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:09:15.000000Z","updated_at":"2024-09-18T04:09:15.000000Z"}}', NULL, '2024-09-17 21:09:15', '2024-09-17 21:09:15'),
-	(237, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 130, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":130,"parentId":129,"maDanhMuc":2,"stt":null,"tenCauHoi":"T\\u1ed5 ch\\u1ee9c tri\\u1ec3n khai d\\u1ecbch v\\u1ee5 c\\u00f4ng tr\\u1ef1c tuy\\u1ebfn ph\\u1ee5c v\\u1ee5 ng\\u01b0\\u1eddi d\\u00e2n, doanh nghi\\u1ec7p theo \\u0111\\u00fang quy \\u0111\\u1ecbnh; (N\\u1ebfu th\\u1ef1c hi\\u1ec7n kh\\u00f4ng t\\u1ed1t th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":2,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:09:30.000000Z","updated_at":"2024-09-18T04:09:30.000000Z"}}', NULL, '2024-09-17 21:09:30', '2024-09-17 21:09:30'),
-	(238, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 131, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":131,"parentId":129,"maDanhMuc":2,"stt":null,"tenCauHoi":"C\\u00f3 t\\u1eeb 80% tr\\u1edf l\\u00ean th\\u1ee7 t\\u1ee5c h\\u00e0nh ch\\u00ednh tri\\u1ec3n khai d\\u1ecbch v\\u1ee5 c\\u00f4ng tr\\u1ef1c tuy\\u1ebfn m\\u1ed9t ph\\u1ea7n v\\u00e0 to\\u00e0n tr\\u00ecnh. (N\\u1ebfu th\\u1ef1c hi\\u1ec7n kh\\u00f4ng \\u0111\\u1ea1t th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":3,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:09:46.000000Z","updated_at":"2024-09-18T04:09:46.000000Z"}}', NULL, '2024-09-17 21:09:46', '2024-09-17 21:09:46'),
-	(239, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 132, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":132,"parentId":124,"maDanhMuc":2,"stt":"5.3","tenCauHoi":"T\\u1ed5 ch\\u1ee9c th\\u1ef1c hi\\u1ec7n quy ch\\u1ebf d\\u00e2n ch\\u1ee7 \\u1edf c\\u01a1 s\\u1edf, t\\u1ea1o \\u0111i\\u1ec1u ki\\u1ec7n \\u0111\\u1ec3 nh\\u00e2n d\\u00e2n tham gia gi\\u00e1m s\\u00e1t vi\\u1ec7c th\\u1ef1c hi\\u1ec7n ch\\u00ednh s\\u00e1ch, ph\\u00e1p lu\\u1eadt c\\u1ee7a ch\\u00ednh quy\\u1ec1n \\u0111\\u1ecba ph\\u01b0\\u01a1ng","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":1,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:10:03.000000Z","updated_at":"2024-09-18T04:10:03.000000Z"}}', NULL, '2024-09-17 21:10:03', '2024-09-17 21:10:03'),
-	(240, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 133, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":133,"parentId":132,"maDanhMuc":2,"stt":null,"tenCauHoi":"100% kh\\u00f3m, \\u1ea5p x\\u00e2y d\\u1ef1ng v\\u00e0 th\\u1ef1c hi\\u1ec7n t\\u1ed1t Quy \\u01b0\\u1edbc kh\\u00f3m, \\u1ea5p; c\\u00f3 t\\u1ed5 Nh\\u00e2n d\\u00e2n t\\u1ef1 qu\\u1ea3n ho\\u1ea1t \\u0111\\u1ed9ng th\\u01b0\\u1eddng xuy\\u00ean; m\\u00e2u thu\\u1eabn, b\\u1ea5t h\\u00f2a \\u0111\\u01b0\\u1ee3c gi\\u1ea3i quy\\u1ebft t\\u1ea1i c\\u1ed9ng \\u0111\\u1ed3ng; th\\u1ef1c hi\\u1ec7n t\\u1ed1t quy ch\\u1ebf d\\u00e2n ch\\u1ee7 \\u1edf c\\u01a1 s\\u1edf, kh\\u00f4ng c\\u00f3 khi\\u1ebfu ki\\u1ec7n \\u0111\\u00f4ng ng\\u01b0\\u1eddi, v\\u01b0\\u1ee3t c\\u1ea5p, tr\\u00e1i ph\\u00e1p lu\\u1eadt. (N\\u1ebfu th\\u1ef1c hi\\u1ec7n kh\\u00f4ng t\\u1ed1t th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":3,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:10:20.000000Z","updated_at":"2024-09-18T04:10:20.000000Z"}}', NULL, '2024-09-17 21:10:20', '2024-09-17 21:10:20'),
-	(241, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 134, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":134,"parentId":132,"maDanhMuc":2,"stt":null,"tenCauHoi":"T\\u1ea1o \\u0111i\\u1ec1u ki\\u1ec7n cho c\\u00e1c t\\u1ea7ng l\\u1edbp nh\\u00e2n d\\u00e2n tham gia gi\\u00e1m s\\u00e1t ho\\u1ea1t \\u0111\\u1ed9ng c\\u01a1 quan Nh\\u00e0 n\\u01b0\\u1edbc, \\u0111\\u1ea1i bi\\u1ec3u d\\u00e2n c\\u1eed, c\\u00e1n b\\u1ed9, c\\u00f4ng ch\\u1ee9c th\\u00f4ng qua vi\\u1ec7c t\\u1ed5 ch\\u1ee9c t\\u1ed1t ti\\u1ebfp x\\u00fac c\\u1eed tri v\\u00e0 \\u0111\\u1ed1i tho\\u1ea1i tr\\u1ef1c ti\\u1ebfp c\\u00f4ng d\\u00e2n v\\u1edbi c\\u1ea5p l\\u00e3nh \\u0111\\u1ea1o theo \\u0111\\u1ecbnh k\\u1ef3. (N\\u1ebfu th\\u1ef1c hi\\u1ec7n kh\\u00f4ng t\\u1ed1t th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":2,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:10:38.000000Z","updated_at":"2024-09-18T04:10:38.000000Z"}}', NULL, '2024-09-17 21:10:38', '2024-09-17 21:10:38'),
-	(242, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 135, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":135,"parentId":124,"maDanhMuc":2,"stt":"5.4","tenCauHoi":"X\\u00e3, ph\\u01b0\\u1eddng, th\\u1ecb tr\\u1ea5n \\u0111\\u1ea1t chu\\u1ea9n ti\\u1ebfp c\\u1eadn ph\\u00e1p lu\\u1eadt","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":0,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:10:58.000000Z","updated_at":"2024-09-18T04:10:58.000000Z"}}', NULL, '2024-09-17 21:10:58', '2024-09-17 21:10:58'),
-	(243, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 136, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":136,"parentId":135,"maDanhMuc":2,"stt":null,"tenCauHoi":"X\\u00e3, ph\\u01b0\\u1eddng, th\\u1ecb tr\\u1ea5n \\u0111\\u01b0\\u1ee3c c\\u00f4ng nh\\u1eadn \\u0111\\u1ea1t chu\\u1ea9n ti\\u1ebfp c\\u1eadn ph\\u00e1p lu\\u1eadt (N\\u1ebfu kh\\u00f4ng \\u0111\\u1ea1t th\\u00ec ch\\u1ea5m 0 \\u0111i\\u1ec3m)","diemNhoNhat":0,"buocNhay":0.5,"diemLonNhat":5,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":2,"kieuNhapLieu":"Select","sapXep":1,"trangThai":1,"created_at":"2024-09-18T04:11:11.000000Z","updated_at":"2024-09-18T04:11:11.000000Z"}}', NULL, '2024-09-17 21:11:11', '2024-09-17 21:11:11');
+	(165, 'default', 'created', 'Modules\\KhaoSat\\Entities\\DanhMuc', 'created', 2, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":2,"tenDanhMuc":"TI\\u00caU CHU\\u1ea8N DANH HI\\u1ec6U X\\u00c3, PH\\u01af\\u1edcNG, TH\\u1eca TR\\u1ea4N TI\\u00caU BI\\u1ec2U 2024","namApDung":2024,"noiDung":"K\\u00e8m theo Quy\\u1ebft \\u0111\\u1ecbnh   \\/2024\\/Q\\u0110-UBND ng\\u00e0y       th\\u00e1ng      n\\u0103m 2024 c\\u1ee7a \\u1ee6y ban nh\\u00e2n d\\u00e2n t\\u1ec9nh \\u0110\\u1ed3ng Th\\u00e1p","trangThai":1,"created_at":"2024-09-16T14:46:58.000000Z","updated_at":"2024-09-16T14:46:58.000000Z"}}', NULL, '2024-09-16 07:46:58', '2024-09-16 07:46:58'),
+	(166, 'default', 'created', 'Modules\\KhaoSat\\Entities\\DanhMucDonVi', 'created', 38, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":38,"maDanhMuc":2,"maDonVi":15}}', NULL, '2024-09-16 07:46:58', '2024-09-16 07:46:58'),
+	(167, 'default', 'created', 'Modules\\KhaoSat\\Entities\\DanhMucDonVi', 'created', 39, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":39,"maDanhMuc":2,"maDonVi":16}}', NULL, '2024-09-16 07:46:58', '2024-09-16 07:46:58'),
+	(168, 'default', 'created', 'Modules\\KhaoSat\\Entities\\DanhMucDonVi', 'created', 40, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":40,"maDanhMuc":2,"maDonVi":17}}', NULL, '2024-09-16 07:46:58', '2024-09-16 07:46:58'),
+	(169, 'default', 'created', 'Modules\\KhaoSat\\Entities\\DanhMucDonVi', 'created', 41, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":41,"maDanhMuc":2,"maDonVi":18}}', NULL, '2024-09-16 07:46:58', '2024-09-16 07:46:58'),
+	(170, 'default', 'created', 'Modules\\KhaoSat\\Entities\\DanhMucDonVi', 'created', 42, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":42,"maDanhMuc":2,"maDonVi":19}}', NULL, '2024-09-16 07:46:58', '2024-09-16 07:46:58'),
+	(171, 'default', 'created', 'Modules\\KhaoSat\\Entities\\DanhMucDonVi', 'created', 43, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":43,"maDanhMuc":2,"maDonVi":20}}', NULL, '2024-09-16 07:46:58', '2024-09-16 07:46:58'),
+	(172, 'default', 'created', 'Modules\\KhaoSat\\Entities\\DanhMucDonVi', 'created', 44, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":44,"maDanhMuc":2,"maDonVi":23}}', NULL, '2024-09-16 07:46:58', '2024-09-16 07:46:58'),
+	(173, 'default', 'created', 'Modules\\KhaoSat\\Entities\\DanhMucDonVi', 'created', 45, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":45,"maDanhMuc":2,"maDonVi":21}}', NULL, '2024-09-16 07:46:58', '2024-09-16 07:46:58'),
+	(174, 'default', 'created', 'Modules\\KhaoSat\\Entities\\DanhMucDonVi', 'created', 46, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":46,"maDanhMuc":2,"maDonVi":22}}', NULL, '2024-09-16 07:46:58', '2024-09-16 07:46:58'),
+	(175, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 76, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":76,"parentId":0,"maDanhMuc":2,"stt":"1","tenCauHoi":"Th\\u1ef1c hi\\u1ec7n t\\u1ed1t c\\u00e1c nhi\\u1ec7m v\\u1ee5 kinh t\\u1ebf - x\\u00e3 h\\u1ed9i, qu\\u1ed1c ph\\u00f2ng, an ninh, tr\\u1eadt t\\u1ef1, an to\\u00e0n x\\u00e3 h\\u1ed9i \\u0111\\u01b0\\u1ee3c giao","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":20,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":0,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-16T14:50:59.000000Z","updated_at":"2024-09-16T14:50:59.000000Z"}}', NULL, '2024-09-16 07:50:59', '2024-09-16 07:50:59'),
+	(176, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoi', 'created', 77, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":77,"parentId":76,"maDanhMuc":2,"stt":"1.1","tenCauHoi":"B\\u1ea3o \\u0111\\u1ea3m tr\\u1eadt t\\u1ef1, an to\\u00e0n x\\u00e3 h\\u1ed9i, \\u0111\\u1ea5u tranh, ph\\u00f2ng, ch\\u1ed1ng t\\u1ed9i ph\\u1ea1m v\\u00e0 c\\u00e1c h\\u00e0nh vi vi ph\\u1ea1m ph\\u00e1p lu\\u1eadt kh\\u00e1c","diemNhoNhat":0,"buocNhay":0,"diemLonNhat":7,"loaiCauHoi":1,"loaiDieuKien":"AND","danhDauCau":1,"kieuNhapLieu":null,"sapXep":1,"trangThai":1,"created_at":"2024-09-16T14:51:31.000000Z","updated_at":"2024-09-16T14:51:31.000000Z"}}', NULL, '2024-09-16 07:51:31', '2024-09-16 07:51:31');
 
--- Dumping data for table cscc_sadec_db.bang_thong_ke: ~24 rows (approximately)
+-- Dumping structure for table cscc_sadec_db.bang_thong_ke
+CREATE TABLE IF NOT EXISTS `bang_thong_ke` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nam` int DEFAULT NULL,
+  `xp_tong_so` int DEFAULT NULL,
+  `xp_dat_chuan` int DEFAULT NULL,
+  `xp_ti_le` float DEFAULT NULL,
+  `ka_tong_so` int DEFAULT NULL,
+  `ka_dat_chuan` int DEFAULT NULL,
+  `ka_ti_le` float DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table cscc_sadec_db.bang_thong_ke: ~22 rows (approximately)
 REPLACE INTO `bang_thong_ke` (`id`, `nam`, `xp_tong_so`, `xp_dat_chuan`, `xp_ti_le`, `ka_tong_so`, `ka_dat_chuan`, `ka_ti_le`) VALUES
 	(1, 2000, 8, 2, 25, 33, 18, 54.55),
 	(2, 2001, 8, 3, 37.5, 33, 22, 66.67),
@@ -286,6 +249,22 @@ REPLACE INTO `bang_thong_ke` (`id`, `nam`, `xp_tong_so`, `xp_dat_chuan`, `xp_ti_
 	(22, 2021, 9, 9, 100, 37, 37, 100),
 	(23, 2022, 9, 9, 100, 37, 37, 100),
 	(24, 2023, 9, 9, 100, 37, 37, 100);
+
+-- Dumping structure for table cscc_sadec_db.donvihanhchinh
+CREATE TABLE IF NOT EXISTS `donvihanhchinh` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `parentId` bigint NOT NULL DEFAULT '0',
+  `tenDonVi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `dienThoai` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `trangThai` tinyint NOT NULL DEFAULT '1',
+  `sapXep` int DEFAULT NULL,
+  `phanLoai` tinyint DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table cscc_sadec_db.donvihanhchinh: ~60 rows (approximately)
 REPLACE INTO `donvihanhchinh` (`id`, `parentId`, `tenDonVi`, `image`, `email`, `dienThoai`, `trangThai`, `sapXep`, `phanLoai`, `created_at`, `updated_at`) VALUES
@@ -350,11 +329,67 @@ REPLACE INTO `donvihanhchinh` (`id`, `parentId`, `tenDonVi`, `image`, `email`, `
 	(59, 23, 'Ấp Đông Quới - Xã Tân Khánh Đông', NULL, NULL, NULL, 1, NULL, 2, '2022-04-30 21:08:35', '2022-04-30 21:08:35'),
 	(60, 23, 'Ấp Đông Giang - Xã Tân Khánh Đông', NULL, NULL, NULL, 1, NULL, 2, '2022-04-30 21:08:35', '2022-04-30 21:08:35');
 
+-- Dumping structure for table cscc_sadec_db.khaosat_bangdiem
+CREATE TABLE IF NOT EXISTS `khaosat_bangdiem` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `diem` float DEFAULT NULL,
+  `diemThamDinh` float DEFAULT '0',
+  `maCauHoi` bigint DEFAULT NULL,
+  `maDanhMuc` bigint DEFAULT NULL,
+  `noiDungTraLoi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `maDonViDanhGia` bigint DEFAULT NULL,
+  `maNguoiDanhGia` bigint DEFAULT NULL,
+  `fileDanhGia` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ghiChuDanhGia` text COLLATE utf8mb4_unicode_ci,
+  `maDonViThamDinh` bigint DEFAULT NULL,
+  `maNguoiThamDinh` bigint DEFAULT NULL,
+  `noiDungThamDinh` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ghiChuThamDinh` text COLLATE utf8mb4_unicode_ci,
+  `parentId` bigint DEFAULT '0' COMMENT 'Mã câu hỏi cấp trên',
+  `trangThai` tinyint DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+
 -- Dumping data for table cscc_sadec_db.khaosat_bangdiem: ~0 rows (approximately)
+
+-- Dumping structure for table cscc_sadec_db.khaosat_bienban
+CREATE TABLE IF NOT EXISTS `khaosat_bienban` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `maDanhMuc` bigint NOT NULL DEFAULT '0',
+  `maDonVi` bigint NOT NULL DEFAULT '0',
+  `fileName` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'File biên bản',
+  `maNguoiGuiDiem` bigint DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table cscc_sadec_db.khaosat_bienban: ~0 rows (approximately)
 
--- Dumping data for table cscc_sadec_db.khaosat_cauhoi: ~136 rows (approximately)
+-- Dumping structure for table cscc_sadec_db.khaosat_cauhoi
+CREATE TABLE IF NOT EXISTS `khaosat_cauhoi` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `parentId` bigint DEFAULT '0',
+  `maDanhMuc` bigint DEFAULT '0',
+  `stt` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tenCauHoi` text COLLATE utf8mb4_unicode_ci,
+  `diemNhoNhat` float DEFAULT '0',
+  `buocNhay` float DEFAULT '0',
+  `diemLonNhat` float DEFAULT '0',
+  `loaiCauHoi` tinyint DEFAULT '1' COMMENT '1: Đánh giá, 2: Điều tra XHH',
+  `loaiDieuKien` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'AND' COMMENT 'AND, OR, MATH',
+  `danhDauCau` tinyint DEFAULT '0' COMMENT '1: là câu hỏi, 2: là câu trả lời, 0 là câu hỏi cấp trên, 3: câu đặc biệt',
+  `kieuNhapLieu` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Input, Select, Checkbox, Radio',
+  `sapXep` int DEFAULT '1',
+  `trangThai` tinyint DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+
+-- Dumping data for table cscc_sadec_db.khaosat_cauhoi: ~0 rows (approximately)
 REPLACE INTO `khaosat_cauhoi` (`id`, `parentId`, `maDanhMuc`, `stt`, `tenCauHoi`, `diemNhoNhat`, `buocNhay`, `diemLonNhat`, `loaiCauHoi`, `loaiDieuKien`, `danhDauCau`, `kieuNhapLieu`, `sapXep`, `trangThai`, `created_at`, `updated_at`) VALUES
 	(1, 0, 1, '1', 'Đời sống kinh tế ổn định và phát triển', 0, 0, 20, 1, 'AND', 0, NULL, 1, 1, '2024-09-09 21:11:06', '2024-09-11 02:26:13'),
 	(2, 1, 1, '1.1', 'Tỷ lệ người trong độ tuổi lao động có việc làm và thu nhập ổn định', 0, 0, 5, 1, 'AND', 1, NULL, 1, 1, '2024-09-09 21:22:30', '2024-09-09 21:22:30'),
@@ -431,76 +466,48 @@ REPLACE INTO `khaosat_cauhoi` (`id`, `parentId`, `maDanhMuc`, `stt`, `tenCauHoi`
 	(73, 70, 1, NULL, 'Xây dựng được mô hình vận động, xã hội hóa công tác từ thiện nhân đạo, huy động sự đóng góp của cộng đồng, kịp thời cứu trợ, giúp đỡ thiết thực cho các đối tượng xã hội gặp khó khăn, bất hạnh trong cuộc sống. (Nếu không thực hiện hoặc thực hiện chưa tốt thì chấm 0 điểm)', 0, 0.5, 2, 1, 'AND', 2, 'Select', 1, 1, '2024-09-12 01:12:05', '2024-09-12 01:12:05'),
 	(74, 67, 1, '5.3', 'Triển khai hiệu quả các mô hình “Gia đình học tập”, “Dòng họ học tập”, “Cộng đồng học tập” và các mô hình về văn hóa, gia đình tại cơ sở', 0, 0, 5, 1, 'AND', 1, NULL, 1, 1, '2024-09-12 01:12:28', '2024-09-12 01:12:28'),
 	(75, 74, 1, NULL, 'Có tổ chức tuyên truyền, vận động, triển khai phong trào học tập suốt đời, nhân rộng các mô hình “Gia đình học tập”, “Dòng họ học tập”, “Cộng đồng học tập”, “Đơn vị học tập”, “Công dân học tập” gắn với nội dung triển khai xây dựng “Gia đình văn hóa”, “Khóm, ấp văn hóa” tại cơ sở. (Nếu không thực hiện hoặc thực hiện chưa tốt thì chấm 0 điểm)', 0, 0.5, 5, 1, 'AND', 2, 'Select', 1, 1, '2024-09-12 01:12:50', '2024-09-12 01:12:50'),
-	(76, 0, 2, '1', 'Thực hiện tốt các nhiệm vụ kinh tế - xã hội, quốc phòng, an ninh, trật tự, an toàn xã hội được giao', 0, 0, 20, 1, 'AND', 0, NULL, 1, 1, '2024-09-17 20:24:59', '2024-09-17 20:24:59'),
-	(77, 76, 2, '1.1', 'Bảo đảm trật tự, an toàn xã hội, đấu tranh, phòng, chống tội phạm và các hành vi vi phạm pháp luật khác', 0, 0, 7, 1, 'AND', 1, NULL, 1, 1, '2024-09-17 20:25:22', '2024-09-17 20:25:22'),
-	(78, 77, 2, NULL, 'Xã, phường, thị trấn đạt tiêu chuẩn “An toàn về an ninh trật tự” theo Hướng dẫn số 03-HD/BCDD138 ngày 02/6/2022 của Ban Chỉ đạo 138/ĐP Tỉnh. (Nếu không đạt thì chấm 0 điểm)', 0, 0.5, 7, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 20:25:40', '2024-09-17 20:25:40'),
-	(79, 76, 2, '1.2', 'Hợp tác và liên kết phát triển kinh tế xã hội', 0, 0, 7, 1, 'AND', 1, NULL, 1, 1, '2024-09-17 20:26:03', '2024-09-17 20:26:03'),
-	(80, 79, 2, NULL, 'Có một trong các mô hình: Hợp tác xã, Tổ hợp tác, hội quán, liên doanh, liên kết trong sản xuất, kinh doanh… hoặc hình thức khác đạt hiệu quả.  (Nếu không có mô hình nào hoặc mô hình không hoạt động hiệu quả thì chấm 0 điểm)', 0, 0.5, 7, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 20:26:19', '2024-09-17 20:26:19'),
-	(81, 76, 2, '1.3', 'Thực hiện tốt công tác quân sự, quốc phòng của địa phương', 0, 0, 6, 1, 'AND', 1, NULL, 1, 1, '2024-09-17 20:26:51', '2024-09-17 20:26:51'),
-	(82, 81, 2, NULL, 'Tổ chức quán triệt, triển khai thực hiện nghiêm các nghị quyết của Đảng, Quân ủy Trung ương, chỉ thị, mệnh lệnh của Bộ Quốc phòng, Bộ Tư lệnh Quân khu về thực hiện nhiệm vụ quân sự quốc phòng, sẵn sàng chiến đấu, cứu hộ, cứu nạn;      (Nếu không thực hiện tốt thì chấm 0 điểm)', 0, 0.5, 3, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 20:27:19', '2024-09-17 20:27:19'),
-	(83, 81, 2, NULL, 'Đẩy mạnh nâng cao chất lượng xây dựng các mô hình về quốc phòng địa phương, dân quân tự vệ; (Nếu không thực hiện tốt thì chấm 0 điểm)', 0, 0.5, 3, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 20:27:41', '2024-09-17 20:27:41'),
-	(84, 0, 2, '2', 'Đời sống kinh tế ổn định và từng bước phát triển', 0, 0, 20, 1, 'AND', 0, NULL, 1, 1, '2024-09-17 20:28:16', '2024-09-17 20:28:16'),
-	(85, 84, 2, '2.1', 'Thu nhập bình quân đầu người bằng hoặc cao hơn năm trước', 0, 0, 5, 1, 'AND', 1, NULL, 1, 1, '2024-09-17 20:28:35', '2024-09-17 20:28:35'),
-	(86, 85, 2, NULL, 'Tỷ lệ người có việc làm trên dân số trong độ tuổi lao động có khả năng tham gia lao động từ 90% trở lên (đối với phường), 80% trở lên (đối với thị trấn), 70% trở lên (đối với xã).   (Nếu không đạt thì chấm 0 điểm)', 0, 0.5, 2, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 20:28:53', '2024-09-17 20:28:53'),
-	(87, 85, 2, NULL, 'Thu nhập bình quân đầu người bằng hoặc cao hơn thu nhập bình quân đầu người của toàn huyện, thành phố  (Nếu không đạt thì chấm 0 điểm)', 0, 0.5, 3, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 20:29:17', '2024-09-17 20:29:17'),
-	(88, 84, 2, '2.2', 'Tỷ lệ hộ nghèo đa chiều thấp hơn so với mức trung bình của các xã, phường, thị trấn trên địa bàn huyện, thành phố', 0, 0, 5, 1, 'AND', 1, NULL, 1, 1, '2024-09-17 20:29:39', '2024-09-17 20:29:39'),
-	(89, 88, 2, NULL, 'Tỷ lệ hộ nghèo đa chiều thấp hơn so với mức trung bình của các xã, phường, thị trấn trên địa bàn huyện, thành phố (Nếu không đạt thì chấm 0 điểm)', 0, 0.5, 5, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 20:29:57', '2024-09-17 20:29:57'),
-	(90, 84, 2, '2.3', 'Hệ thống đường điện đảm bảo an toàn trên địa bàn', 0, 0, 5, 1, 'AND', 1, NULL, 1, 1, '2024-09-17 20:30:15', '2024-09-17 20:53:08'),
-	(91, 90, 2, NULL, 'Triển khai thực hiện tốt các quy định về an toàn điện. (Nếu không đạt thì chấm 0 điểm)', 0, 0.5, 1, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 20:30:53', '2024-09-17 20:30:53'),
-	(92, 90, 2, NULL, '100% hộ gia đình, cơ sở sản xuất, kinh doanh trên địa bàn được cung cấp đảm bảo nguồn điện cho sinh hoạt và sản xuất. (Nếu không đạt thì chấm 0 điểm)', 0, 0.5, 2, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 20:31:20', '2024-09-17 20:31:20'),
-	(93, 90, 2, NULL, 'Định kỳ kiểm định, kiểm tra an toàn kỹ thuật các thiết bị; thường xuyên bảo dưỡng, thay thế dụng cụ điện trên địa bàn. (Nếu không đạt thì chấm 0 điểm)', 0, 0.5, 2, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 20:31:44', '2024-09-17 20:31:44'),
-	(94, 84, 2, '2.4', 'Tổ chức, quản lý, sử dụng đúng mục đích và hoạt động có hiệu quả các công trình công cộng, trường học, trạm y tế', 0, 0, 5, 1, 'AND', 1, NULL, 1, 1, '2024-09-17 20:32:07', '2024-09-17 20:32:07'),
-	(95, 94, 2, NULL, '100% các công trình công cộng, trường học, trạm y tế trên địa bàn được đưa vào sử dụng đúng mục đích, công năng, hoạt động đạt hiệu quả tốt. (Nếu không đạt thì chấm 0 điểm)', 0, 0.5, 1, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 20:32:29', '2024-09-17 20:32:29'),
-	(96, 94, 2, NULL, 'Xã, phường, thị trấn đạt tiêu chí quốc gia về y tế; đạt 90% người dân tham gia bảo hiểm y tế. (Nếu không đạt thì chấm 0 điểm)', 0, 0.5, 2, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 20:33:09', '2024-09-17 20:33:09'),
-	(97, 94, 2, NULL, 'Có từ 90% trở lên trường học các cấp (mầm non, tiểu học, THCS hoặc trường phổ thông có nhiều cấp học có cấp học cao nhất là trung học cơ sở) đạt tiêu chuẩn cơ sở vật chất theo quy định của Bộ Giáo dục và Đào tạo và có ít nhất 60% trở lên số trường học trên địa bàn được công nhận đạt chuẩn quốc gia.', 0, 0.5, 2, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 20:33:33', '2024-09-17 20:33:33'),
-	(98, 0, 2, '3', 'Đời sống văn hóa, tinh thần lành mạnh, phong phú', 0, 0, 20, 1, 'AND', 0, NULL, 1, 1, '2024-09-17 20:33:54', '2024-09-17 20:33:54'),
-	(99, 98, 2, '3.1', 'Tỷ lệ khóm, ấp đạt danh hiệu khóm, ấp văn hóa trong năm', 0, 0, 5, 1, 'OR', 1, NULL, 1, 1, '2024-09-17 20:34:14', '2024-09-17 20:51:32'),
-	(100, 99, 2, NULL, 'Đạt từ 80% trở lên', 0, 0, 5, 1, 'AND', 2, 'Radio', 1, 1, '2024-09-17 20:46:53', '2024-09-17 20:46:53'),
-	(101, 99, 2, NULL, 'Đạt từ 65% đến dưới 80%', 0, 0, 3, 1, 'AND', 2, 'Radio', 1, 1, '2024-09-17 20:47:21', '2024-09-17 20:47:21'),
-	(102, 99, 2, NULL, 'Đạt dưới 65%', 0, 0, 0, 1, 'AND', 2, 'Radio', 1, 1, '2024-09-17 20:47:56', '2024-09-17 20:47:56'),
-	(103, 98, 2, '3.2', 'Thiết chế văn hóa, thể thao có cơ sở vật chất, trang thiết bị bảo đảm; được quản lý, sử dụng đúng mục đích, hoạt động thường xuyên, hiệu quả', 0, 0, 6, 1, 'AND', 1, NULL, 1, 1, '2024-09-17 20:55:38', '2024-09-17 20:55:38'),
-	(104, 103, 2, NULL, '100% Trung tâm Văn hóa-Học tập cộng đồng xã, phường, thị trấn, Nhà Văn hóa  có cơ sở vật chất, trang thiết bị bảo đảm; được quản lý, sử dụng đúng mục đích, hoạt động thường xuyên, hiệu quả. (Nếu thực hiện không tốt thì chấm 0 điểm)', 0, 0.5, 2, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 20:56:00', '2024-09-17 20:56:00'),
-	(105, 103, 2, NULL, '100% khóm, ấp trên địa bàn xã, phường, thị trấn có thành lập các Câu lạc bộ văn hóa văn nghệ, thể thao thể thao và thường xuyên hoạt động hiệu quả. (Nếu thực hiện không tốt thì chấm 0 điểm)', 0, 0.5, 2, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 20:56:16', '2024-09-17 20:56:16'),
-	(106, 103, 2, NULL, 'Trung tâm Văn hóa-Học tập cộng đồng xã, phường, thị trấn phải đảm bảo đủ các phòng chức năng theo quy định; thường xuyên bổ sung trang thiết bị, cập nhật các đầu sách, báo, tài liệu tuyên truyền các quy định của pháp luật… (Nếu thực hiện không tốt thì chấm 0 điểm)', 0, 0.5, 2, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 20:56:55', '2024-09-17 20:56:55'),
-	(107, 98, 2, '3.3', 'Tỷ lệ hộ gia đình thực hiện nếp sống văn minh trong việc cưới, việc tang, lễ hội', 0, 0, 3, 1, 'AND', 1, NULL, 1, 1, '2024-09-17 20:57:13', '2024-09-17 20:57:13'),
-	(108, 107, 2, NULL, 'Có từ 90% trở lên hộ gia đình thực hiện tốt nếp sống văn minh trong việc cưới, việc tang, lễ hội theo quy định hiện hành.  (Nếu không đạt thì chấm 0 điểm).', 0, 0.5, 3, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 20:57:29', '2024-09-17 20:57:29'),
-	(109, 98, 2, '3.4', 'Bảo tồn, phát huy các giá trị lịch sử - văn hóa, danh lam thắng cảnh và các hình thức sinh hoạt văn hóa, thể thao dân gian truyền thống của địa phương', 0, 0, 5, 1, 'AND', 1, NULL, 1, 1, '2024-09-17 20:58:05', '2024-09-17 20:58:05'),
-	(110, 109, 2, NULL, 'Các di tích lịch sử - văn hóa, danh lam thắng cảnh trên địa bàn xã, phường, thị trấn thường xuyên được kiểm kê, ghi danh, bảo vệ, tu bổ, tôn tạo và phát huy giá trị theo quy định pháp luật về di sản văn hóa; (Nếu thực hiện không tốt thì chấm 0 điểm)', 0, 0.5, 3, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 20:58:23', '2024-09-17 20:58:23'),
-	(111, 109, 2, NULL, 'Có thành lập các Câu lạc bộ sinh hoạt văn hóa, thể thao dân gian truyền thống ở địa phương và hoạt động hiệu quả.   (Nếu thực hiện không tốt thì chấm 0 điểm)', 0, 0.5, 2, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 20:58:41', '2024-09-17 20:58:41'),
-	(112, 0, 2, '4', 'Môi trường an toàn, thân thiện, cảnh quan sạch đẹp', 0, 0, 20, 1, 'AND', 0, NULL, 1, 1, '2024-09-17 20:59:07', '2024-09-17 20:59:07'),
-	(113, 112, 2, '4.1', 'Thực hiện các biện pháp bảo vệ môi trường, phòng, chống cháy, nổ', 0, 0, 5, 1, 'AND', 1, NULL, 1, 1, '2024-09-17 20:59:33', '2024-09-17 20:59:33'),
-	(114, 113, 2, NULL, '100% Doanh nghiệp, cơ sở sản xuất kinh doanh, hộ sản xuất kinh doanh cá thể, hộ dân trên địa bàn phải đạt các tiêu chuẩn vệ sinh môi trường theo quy định; chất thải, nước thải, rác thải được thu gom, xử lý đúng quy định. (Có trường hợp vi phạm thì trừ 01 điểm, tổng điểm trừ không quá 03 điểm)', 0, 1, 3, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 20:59:50', '2024-09-17 20:59:50'),
-	(115, 113, 2, NULL, 'Triển khai có hiệu quả các mô hình về an ninh trật tự và phòng cháy chữa cháy do địa phương phát động như: mô hình Camera an ninh, “Tổ liên gia an toàn về phòng cháy, chữa cháy”. (Nếu thực hiện không tốt thì chấm 0 điểm)', 0, 0.5, 2, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 21:00:11', '2024-09-17 21:00:11'),
-	(116, 112, 2, '4.2', 'Nghĩa trang, cơ sở hỏa táng (nếu có) đáp ứng các quy định của pháp luật và theo quy hoạch tại địa phương', 0, 0, 5, 1, 'AND', 1, NULL, 1, 1, '2024-09-17 21:00:57', '2024-09-17 21:03:29'),
-	(117, 116, 2, NULL, '100% cơ sở dịch vụ mai táng và 90% trở lên hộ gia đình tổ chức mai táng, hỏa táng (nếu có) đảm bảo nếp sống văn minh theo quy định của pháp luật.', 0, 1, 3, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 21:01:40', '2024-09-17 21:04:13'),
-	(118, 116, 2, NULL, 'Việc quy hoạch và hoạt động của nghĩa trang phải thực hiện theo đúng quy định hiện hành và phù hợp với điều kiện thực tế, tín ngưỡng, phong tục, tập quán từng địa phương.  (Nếu thực hiện không tốt thì chấm 0 điểm)', 0, 0, 2, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 21:01:55', '2024-09-17 21:04:33'),
-	(119, 112, 2, '4.3', 'Tỷ lệ hộ gia đình được sử dụng nước sạch theo quy chuẩn từ hệ thống cấp nước tập trung', 0, 0, 5, 1, 'AND', 1, NULL, 1, 1, '2024-09-17 21:05:19', '2024-09-17 21:05:19'),
-	(120, 119, 2, NULL, '100% hộ gia đình sử dụng nước sạch theo quy định; có nhà tiêu, nhà tắm, bể chứa nước sinh hoạt hợp vệ sinh. (Nếu không đạt thì chấm 0 điểm)', 0, 0.5, 5, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 21:05:33', '2024-09-17 21:05:33'),
-	(121, 112, 2, '4.4', 'Cảnh quan, không gian xanh - sạch - đẹp, an toàn; không để xảy ra tồn đọng nước thải sinh hoạt tại các khu dân cư tập trung', 0, 0, 5, 1, 'AND', 1, NULL, 1, 1, '2024-09-17 21:06:01', '2024-09-17 21:06:01'),
-	(122, 121, 2, NULL, 'Thực hiện trồng cây xanh công cộng tại các tuyến đường, khu vui chơi; các hộ gia đình trồng hoa, cây xanh trong khuôn viên gia đình, trên địa bàn khu dân cư. (Nếu thực hiện không tốt thì chấm 0 điểm)', 0, 0.5, 2, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 21:07:16', '2024-09-17 21:07:16'),
-	(123, 121, 2, NULL, '100% Doanh nghiệp, cơ sở sản xuất kinh doanh, hộ sản xuất kinh doanh cá thể, hộ dân trên địa bàn phải đạt các tiêu chuẩn vệ sinh môi trường theo quy định; chất thải, nước thải, rác thải được thu gom, xử lý đúng quy định, không để xảy ra tồn đọng tại các khu dân cư tập trung. (Có trường hợp vi phạm thì chấm 0 điểm)', 0, 0.5, 3, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 21:07:35', '2024-09-17 21:07:35'),
-	(124, 0, 2, '5', 'Chấp hành tốt chủ trương của Đảng, chính sách, pháp luật của Nhà nước', 0, 0, 20, 1, 'AND', 0, NULL, 1, 1, '2024-09-17 21:07:50', '2024-09-17 21:07:50'),
-	(125, 124, 2, '5.1', 'Tuyên truyền, tổ chức thực hiện nghiêm các chủ trương, của Đảng, chính sách, pháp luật của Nhà nước', 0, 0, 5, 1, 'AND', 1, NULL, 1, 1, '2024-09-17 21:08:03', '2024-09-17 21:08:03'),
-	(126, 125, 2, NULL, 'Định kỳ có tổ chức hoạt động tuyên tuyền, phổ biến thực hiện các chủ trương của Đảng, chính sách, pháp luật của Nhà nước và các quy định của địa phương tới Nhân dân;   (Nếu không thực hiện hoặc thực hiện không thường xuyên thì chấm 0 điểm)', 0, 0.5, 2, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 21:08:26', '2024-09-17 21:08:26'),
-	(127, 125, 2, NULL, 'Tạo điều kiện cho các tầng lớp Nhân dân tham gia giám sát hoạt động cơ quan Nhà nước, đại biểu dân cử, cán bộ, công chức thông qua việc tổ chức tốt tiếp xúc cử tri và đối thoại trực tiếp công dân với cấp lãnh đạo theo định kỳ. (Nếu không thực hiện hoặc thực hiện không thường xuyên thì chấm 0 điểm)', 0, 0.5, 2, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 21:08:42', '2024-09-17 21:08:42'),
-	(128, 125, 2, NULL, 'Có từ 90% trở lên hộ gia đình được phổ biến và nghiêm chỉnh thực hiện các đường lối, chủ trương của Đảng, chính sách, pháp luật của Nhà nước và các quy định của địa phương.  (Có trường hợp vi phạm thì chấm 0 điểm)', 0, 0.5, 1, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 21:09:00', '2024-09-17 21:09:00'),
-	(129, 124, 2, '5.2', 'Triển khai dịch vụ công trực tuyến phục vụ người dân, doanh nghiệp theo đúng quy định', 0, 0, 5, 1, 'AND', 1, NULL, 1, 1, '2024-09-17 21:09:15', '2024-09-17 21:09:15'),
-	(130, 129, 2, NULL, 'Tổ chức triển khai dịch vụ công trực tuyến phục vụ người dân, doanh nghiệp theo đúng quy định; (Nếu thực hiện không tốt thì chấm 0 điểm)', 0, 0.5, 2, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 21:09:30', '2024-09-17 21:09:30'),
-	(131, 129, 2, NULL, 'Có từ 80% trở lên thủ tục hành chính triển khai dịch vụ công trực tuyến một phần và toàn trình. (Nếu thực hiện không đạt thì chấm 0 điểm)', 0, 0.5, 3, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 21:09:46', '2024-09-17 21:09:46'),
-	(132, 124, 2, '5.3', 'Tổ chức thực hiện quy chế dân chủ ở cơ sở, tạo điều kiện để nhân dân tham gia giám sát việc thực hiện chính sách, pháp luật của chính quyền địa phương', 0, 0, 5, 1, 'AND', 1, NULL, 1, 1, '2024-09-17 21:10:03', '2024-09-17 21:10:03'),
-	(133, 132, 2, NULL, '100% khóm, ấp xây dựng và thực hiện tốt Quy ước khóm, ấp; có tổ Nhân dân tự quản hoạt động thường xuyên; mâu thuẫn, bất hòa được giải quyết tại cộng đồng; thực hiện tốt quy chế dân chủ ở cơ sở, không có khiếu kiện đông người, vượt cấp, trái pháp luật. (Nếu thực hiện không tốt thì chấm 0 điểm)', 0, 0.5, 3, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 21:10:20', '2024-09-17 21:10:20'),
-	(134, 132, 2, NULL, 'Tạo điều kiện cho các tầng lớp nhân dân tham gia giám sát hoạt động cơ quan Nhà nước, đại biểu dân cử, cán bộ, công chức thông qua việc tổ chức tốt tiếp xúc cử tri và đối thoại trực tiếp công dân với cấp lãnh đạo theo định kỳ. (Nếu thực hiện không tốt thì chấm 0 điểm)', 0, 0.5, 2, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 21:10:38', '2024-09-17 21:10:38'),
-	(135, 124, 2, '5.4', 'Xã, phường, thị trấn đạt chuẩn tiếp cận pháp luật', 0, 0, 5, 1, 'AND', 0, NULL, 1, 1, '2024-09-17 21:10:58', '2024-09-17 21:10:58'),
-	(136, 135, 2, NULL, 'Xã, phường, thị trấn được công nhận đạt chuẩn tiếp cận pháp luật (Nếu không đạt thì chấm 0 điểm)', 0, 0.5, 5, 1, 'AND', 2, 'Select', 1, 1, '2024-09-17 21:11:11', '2024-09-17 21:11:11');
+	(76, 0, 2, '1', 'Thực hiện tốt các nhiệm vụ kinh tế - xã hội, quốc phòng, an ninh, trật tự, an toàn xã hội được giao', 0, 0, 20, 1, 'AND', 0, NULL, 1, 1, '2024-09-16 07:50:59', '2024-09-16 07:50:59'),
+	(77, 76, 2, '1.1', 'Bảo đảm trật tự, an toàn xã hội, đấu tranh, phòng, chống tội phạm và các hành vi vi phạm pháp luật khác', 0, 0, 7, 1, 'AND', 1, NULL, 1, 1, '2024-09-16 07:51:31', '2024-09-16 07:51:31');
+
+-- Dumping structure for table cscc_sadec_db.khaosat_cauhoi_thamdinh
+CREATE TABLE IF NOT EXISTS `khaosat_cauhoi_thamdinh` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `maDanhMuc` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `maCauHoi` bigint DEFAULT NULL,
+  `maDonVi` bigint DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table cscc_sadec_db.khaosat_cauhoi_thamdinh: ~0 rows (approximately)
+
+-- Dumping structure for table cscc_sadec_db.khaosat_danhmuc
+CREATE TABLE IF NOT EXISTS `khaosat_danhmuc` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `tenDanhMuc` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `namApDung` int DEFAULT NULL,
+  `noiDung` text COLLATE utf8mb4_unicode_ci,
+  `trangThai` tinyint DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table cscc_sadec_db.khaosat_danhmuc: ~0 rows (approximately)
 REPLACE INTO `khaosat_danhmuc` (`id`, `tenDanhMuc`, `namApDung`, `noiDung`, `trangThai`, `created_at`, `updated_at`) VALUES
 	(1, 'TIÊU CHUẨN DANH HIỆU KHÓM, ẤP VĂN HÓA 2024', 2024, 'Kèm theo Quyết định   /2024/QĐ-UBND ngày       tháng      năm 2024 của Ủy ban nhân dân tỉnh Đồng Tháp', 1, '2024-09-09 20:24:44', '2024-09-09 20:24:44'),
-	(2, 'TIÊU CHUẨN DANH HIỆU XÃ, PHƯỜNG, THỊ TRẤN TIÊU BIỂU 2024', 2024, 'Kèm theo Quyết định   /2024/QĐ-UBND ngày       tháng      năm 2024 của Ủy ban nhân dân tỉnh Đồng Tháp', 1, '2024-09-12 20:26:45', '2024-09-12 20:26:45');
+	(2, 'TIÊU CHUẨN DANH HIỆU XÃ, PHƯỜNG, THỊ TRẤN TIÊU BIỂU 2024', 2024, 'Kèm theo Quyết định   /2024/QĐ-UBND ngày       tháng      năm 2024 của Ủy ban nhân dân tỉnh Đồng Tháp', 1, '2024-09-16 07:46:58', '2024-09-16 07:46:58');
 
--- Dumping data for table cscc_sadec_db.khaosat_danhmuc_donvi: ~43 rows (approximately)
+-- Dumping structure for table cscc_sadec_db.khaosat_danhmuc_donvi
+CREATE TABLE IF NOT EXISTS `khaosat_danhmuc_donvi` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `maDanhMuc` bigint DEFAULT NULL,
+  `maDonVi` bigint DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+
+-- Dumping data for table cscc_sadec_db.khaosat_danhmuc_donvi: ~0 rows (approximately)
 REPLACE INTO `khaosat_danhmuc_donvi` (`id`, `maDanhMuc`, `maDonVi`) VALUES
 	(1, 1, 60),
 	(2, 1, 58),
@@ -545,25 +552,90 @@ REPLACE INTO `khaosat_danhmuc_donvi` (`id`, `maDanhMuc`, `maDonVi`) VALUES
 	(41, 2, 18),
 	(42, 2, 19),
 	(43, 2, 20),
-	(44, 2, 1),
-	(45, 2, 23),
-	(46, 2, 21),
-	(47, 2, 22);
+	(44, 2, 23),
+	(45, 2, 21),
+	(46, 2, 22);
+
+-- Dumping structure for table cscc_sadec_db.khaosat_diemtonghop
+CREATE TABLE IF NOT EXISTS `khaosat_diemtonghop` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `diem` float DEFAULT NULL,
+  `namApDung` int DEFAULT NULL,
+  `maDanhMuc` bigint DEFAULT NULL,
+  `maDonVi` bigint DEFAULT NULL,
+  `maNguoiTongHop` bigint DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table cscc_sadec_db.khaosat_diemtonghop: ~0 rows (approximately)
+
+-- Dumping structure for table cscc_sadec_db.khaosat_thoigian
+CREATE TABLE IF NOT EXISTS `khaosat_thoigian` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `tenThoiGian` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `batDau` timestamp NULL DEFAULT NULL,
+  `ketThuc` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table cscc_sadec_db.khaosat_thoigian: ~2 rows (approximately)
 REPLACE INTO `khaosat_thoigian` (`id`, `tenThoiGian`, `batDau`, `ketThuc`, `created_at`, `updated_at`) VALUES
 	(1, 'Thời gian tự đánh giá', '2024-01-01 01:00:00', '2024-12-31 23:59:00', '2024-01-01 01:00:00', '2024-01-01 01:00:00'),
 	(2, 'Thời gian thẩm định', '2024-01-01 01:00:00', '2024-12-31 23:59:00', '2024-01-01 01:00:00', '2024-01-01 01:00:00');
 
+-- Dumping structure for table cscc_sadec_db.khaosat_ykien
+CREATE TABLE IF NOT EXISTS `khaosat_ykien` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `maDanhMuc` bigint DEFAULT NULL,
+  `maCauHoi` bigint DEFAULT NULL,
+  `noiDung` text COLLATE utf8mb4_general_ci,
+  `maDonVi` bigint DEFAULT NULL,
+  `maNguoiYKien` bigint DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
+
 -- Dumping data for table cscc_sadec_db.khaosat_ykien: ~0 rows (approximately)
+
+-- Dumping structure for table cscc_sadec_db.model_has_permissions
+CREATE TABLE IF NOT EXISTS `model_has_permissions` (
+  `permission_id` bigint unsigned NOT NULL,
+  `model_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `model_id` bigint unsigned NOT NULL,
+  PRIMARY KEY (`permission_id`,`model_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table cscc_sadec_db.model_has_permissions: ~0 rows (approximately)
 
--- Dumping data for table cscc_sadec_db.model_has_roles: ~61 rows (approximately)
+-- Dumping structure for table cscc_sadec_db.model_has_roles
+CREATE TABLE IF NOT EXISTS `model_has_roles` (
+  `role_id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `model_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `model_id` bigint unsigned NOT NULL,
+  PRIMARY KEY (`role_id`,`model_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+
+-- Dumping data for table cscc_sadec_db.model_has_roles: ~36 rows (approximately)
 REPLACE INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 	(5, 'Modules\\Users\\Entities\\User', 1),
+	(6, 'Modules\\Users\\Entities\\User', 2),
+	(6, 'Modules\\Users\\Entities\\User', 3),
+	(6, 'Modules\\Users\\Entities\\User', 4),
+	(6, 'Modules\\Users\\Entities\\User', 5),
+	(6, 'Modules\\Users\\Entities\\User', 6),
+	(6, 'Modules\\Users\\Entities\\User', 7),
+	(6, 'Modules\\Users\\Entities\\User', 8),
+	(6, 'Modules\\Users\\Entities\\User', 9),
+	(6, 'Modules\\Users\\Entities\\User', 10),
+	(6, 'Modules\\Users\\Entities\\User', 11),
+	(6, 'Modules\\Users\\Entities\\User', 12),
+	(6, 'Modules\\Users\\Entities\\User', 13),
+	(6, 'Modules\\Users\\Entities\\User', 14),
 	(6, 'Modules\\Users\\Entities\\User', 15),
 	(6, 'Modules\\Users\\Entities\\User', 16),
 	(6, 'Modules\\Users\\Entities\\User', 17),
@@ -623,7 +695,30 @@ REPLACE INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 	(7, 'Modules\\Users\\Entities\\User', 12),
 	(7, 'Modules\\Users\\Entities\\User', 13),
 	(7, 'Modules\\Users\\Entities\\User', 14),
-	(8, 'Modules\\Users\\Entities\\User', 7);
+	(7, 'Modules\\Users\\Entities\\User', 21),
+	(7, 'Modules\\Users\\Entities\\User', 22),
+	(7, 'Modules\\Users\\Entities\\User', 24),
+	(7, 'Modules\\Users\\Entities\\User', 28),
+	(7, 'Modules\\Users\\Entities\\User', 29),
+	(7, 'Modules\\Users\\Entities\\User', 30),
+	(7, 'Modules\\Users\\Entities\\User', 37),
+	(7, 'Modules\\Users\\Entities\\User', 38),
+	(7, 'Modules\\Users\\Entities\\User', 39),
+	(7, 'Modules\\Users\\Entities\\User', 40),
+	(7, 'Modules\\Users\\Entities\\User', 44),
+	(8, 'Modules\\Users\\Entities\\User', 7),
+	(8, 'Modules\\Users\\Entities\\User', 22),
+	(8, 'Modules\\Users\\Entities\\User', 43),
+	(8, 'Modules\\Users\\Entities\\User', 45);
+
+-- Dumping structure for table cscc_sadec_db.modules
+CREATE TABLE IF NOT EXISTS `modules` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table cscc_sadec_db.modules: ~4 rows (approximately)
 REPLACE INTO `modules` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -631,6 +726,18 @@ REPLACE INTO `modules` (`id`, `name`, `created_at`, `updated_at`) VALUES
 	(2, 'Đơn vị hành chính', '2022-04-08 11:40:35', NULL),
 	(3, 'Người dùng', '2022-04-08 11:40:35', NULL),
 	(4, 'Cải cách hành chính', '2022-04-08 11:40:35', NULL);
+
+-- Dumping structure for table cscc_sadec_db.permissions
+CREATE TABLE IF NOT EXISTS `permissions` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `guard_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `module_id` bigint NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table cscc_sadec_db.permissions: ~18 rows (approximately)
 REPLACE INTO `permissions` (`id`, `name`, `display_name`, `guard_name`, `module_id`, `created_at`, `updated_at`) VALUES
@@ -653,12 +760,29 @@ REPLACE INTO `permissions` (`id`, `name`, `display_name`, `guard_name`, `module_
 	(17, 'tieuchi', 'Tiêu chí', 'api', 4, '2022-04-08 11:42:02', NULL),
 	(18, 'thoigian', 'Thời gian', 'api', 4, '2022-04-08 11:42:02', NULL);
 
+-- Dumping structure for table cscc_sadec_db.roles
+CREATE TABLE IF NOT EXISTS `roles` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `guard_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+
 -- Dumping data for table cscc_sadec_db.roles: ~4 rows (approximately)
 REPLACE INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
 	(5, 'admin', 'api', '2022-04-16 18:56:27', '2022-04-16 18:56:27'),
 	(6, 'Tự đánh giá', 'api', '2022-04-30 21:23:35', '2022-05-03 20:10:50'),
 	(7, 'Thẩm định', 'api', '2022-04-30 21:24:19', '2022-05-03 20:11:12'),
 	(8, 'Xác nhận', 'api', '2022-04-30 21:24:32', '2022-05-03 20:50:53');
+
+-- Dumping structure for table cscc_sadec_db.role_has_permissions
+CREATE TABLE IF NOT EXISTS `role_has_permissions` (
+  `permission_id` bigint unsigned NOT NULL,
+  `role_id` bigint unsigned NOT NULL,
+  PRIMARY KEY (`permission_id`,`role_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table cscc_sadec_db.role_has_permissions: ~18 rows (approximately)
 REPLACE INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
@@ -680,6 +804,20 @@ REPLACE INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 	(16, 5),
 	(17, 5),
 	(18, 5);
+
+-- Dumping structure for table cscc_sadec_db.sidebars
+CREATE TABLE IF NOT EXISTS `sidebars` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `parentId` bigint NOT NULL DEFAULT '0',
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `order` int NOT NULL DEFAULT '1',
+  `status` tinyint NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table cscc_sadec_db.sidebars: ~30 rows (approximately)
 REPLACE INTO `sidebars` (`id`, `parentId`, `name`, `icon`, `url`, `order`, `status`, `created_at`, `updated_at`) VALUES
@@ -714,8 +852,304 @@ REPLACE INTO `sidebars` (`id`, `parentId`, `name`, `icon`, `url`, `order`, `stat
 	(41, 37, 'Thời gian', 'mdi-label-variant-outline', '/Auth/KhaoSat/CauHinh/ThoiGian', 3, 1, NULL, NULL),
 	(42, 8, 'Gửi ý kiến', 'mdi-label-outline', '/Auth/KhaoSat/TuDanhGia/GuiYKien', 3, 1, '2022-04-17 01:17:30', NULL);
 
--- Dumping data for table cscc_sadec_db.sidebar_has_permissions: ~232 rows (approximately)
+-- Dumping structure for table cscc_sadec_db.sidebar_has_permissions
+CREATE TABLE IF NOT EXISTS `sidebar_has_permissions` (
+  `permissionId` bigint NOT NULL DEFAULT '0',
+  `sidebarId` bigint NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+
+-- Dumping data for table cscc_sadec_db.sidebar_has_permissions: ~58 rows (approximately)
 REPLACE INTO `sidebar_has_permissions` (`permissionId`, `sidebarId`) VALUES
+	(5, 2),
+	(6, 2),
+	(7, 2),
+	(8, 2),
+	(9, 2),
+	(10, 2),
+	(11, 2),
+	(12, 2),
+	(5, 3),
+	(6, 3),
+	(7, 3),
+	(8, 3),
+	(9, 4),
+	(10, 4),
+	(11, 4),
+	(12, 4),
+	(9, 5),
+	(10, 5),
+	(11, 5),
+	(12, 5),
+	(1, 6),
+	(2, 6),
+	(3, 6),
+	(4, 6),
+	(13, 7),
+	(14, 7),
+	(15, 7),
+	(16, 7),
+	(17, 7),
+	(18, 7),
+	(13, 8),
+	(13, 9),
+	(13, 10),
+	(14, 11),
+	(14, 12),
+	(14, 13),
+	(15, 14),
+	(13, 21),
+	(14, 21),
+	(15, 21),
+	(16, 21),
+	(17, 21),
+	(18, 21),
+	(5, 21),
+	(6, 21),
+	(7, 21),
+	(8, 21),
+	(16, 24),
+	(17, 24),
+	(16, 25),
+	(17, 26),
+	(18, 37),
+	(14, 39),
+	(16, 39),
+	(17, 39),
+	(18, 39),
+	(18, 41),
+	(13, 42),
+	(5, 2),
+	(6, 2),
+	(7, 2),
+	(8, 2),
+	(9, 2),
+	(10, 2),
+	(11, 2),
+	(12, 2),
+	(5, 3),
+	(6, 3),
+	(7, 3),
+	(8, 3),
+	(9, 4),
+	(10, 4),
+	(11, 4),
+	(12, 4),
+	(9, 5),
+	(10, 5),
+	(11, 5),
+	(12, 5),
+	(1, 6),
+	(2, 6),
+	(3, 6),
+	(4, 6),
+	(13, 7),
+	(14, 7),
+	(15, 7),
+	(16, 7),
+	(17, 7),
+	(18, 7),
+	(13, 8),
+	(13, 9),
+	(13, 10),
+	(14, 11),
+	(14, 12),
+	(14, 13),
+	(15, 14),
+	(13, 21),
+	(14, 21),
+	(15, 21),
+	(16, 21),
+	(17, 21),
+	(18, 21),
+	(5, 21),
+	(6, 21),
+	(7, 21),
+	(8, 21),
+	(16, 24),
+	(17, 24),
+	(16, 25),
+	(17, 26),
+	(18, 37),
+	(14, 39),
+	(16, 39),
+	(17, 39),
+	(18, 39),
+	(18, 41),
+	(13, 42),
+	(5, 2),
+	(6, 2),
+	(7, 2),
+	(8, 2),
+	(9, 2),
+	(10, 2),
+	(11, 2),
+	(12, 2),
+	(5, 3),
+	(6, 3),
+	(7, 3),
+	(8, 3),
+	(9, 4),
+	(10, 4),
+	(11, 4),
+	(12, 4),
+	(9, 5),
+	(10, 5),
+	(11, 5),
+	(12, 5),
+	(1, 6),
+	(2, 6),
+	(3, 6),
+	(4, 6),
+	(13, 7),
+	(14, 7),
+	(15, 7),
+	(16, 7),
+	(17, 7),
+	(18, 7),
+	(13, 8),
+	(13, 9),
+	(13, 10),
+	(14, 11),
+	(14, 12),
+	(14, 13),
+	(15, 14),
+	(13, 21),
+	(14, 21),
+	(15, 21),
+	(16, 21),
+	(17, 21),
+	(18, 21),
+	(5, 21),
+	(6, 21),
+	(7, 21),
+	(8, 21),
+	(16, 24),
+	(17, 24),
+	(16, 25),
+	(17, 26),
+	(18, 37),
+	(14, 39),
+	(16, 39),
+	(17, 39),
+	(18, 39),
+	(18, 41),
+	(13, 42),
+	(5, 2),
+	(6, 2),
+	(7, 2),
+	(8, 2),
+	(9, 2),
+	(10, 2),
+	(11, 2),
+	(12, 2),
+	(5, 3),
+	(6, 3),
+	(7, 3),
+	(8, 3),
+	(9, 4),
+	(10, 4),
+	(11, 4),
+	(12, 4),
+	(9, 5),
+	(10, 5),
+	(11, 5),
+	(12, 5),
+	(1, 6),
+	(2, 6),
+	(3, 6),
+	(4, 6),
+	(13, 7),
+	(14, 7),
+	(15, 7),
+	(16, 7),
+	(17, 7),
+	(18, 7),
+	(13, 8),
+	(13, 9),
+	(13, 10),
+	(14, 11),
+	(14, 12),
+	(14, 13),
+	(15, 14),
+	(13, 21),
+	(14, 21),
+	(15, 21),
+	(16, 21),
+	(17, 21),
+	(18, 21),
+	(5, 21),
+	(6, 21),
+	(7, 21),
+	(8, 21),
+	(16, 24),
+	(17, 24),
+	(16, 25),
+	(17, 26),
+	(18, 37),
+	(14, 39),
+	(16, 39),
+	(17, 39),
+	(18, 39),
+	(18, 41),
+	(13, 42),
+	(5, 2),
+	(6, 2),
+	(7, 2),
+	(8, 2),
+	(9, 2),
+	(10, 2),
+	(11, 2),
+	(12, 2),
+	(5, 3),
+	(6, 3),
+	(7, 3),
+	(8, 3),
+	(9, 4),
+	(10, 4),
+	(11, 4),
+	(12, 4),
+	(9, 5),
+	(10, 5),
+	(11, 5),
+	(12, 5),
+	(1, 6),
+	(2, 6),
+	(3, 6),
+	(4, 6),
+	(13, 7),
+	(14, 7),
+	(15, 7),
+	(16, 7),
+	(17, 7),
+	(18, 7),
+	(13, 8),
+	(13, 9),
+	(13, 10),
+	(14, 11),
+	(14, 12),
+	(14, 13),
+	(15, 14),
+	(13, 21),
+	(14, 21),
+	(15, 21),
+	(16, 21),
+	(17, 21),
+	(18, 21),
+	(5, 21),
+	(6, 21),
+	(7, 21),
+	(8, 21),
+	(16, 24),
+	(17, 24),
+	(16, 25),
+	(17, 26),
+	(18, 37),
+	(14, 39),
+	(16, 39),
+	(17, 39),
+	(18, 39),
+	(18, 41),
+	(13, 42),
 	(5, 2),
 	(6, 2),
 	(7, 2),
@@ -949,7 +1383,27 @@ REPLACE INTO `sidebar_has_permissions` (`permissionId`, `sidebarId`) VALUES
 	(18, 41),
 	(13, 42);
 
--- Dumping data for table cscc_sadec_db.users: ~60 rows (approximately)
+-- Dumping structure for table cscc_sadec_db.users
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `userName` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fullName` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `provinceId` bigint NOT NULL DEFAULT '0',
+  `districtId` bigint NOT NULL DEFAULT '0',
+  `wardId` bigint NOT NULL DEFAULT '0',
+  `organizationId` bigint DEFAULT NULL,
+  `status` tinyint NOT NULL DEFAULT '1',
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+
+-- Dumping data for table cscc_sadec_db.users: ~0 rows (approximately)
 REPLACE INTO `users` (`id`, `userName`, `password`, `fullName`, `image`, `email`, `phone`, `provinceId`, `districtId`, `wardId`, `organizationId`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
 	(1, 'admin', 'e6e061838856bf47e1de730719fb2609', 'Administrators', NULL, NULL, NULL, 0, 0, 0, 1, 1, NULL, NULL, '2022-12-21 00:31:04'),
 	(2, 'vanphong', 'e6e061838856bf47e1de730719fb2609', 'Văn phòng HĐND và UBND Thành phố', NULL, NULL, NULL, 0, 0, 0, 2, 1, NULL, NULL, '2022-12-21 00:31:04'),
