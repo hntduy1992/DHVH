@@ -13,7 +13,6 @@ use Illuminate\Support\Str;
 use Modules\DonViHanhChinh\Entities\DonViHanhChinh;
 use Modules\KhaoSat\Entities\CauHoi;
 use Modules\KhaoSat\Entities\DanhMucDonVi;
-use Modules\Users\Entities\User;
 use PhpOffice\PhpWord\Element\Table;
 use PhpOffice\PhpWord\Exception\CopyFileException;
 use PhpOffice\PhpWord\Exception\CreateTemporaryFileException;
@@ -27,12 +26,27 @@ class FileManagerController extends Controller
 {
     public function singleUpload(Request $request): JsonResponse
     {
-       $year = Carbon::now()->year;
-       $file = Storage::disk('public')
-            ->putFileAs('files/'.$year.'/organizations-' . auth('api')->user()->organizationId, $request->file('file'), $request->file('file')->getClientOriginalName());
-        return response()->json(['fileUrl' => $file, 'success' => true]);
-    }
+        $danhMucFolder = 'DanhMuc_' . $request->get('maDanhMuc');
+        $donViFolder = 'DonVi_' . auth('api')->user()->organizationId;
+        $cauHoiFolder = 'CauHoi_' . $request->get('maCauHoi');
+        $namApDung = $request->get('namApDung');
 
+        $path = "MinhChung" . DIRECTORY_SEPARATOR . $danhMucFolder . DIRECTORY_SEPARATOR . $namApDung . DIRECTORY_SEPARATOR . $donViFolder . DIRECTORY_SEPARATOR . $cauHoiFolder;
+        if (!Storage::exists($path)) {
+            Storage::makeDirectory($path);
+        }
+        $fileName = 'DV_' . Str::random(5) . $request->file('file')->getClientOriginalName();
+        $file = Storage::disk('public')
+            ->putFileAs($path, $request->file('file'), $fileName);
+        return response()->json(['fileUrl' => $file, 'fileName' => $fileName, 'success' => true]);
+    }
+//    public function singleUpload(Request $request): JsonResponse
+//    {
+//        $year = Carbon::now()->year;
+//        $file = Storage::disk('public')
+//            ->putFileAs('files/'.$year.'/organizations-' . auth('api')->user()->organizationId, $request->file('file'), $request->file('file')->getClientOriginalName());
+//        return response()->json(['fileUrl' => $file, 'success' => true]);
+//    }
 
     /**
      * @throws CopyFileException
