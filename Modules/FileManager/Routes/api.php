@@ -16,6 +16,7 @@ use Modules\FileManager\Http\Controllers\Auth\FileManagerController;
 */
 Route::prefix('auth/file-manager')->middleware('auth:api')->group(function () {
     Route::post('/singleUpload', [FileManagerController::class, 'singleUpload']);
+    Route::delete('/singleRemove', [FileManagerController::class, 'singleRemove']);
     Route::post('/export-to-word', [FileManagerController::class, 'exportToWord']);
     Route::post('/export-to-word/tong-hop', [FileManagerController::class, 'exportToWordTongHop']);
 });

@@ -32,13 +32,24 @@ class FileManagerController extends Controller
         $namApDung = $request->get('namApDung');
 
         $path = "MinhChung" . DIRECTORY_SEPARATOR . $danhMucFolder . DIRECTORY_SEPARATOR . $namApDung . DIRECTORY_SEPARATOR . $donViFolder . DIRECTORY_SEPARATOR . $cauHoiFolder;
-        if (!Storage::exists($path)) {
+        if (!Storage::exists('public' . DIRECTORY_SEPARATOR . $path)) {
             Storage::makeDirectory($path);
         }
-        $fileName = 'DV_' . Str::random(5) . $request->file('file')->getClientOriginalName();
+        $fileName = 'MC_' . Str::random(5) . '.' . $request->file('file')->getClientOriginalExtension();
         $file = Storage::disk('public')
             ->putFileAs($path, $request->file('file'), $fileName);
         return response()->json(['fileUrl' => $file, 'fileName' => $fileName, 'success' => true]);
+    }
+
+    public function singleRemove(Request $request)
+    {
+        $file = $request->get('fileUrl');
+        $file = Str::replace('\\','/',$file);
+         if (Storage::disk('public')->exists($file)){
+            Storage::disk('public')->delete($file);
+            return response()->json(['message'=> 'Xóa thành công file!', 'success' => true]);
+        }
+        return response()->json(['message' => "Không tìm thấy file ",'path'=>$file, 'success' => false]);
     }
 //    public function singleUpload(Request $request): JsonResponse
 //    {
@@ -150,7 +161,7 @@ class FileManagerController extends Controller
         if (!Storage::exists("/public/TuDanhGia/{$year}")) {
             Storage::makeDirectory("/public/TuDanhGia/{$year}");
         }
-        $fileName  ="./storage/TuDanhGia/{$year}/{$name}.docx";
+        $fileName = "./storage/TuDanhGia/{$year}/{$name}.docx";
 
         $templateProcessor->saveAs($fileName);
 
@@ -167,7 +178,7 @@ class FileManagerController extends Controller
                 $row = $bangTongHop->where('maCauHoi', $item->id)->first();
                 $item->diemDanhGia = $item->danhDauCau != 2 ? $row['diem'] : null;
                 $item->diemThamDinh = $row['diemThamDinh'] > 0 ? $row['diemThamDinh'] : null;
-               // $item->diemThamDinh = null; // Bỏ điểm
+                // $item->diemThamDinh = null; // Bỏ điểm
                 if ($item->danhDauCau == 2) {
                     $f = $bangDiem->where('maCauHoi', $item->parentId)->first();
                     if (!empty($f['noiDungTraLoi'])) {
@@ -197,7 +208,7 @@ class FileManagerController extends Controller
 
     public function exportToWordTongHop(Request $request)
     {
-       $year = Carbon::now()->year;
+        $year = Carbon::now()->year;
         $url = Storage::disk('public')->path("$year/BienBanTongHop.docx");
 
         $templateProcessor = new TemplateProcessor($url);
@@ -279,7 +290,7 @@ class FileManagerController extends Controller
             }
 
             $templateProcessor->setComplexBlock('{table}', $table);
-            $char = $request->get('namApDung', -1).'_'. Str::random(10);
+            $char = $request->get('namApDung', -1) . '_' . Str::random(10);
             $templateProcessor->saveAs("./storage/files/TongHop/$year/TongHop-{$char}.docx");
 
             return response()->json(['file' => "$year/TongHop-{$char}.docx"]);
