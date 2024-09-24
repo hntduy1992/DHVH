@@ -41,6 +41,22 @@ class FileManagerController extends Controller
         return response()->json(['fileUrl' => $file, 'fileName' => $fileName, 'success' => true]);
     }
 
+    public function singleUploadTongHop(Request $request): JsonResponse
+    {
+        $donViName = 'DonVi_' . auth('api')->user()->organizationId;
+        $namApDung = $request->get('namApDung');
+
+        $path = "TongHop" . DIRECTORY_SEPARATOR . $namApDung;
+        if (!Storage::exists('public' . DIRECTORY_SEPARATOR . $path)) {
+            Storage::makeDirectory($path);
+        }
+        //TH_DonVi_02.pdf
+        $fileName = 'TH_' . $donViName . '.' . $request->file('file')->getClientOriginalExtension();
+        $file = Storage::disk('public')
+            ->putFileAs($path, $request->file('file'), $fileName);
+        return response()->json(['fileUrl' => $file, 'fileName' => $fileName, 'success' => true]);
+    }
+
     public function singleRemove(Request $request)
     {
         $file = $request->get('fileUrl');
