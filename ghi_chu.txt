@@ -1,4 +1,7 @@
 Chấm thẩm định
 ->Lỗi select
+->Thông tin đơn vị đầu bảng
+->Thông tin bộ tiêu chí
+->Link tải file Minh chứng
 Gởi ý kiến
 -> Lỗi upfile đính kèm

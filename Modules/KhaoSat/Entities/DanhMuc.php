@@ -11,7 +11,7 @@ class DanhMuc extends Model
     use LogsActivity;
     protected $hidden = ['created_at','updated_at'];
     protected $table = 'khaosat_danhmuc';
-    protected $fillable = ['tenDanhMuc', 'namApDung', 'noiDung', 'trangThai'];
+    protected $fillable = ['tenDanhMuc', 'namApDung', 'noiDung', 'trangThai', 'phanLoai'];
 
     public function donvi()
     {

@@ -25,7 +25,7 @@ class DonViHanhChinhController extends Controller
     public function danhSachSelect(Request $request)
     {
         $phanLoai = intval($request->get('phanLoai'));
-        if ($phanLoai >= 0) {
+        if ($phanLoai > 0) {
             $donVi = DonViHanhChinh::query()
                 ->where('phanLoai', '=', $phanLoai)
                 ->where('trangThai', '=', 1)
