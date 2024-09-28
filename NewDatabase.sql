@@ -24,21 +24,21 @@ USE `cscc_sadec_db`;
 DROP TABLE IF EXISTS `activity_log`;
 CREATE TABLE IF NOT EXISTS `activity_log` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `log_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `subject_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `event` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `log_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subject_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `event` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `subject_id` bigint unsigned DEFAULT NULL,
-  `causer_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `causer_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `causer_id` bigint unsigned DEFAULT NULL,
   `properties` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
-  `batch_uuid` char(36) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `batch_uuid` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=332 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=446 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
--- Dumping data for table cscc_sadec_db.activity_log: ~243 rows (approximately)
+-- Dumping data for table cscc_sadec_db.activity_log: ~308 rows (approximately)
 INSERT INTO `activity_log` (`id`, `log_name`, `description`, `subject_type`, `event`, `subject_id`, `causer_type`, `causer_id`, `properties`, `batch_uuid`, `created_at`, `updated_at`) VALUES
 	(1, 'default', 'created', 'Modules\\KhaoSat\\Entities\\DanhMuc', 'created', 1, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":1,"tenDanhMuc":"TI\\u00caU CHU\\u1ea8N DANH HI\\u1ec6U KH\\u00d3M, \\u1ea4P V\\u0102N H\\u00d3A 2024","namApDung":2024,"noiDung":"K\\u00e8m theo Quy\\u1ebft \\u0111\\u1ecbnh   \\/2024\\/Q\\u0110-UBND ng\\u00e0y       th\\u00e1ng      n\\u0103m 2024 c\\u1ee7a \\u1ee6y ban nh\\u00e2n d\\u00e2n t\\u1ec9nh \\u0110\\u1ed3ng Th\\u00e1p","trangThai":1,"created_at":"2024-09-10T03:24:44.000000Z","updated_at":"2024-09-10T03:24:44.000000Z"}}', NULL, '2024-09-09 20:24:44', '2024-09-09 20:24:44'),
 	(2, 'default', 'created', 'Modules\\KhaoSat\\Entities\\DanhMucDonVi', 'created', 1, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":1,"maDanhMuc":1,"maDonVi":60}}', NULL, '2024-09-09 20:24:44', '2024-09-09 20:24:44'),
@@ -370,7 +370,121 @@ INSERT INTO `activity_log` (`id`, `log_name`, `description`, `subject_type`, `ev
 	(328, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 20, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":20,"maDanhMuc":"2","maCauHoi":90,"maDonVi":8,"created_at":"2024-09-25T16:00:35.000000Z","updated_at":"2024-09-25T16:00:35.000000Z"}}', NULL, '2024-09-25 09:00:35', '2024-09-25 09:00:35'),
 	(329, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 1, 'Modules\\Users\\Entities\\User', 14, '{"attributes":{"id":1,"diem":4,"diemThamDinh":0.5,"maCauHoi":77,"maDanhMuc":2,"noiDungTraLoi":[{"id":78,"diem":4}],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":"[{\\"fileUrl\\":\\"MinhChung\\\\\\\\DanhMuc_2\\\\\\\\2024\\\\\\\\DonVi_15\\\\\\\\CauHoi_77\\/MC_9woOT.docx\\",\\"fileName\\":\\"MC_9woOT.docx\\"}]","ghiChuDanhGia":"Ghi ch\\u00fa th\\u1ee9 1","maDonViThamDinh":14,"maNguoiThamDinh":14,"noiDungThamDinh":[{"id":78,"diem":0.5}],"ghiChuThamDinh":"1","parentId":76,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-25T17:07:05.000000Z"},"old":{"id":1,"diem":4,"diemThamDinh":0,"maCauHoi":77,"maDanhMuc":2,"noiDungTraLoi":[{"id":78,"diem":4}],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":"[{\\"fileUrl\\":\\"MinhChung\\\\\\\\DanhMuc_2\\\\\\\\2024\\\\\\\\DonVi_15\\\\\\\\CauHoi_77\\/MC_9woOT.docx\\",\\"fileName\\":\\"MC_9woOT.docx\\"}]","ghiChuDanhGia":"Ghi ch\\u00fa th\\u1ee9 1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":76,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-25T15:03:21.000000Z"}}', NULL, '2024-09-25 10:07:05', '2024-09-25 10:07:05'),
 	(330, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 3, 'Modules\\Users\\Entities\\User', 14, '{"attributes":{"id":3,"diem":3.5,"diemThamDinh":3,"maCauHoi":81,"maDanhMuc":2,"noiDungTraLoi":[{"id":82,"diem":1.5},{"id":83,"diem":2}],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":14,"maNguoiThamDinh":14,"noiDungThamDinh":[{"id":82,"diem":2},{"id":83,"diem":1}],"ghiChuThamDinh":"2","parentId":76,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-25T17:07:05.000000Z"},"old":{"id":3,"diem":3.5,"diemThamDinh":0,"maCauHoi":81,"maDanhMuc":2,"noiDungTraLoi":[{"id":82,"diem":1.5},{"id":83,"diem":2}],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":76,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-25T15:03:21.000000Z"}}', NULL, '2024-09-25 10:07:05', '2024-09-25 10:07:05'),
-	(331, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 2, 'Modules\\Users\\Entities\\User', 10, '{"attributes":{"id":2,"diem":5.5,"diemThamDinh":0.5,"maCauHoi":79,"maDanhMuc":2,"noiDungTraLoi":[{"id":80,"diem":5.5}],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":10,"maNguoiThamDinh":10,"noiDungThamDinh":[{"id":80,"diem":0.5}],"ghiChuThamDinh":"KT","parentId":76,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-25T17:24:47.000000Z"},"old":{"id":2,"diem":5.5,"diemThamDinh":0,"maCauHoi":79,"maDanhMuc":2,"noiDungTraLoi":[{"id":80,"diem":5.5}],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":76,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-25T15:03:21.000000Z"}}', NULL, '2024-09-25 10:24:47', '2024-09-25 10:24:47');
+	(331, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 2, 'Modules\\Users\\Entities\\User', 10, '{"attributes":{"id":2,"diem":5.5,"diemThamDinh":0.5,"maCauHoi":79,"maDanhMuc":2,"noiDungTraLoi":[{"id":80,"diem":5.5}],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":10,"maNguoiThamDinh":10,"noiDungThamDinh":[{"id":80,"diem":0.5}],"ghiChuThamDinh":"KT","parentId":76,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-25T17:24:47.000000Z"},"old":{"id":2,"diem":5.5,"diemThamDinh":0,"maCauHoi":79,"maDanhMuc":2,"noiDungTraLoi":[{"id":80,"diem":5.5}],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":76,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-25T15:03:21.000000Z"}}', NULL, '2024-09-25 10:24:47', '2024-09-25 10:24:47'),
+	(332, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 4, 'Modules\\Users\\Entities\\User', 4, '{"attributes":{"id":4,"diem":2,"diemThamDinh":3,"maCauHoi":85,"maDanhMuc":2,"noiDungTraLoi":[{"id":86,"diem":0.5},{"id":87,"diem":1.5}],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":4,"maNguoiThamDinh":4,"noiDungThamDinh":[{"id":86,"diem":0.5},{"id":87,"diem":2.5}],"ghiChuThamDinh":"tbxh","parentId":84,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-26T02:23:39.000000Z"},"old":{"id":4,"diem":2,"diemThamDinh":0,"maCauHoi":85,"maDanhMuc":2,"noiDungTraLoi":[{"id":86,"diem":0.5},{"id":87,"diem":1.5}],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":84,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-25T15:03:21.000000Z"}}', NULL, '2024-09-25 19:23:39', '2024-09-25 19:23:39'),
+	(333, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 5, 'Modules\\Users\\Entities\\User', 4, '{"attributes":{"id":5,"diem":2,"diemThamDinh":2,"maCauHoi":88,"maDanhMuc":2,"noiDungTraLoi":[{"id":89,"diem":2}],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":4,"maNguoiThamDinh":4,"noiDungThamDinh":[{"id":89,"diem":2}],"ghiChuThamDinh":"tbxh","parentId":84,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-26T02:23:39.000000Z"},"old":{"id":5,"diem":2,"diemThamDinh":0,"maCauHoi":88,"maDanhMuc":2,"noiDungTraLoi":[{"id":89,"diem":2}],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":84,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-25T15:03:21.000000Z"}}', NULL, '2024-09-25 19:23:39', '2024-09-25 19:23:39'),
+	(334, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 6, 'Modules\\Users\\Entities\\User', 8, '{"attributes":{"id":6,"diem":1.5,"diemThamDinh":3,"maCauHoi":90,"maDanhMuc":2,"noiDungTraLoi":[{"id":92,"diem":1.5}],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":8,"maNguoiThamDinh":8,"noiDungThamDinh":[{"id":91,"diem":1},{"id":92,"diem":1},{"id":93,"diem":1}],"ghiChuThamDinh":"tnmt","parentId":84,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-26T02:30:06.000000Z"},"old":{"id":6,"diem":1.5,"diemThamDinh":0,"maCauHoi":90,"maDanhMuc":2,"noiDungTraLoi":[{"id":92,"diem":1.5}],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":84,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-25T15:03:21.000000Z"}}', NULL, '2024-09-25 19:30:06', '2024-09-25 19:30:06'),
+	(335, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 2, 'Modules\\Users\\Entities\\User', 10, '{"attributes":{"id":2,"diem":5.5,"diemThamDinh":2.5,"maCauHoi":79,"maDanhMuc":2,"noiDungTraLoi":[{"id":80,"diem":5.5}],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":10,"maNguoiThamDinh":10,"noiDungThamDinh":[{"id":80,"diem":2.5}],"ghiChuThamDinh":"KT","parentId":76,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-26T02:32:24.000000Z"},"old":{"id":2,"diem":5.5,"diemThamDinh":0.5,"maCauHoi":79,"maDanhMuc":2,"noiDungTraLoi":[{"id":80,"diem":5.5}],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":10,"maNguoiThamDinh":10,"noiDungThamDinh":[{"id":80,"diem":0.5}],"ghiChuThamDinh":"KT","parentId":76,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-26T02:31:55.000000Z"}}', NULL, '2024-09-25 19:32:24', '2024-09-25 19:32:24'),
+	(336, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 21, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":21,"maDanhMuc":"1","maCauHoi":2,"maDonVi":4,"created_at":"2024-09-26T03:52:30.000000Z","updated_at":"2024-09-26T03:52:30.000000Z"}}', NULL, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(337, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 22, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":22,"maDanhMuc":"1","maCauHoi":5,"maDonVi":4,"created_at":"2024-09-26T03:52:30.000000Z","updated_at":"2024-09-26T03:52:30.000000Z"}}', NULL, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(338, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 23, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":23,"maDanhMuc":"1","maCauHoi":7,"maDonVi":7,"created_at":"2024-09-26T03:52:30.000000Z","updated_at":"2024-09-26T03:52:30.000000Z"}}', NULL, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(339, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 24, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":24,"maDanhMuc":"1","maCauHoi":10,"maDonVi":7,"created_at":"2024-09-26T03:52:30.000000Z","updated_at":"2024-09-26T03:52:30.000000Z"}}', NULL, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(340, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 25, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":25,"maDanhMuc":"1","maCauHoi":14,"maDonVi":7,"created_at":"2024-09-26T03:52:30.000000Z","updated_at":"2024-09-26T03:52:30.000000Z"}}', NULL, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(341, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 26, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":26,"maDanhMuc":"1","maCauHoi":17,"maDonVi":6,"created_at":"2024-09-26T03:52:30.000000Z","updated_at":"2024-09-26T03:52:30.000000Z"}}', NULL, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(342, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 27, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":27,"maDanhMuc":"1","maCauHoi":20,"maDonVi":6,"created_at":"2024-09-26T03:52:30.000000Z","updated_at":"2024-09-26T03:52:30.000000Z"}}', NULL, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(343, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 28, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":28,"maDanhMuc":"1","maCauHoi":23,"maDonVi":6,"created_at":"2024-09-26T03:52:30.000000Z","updated_at":"2024-09-26T03:52:30.000000Z"}}', NULL, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(344, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 29, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":29,"maDanhMuc":"1","maCauHoi":26,"maDonVi":6,"created_at":"2024-09-26T03:52:30.000000Z","updated_at":"2024-09-26T03:52:30.000000Z"}}', NULL, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(345, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 30, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":30,"maDanhMuc":"1","maCauHoi":29,"maDonVi":6,"created_at":"2024-09-26T03:52:30.000000Z","updated_at":"2024-09-26T03:52:30.000000Z"}}', NULL, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(346, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 31, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":31,"maDanhMuc":"1","maCauHoi":31,"maDonVi":6,"created_at":"2024-09-26T03:52:30.000000Z","updated_at":"2024-09-26T03:52:30.000000Z"}}', NULL, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(347, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 32, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":32,"maDanhMuc":"1","maCauHoi":35,"maDonVi":6,"created_at":"2024-09-26T03:52:30.000000Z","updated_at":"2024-09-26T03:52:30.000000Z"}}', NULL, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(348, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 33, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":33,"maDanhMuc":"1","maCauHoi":39,"maDonVi":6,"created_at":"2024-09-26T03:52:30.000000Z","updated_at":"2024-09-26T03:52:30.000000Z"}}', NULL, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(349, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 34, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":34,"maDanhMuc":"1","maCauHoi":41,"maDonVi":6,"created_at":"2024-09-26T03:52:30.000000Z","updated_at":"2024-09-26T03:52:30.000000Z"}}', NULL, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(350, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 35, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":35,"maDanhMuc":"1","maCauHoi":44,"maDonVi":6,"created_at":"2024-09-26T03:52:30.000000Z","updated_at":"2024-09-26T03:52:30.000000Z"}}', NULL, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(351, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 36, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":36,"maDanhMuc":"1","maCauHoi":47,"maDonVi":6,"created_at":"2024-09-26T03:52:30.000000Z","updated_at":"2024-09-26T03:52:30.000000Z"}}', NULL, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(352, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 37, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":37,"maDanhMuc":"1","maCauHoi":51,"maDonVi":6,"created_at":"2024-09-26T03:52:30.000000Z","updated_at":"2024-09-26T03:52:30.000000Z"}}', NULL, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(353, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 38, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":38,"maDanhMuc":"1","maCauHoi":55,"maDonVi":6,"created_at":"2024-09-26T03:52:30.000000Z","updated_at":"2024-09-26T03:52:30.000000Z"}}', NULL, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(354, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 39, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":39,"maDanhMuc":"1","maCauHoi":57,"maDonVi":6,"created_at":"2024-09-26T03:52:30.000000Z","updated_at":"2024-09-26T03:52:30.000000Z"}}', NULL, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(355, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 40, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":40,"maDanhMuc":"1","maCauHoi":60,"maDonVi":6,"created_at":"2024-09-26T03:52:30.000000Z","updated_at":"2024-09-26T03:52:30.000000Z"}}', NULL, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(356, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 41, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":41,"maDanhMuc":"1","maCauHoi":64,"maDonVi":6,"created_at":"2024-09-26T03:52:30.000000Z","updated_at":"2024-09-26T03:52:30.000000Z"}}', NULL, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(357, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 42, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":42,"maDanhMuc":"1","maCauHoi":68,"maDonVi":6,"created_at":"2024-09-26T03:52:30.000000Z","updated_at":"2024-09-26T03:52:30.000000Z"}}', NULL, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(358, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 43, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":43,"maDanhMuc":"1","maCauHoi":70,"maDonVi":6,"created_at":"2024-09-26T03:52:30.000000Z","updated_at":"2024-09-26T03:52:30.000000Z"}}', NULL, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(359, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 44, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":44,"maDanhMuc":"1","maCauHoi":74,"maDonVi":6,"created_at":"2024-09-26T03:52:30.000000Z","updated_at":"2024-09-26T03:52:30.000000Z"}}', NULL, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(360, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 45, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":45,"maDanhMuc":"1","maCauHoi":2,"maDonVi":4,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(361, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 46, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":46,"maDanhMuc":"1","maCauHoi":5,"maDonVi":4,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(362, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 47, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":47,"maDanhMuc":"1","maCauHoi":7,"maDonVi":7,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(363, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 48, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":48,"maDanhMuc":"1","maCauHoi":10,"maDonVi":7,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(364, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 49, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":49,"maDanhMuc":"1","maCauHoi":14,"maDonVi":7,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(365, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 50, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":50,"maDanhMuc":"1","maCauHoi":17,"maDonVi":6,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(366, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 51, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":51,"maDanhMuc":"1","maCauHoi":20,"maDonVi":6,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(367, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 52, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":52,"maDanhMuc":"1","maCauHoi":23,"maDonVi":6,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(368, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 53, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":53,"maDanhMuc":"1","maCauHoi":26,"maDonVi":6,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(369, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 54, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":54,"maDanhMuc":"1","maCauHoi":29,"maDonVi":6,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(370, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 55, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":55,"maDanhMuc":"1","maCauHoi":31,"maDonVi":6,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(371, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 56, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":56,"maDanhMuc":"1","maCauHoi":35,"maDonVi":6,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(372, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 57, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":57,"maDanhMuc":"1","maCauHoi":39,"maDonVi":6,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(373, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 58, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":58,"maDanhMuc":"1","maCauHoi":41,"maDonVi":6,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(374, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 59, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":59,"maDanhMuc":"1","maCauHoi":44,"maDonVi":6,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(375, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 60, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":60,"maDanhMuc":"1","maCauHoi":47,"maDonVi":6,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(376, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 61, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":61,"maDanhMuc":"1","maCauHoi":51,"maDonVi":6,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(377, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 62, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":62,"maDanhMuc":"1","maCauHoi":55,"maDonVi":6,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(378, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 63, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":63,"maDanhMuc":"1","maCauHoi":57,"maDonVi":6,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(379, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 64, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":64,"maDanhMuc":"1","maCauHoi":60,"maDonVi":6,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(380, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 65, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":65,"maDanhMuc":"1","maCauHoi":64,"maDonVi":6,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(381, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 66, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":66,"maDanhMuc":"1","maCauHoi":68,"maDonVi":6,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(382, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 67, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":67,"maDanhMuc":"1","maCauHoi":70,"maDonVi":6,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(383, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 68, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":68,"maDanhMuc":"1","maCauHoi":74,"maDonVi":6,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(384, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 69, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":69,"maDanhMuc":"2","maCauHoi":77,"maDonVi":14,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(385, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 70, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":70,"maDanhMuc":"2","maCauHoi":79,"maDonVi":10,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(386, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 71, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":71,"maDanhMuc":"2","maCauHoi":81,"maDonVi":14,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(387, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 72, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":72,"maDanhMuc":"2","maCauHoi":85,"maDonVi":4,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(388, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 73, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":73,"maDanhMuc":"2","maCauHoi":88,"maDonVi":4,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(389, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 74, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":74,"maDanhMuc":"2","maCauHoi":90,"maDonVi":8,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(390, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 75, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":75,"maDanhMuc":"2","maCauHoi":94,"maDonVi":14,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(391, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 76, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":76,"maDanhMuc":"2","maCauHoi":99,"maDonVi":14,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(392, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 77, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":77,"maDanhMuc":"2","maCauHoi":103,"maDonVi":14,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(393, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 78, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":78,"maDanhMuc":"2","maCauHoi":107,"maDonVi":14,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(394, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 79, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":79,"maDanhMuc":"2","maCauHoi":109,"maDonVi":14,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(395, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 80, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":80,"maDanhMuc":"2","maCauHoi":113,"maDonVi":14,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(396, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 81, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":81,"maDanhMuc":"2","maCauHoi":116,"maDonVi":14,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(397, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 82, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":82,"maDanhMuc":"2","maCauHoi":119,"maDonVi":14,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(398, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 83, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":83,"maDanhMuc":"2","maCauHoi":121,"maDonVi":14,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(399, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 84, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":84,"maDanhMuc":"2","maCauHoi":125,"maDonVi":14,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(400, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 85, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":85,"maDanhMuc":"2","maCauHoi":129,"maDonVi":14,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(401, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 86, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":86,"maDanhMuc":"2","maCauHoi":132,"maDonVi":14,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(402, 'default', 'created', 'Modules\\KhaoSat\\Entities\\CauHoiThamDinh', 'created', 87, 'Modules\\Users\\Entities\\User', 7, '{"attributes":{"id":87,"maDanhMuc":"2","maCauHoi":135,"maDonVi":14,"created_at":"2024-09-26T03:53:48.000000Z","updated_at":"2024-09-26T03:53:48.000000Z"}}', NULL, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(403, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 7, 'Modules\\Users\\Entities\\User', 14, '{"attributes":{"id":7,"diem":0,"diemThamDinh":2,"maCauHoi":94,"maDanhMuc":2,"noiDungTraLoi":[],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":14,"maNguoiThamDinh":14,"noiDungThamDinh":[{"id":95,"diem":0.5},{"id":97,"diem":0.5},{"id":96,"diem":1}],"ghiChuThamDinh":null,"parentId":84,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-26T03:56:21.000000Z"},"old":{"id":7,"diem":0,"diemThamDinh":0,"maCauHoi":94,"maDanhMuc":2,"noiDungTraLoi":[],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":84,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-25T15:03:21.000000Z"}}', NULL, '2024-09-25 20:56:21', '2024-09-25 20:56:21'),
+	(404, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 8, 'Modules\\Users\\Entities\\User', 14, '{"attributes":{"id":8,"diem":0,"diemThamDinh":5,"maCauHoi":99,"maDanhMuc":2,"noiDungTraLoi":[],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":14,"maNguoiThamDinh":14,"noiDungThamDinh":[{"id":100,"diem":5}],"ghiChuThamDinh":null,"parentId":98,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-26T03:56:21.000000Z"},"old":{"id":8,"diem":0,"diemThamDinh":0,"maCauHoi":99,"maDanhMuc":2,"noiDungTraLoi":[],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":98,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-25T15:03:21.000000Z"}}', NULL, '2024-09-25 20:56:21', '2024-09-25 20:56:21'),
+	(405, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 9, 'Modules\\Users\\Entities\\User', 14, '{"attributes":{"id":9,"diem":0,"diemThamDinh":4.5,"maCauHoi":103,"maDanhMuc":2,"noiDungTraLoi":[],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":14,"maNguoiThamDinh":14,"noiDungThamDinh":[{"id":105,"diem":1},{"id":104,"diem":2},{"id":106,"diem":1.5}],"ghiChuThamDinh":null,"parentId":98,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-26T03:56:21.000000Z"},"old":{"id":9,"diem":0,"diemThamDinh":0,"maCauHoi":103,"maDanhMuc":2,"noiDungTraLoi":[],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":98,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-25T15:03:21.000000Z"}}', NULL, '2024-09-25 20:56:21', '2024-09-25 20:56:21'),
+	(406, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 10, 'Modules\\Users\\Entities\\User', 14, '{"attributes":{"id":10,"diem":0,"diemThamDinh":2,"maCauHoi":107,"maDanhMuc":2,"noiDungTraLoi":[],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":14,"maNguoiThamDinh":14,"noiDungThamDinh":[{"id":108,"diem":2}],"ghiChuThamDinh":null,"parentId":98,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-26T03:56:21.000000Z"},"old":{"id":10,"diem":0,"diemThamDinh":0,"maCauHoi":107,"maDanhMuc":2,"noiDungTraLoi":[],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":98,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-25T15:03:21.000000Z"}}', NULL, '2024-09-25 20:56:21', '2024-09-25 20:56:21'),
+	(407, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 11, 'Modules\\Users\\Entities\\User', 14, '{"attributes":{"id":11,"diem":0,"diemThamDinh":3,"maCauHoi":109,"maDanhMuc":2,"noiDungTraLoi":[],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":14,"maNguoiThamDinh":14,"noiDungThamDinh":[{"id":110,"diem":1.5},{"id":111,"diem":1.5}],"ghiChuThamDinh":null,"parentId":98,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-26T03:56:21.000000Z"},"old":{"id":11,"diem":0,"diemThamDinh":0,"maCauHoi":109,"maDanhMuc":2,"noiDungTraLoi":[],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":98,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-25T15:03:21.000000Z"}}', NULL, '2024-09-25 20:56:21', '2024-09-25 20:56:21'),
+	(408, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 12, 'Modules\\Users\\Entities\\User', 14, '{"attributes":{"id":12,"diem":0,"diemThamDinh":3,"maCauHoi":113,"maDanhMuc":2,"noiDungTraLoi":[],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":14,"maNguoiThamDinh":14,"noiDungThamDinh":[{"id":114,"diem":2},{"id":115,"diem":1}],"ghiChuThamDinh":null,"parentId":112,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-26T03:56:21.000000Z"},"old":{"id":12,"diem":0,"diemThamDinh":0,"maCauHoi":113,"maDanhMuc":2,"noiDungTraLoi":[],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":112,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-25T15:03:21.000000Z"}}', NULL, '2024-09-25 20:56:21', '2024-09-25 20:56:21'),
+	(409, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 13, 'Modules\\Users\\Entities\\User', 14, '{"attributes":{"id":13,"diem":0,"diemThamDinh":3,"maCauHoi":116,"maDanhMuc":2,"noiDungTraLoi":[],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":14,"maNguoiThamDinh":14,"noiDungThamDinh":[{"id":117,"diem":2},{"id":118,"diem":1}],"ghiChuThamDinh":null,"parentId":112,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-26T03:56:21.000000Z"},"old":{"id":13,"diem":0,"diemThamDinh":0,"maCauHoi":116,"maDanhMuc":2,"noiDungTraLoi":[],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":112,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-25T15:03:21.000000Z"}}', NULL, '2024-09-25 20:56:21', '2024-09-25 20:56:21'),
+	(410, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 14, 'Modules\\Users\\Entities\\User', 14, '{"attributes":{"id":14,"diem":0,"diemThamDinh":2.5,"maCauHoi":119,"maDanhMuc":2,"noiDungTraLoi":[],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":14,"maNguoiThamDinh":14,"noiDungThamDinh":[{"id":120,"diem":2.5}],"ghiChuThamDinh":null,"parentId":112,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-26T03:56:21.000000Z"},"old":{"id":14,"diem":0,"diemThamDinh":0,"maCauHoi":119,"maDanhMuc":2,"noiDungTraLoi":[],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":112,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-25T15:03:21.000000Z"}}', NULL, '2024-09-25 20:56:21', '2024-09-25 20:56:21'),
+	(411, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 15, 'Modules\\Users\\Entities\\User', 14, '{"attributes":{"id":15,"diem":0,"diemThamDinh":3,"maCauHoi":121,"maDanhMuc":2,"noiDungTraLoi":[],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":14,"maNguoiThamDinh":14,"noiDungThamDinh":[{"id":122,"diem":1},{"id":123,"diem":2}],"ghiChuThamDinh":null,"parentId":112,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-26T03:56:21.000000Z"},"old":{"id":15,"diem":0,"diemThamDinh":0,"maCauHoi":121,"maDanhMuc":2,"noiDungTraLoi":[],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":112,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-25T15:03:21.000000Z"}}', NULL, '2024-09-25 20:56:21', '2024-09-25 20:56:21'),
+	(412, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 16, 'Modules\\Users\\Entities\\User', 14, '{"attributes":{"id":16,"diem":0,"diemThamDinh":2.5,"maCauHoi":125,"maDanhMuc":2,"noiDungTraLoi":[],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":14,"maNguoiThamDinh":14,"noiDungThamDinh":[{"id":126,"diem":1},{"id":127,"diem":0.5},{"id":128,"diem":1}],"ghiChuThamDinh":null,"parentId":124,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-26T03:56:21.000000Z"},"old":{"id":16,"diem":0,"diemThamDinh":0,"maCauHoi":125,"maDanhMuc":2,"noiDungTraLoi":[],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":124,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-25T15:03:21.000000Z"}}', NULL, '2024-09-25 20:56:21', '2024-09-25 20:56:21'),
+	(413, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 17, 'Modules\\Users\\Entities\\User', 14, '{"attributes":{"id":17,"diem":0,"diemThamDinh":0.5,"maCauHoi":129,"maDanhMuc":2,"noiDungTraLoi":[],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":14,"maNguoiThamDinh":14,"noiDungThamDinh":[{"id":130,"diem":0},{"id":131,"diem":0.5}],"ghiChuThamDinh":null,"parentId":124,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-26T03:56:21.000000Z"},"old":{"id":17,"diem":0,"diemThamDinh":0,"maCauHoi":129,"maDanhMuc":2,"noiDungTraLoi":[],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":124,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-25T15:03:21.000000Z"}}', NULL, '2024-09-25 20:56:21', '2024-09-25 20:56:21'),
+	(414, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 18, 'Modules\\Users\\Entities\\User', 14, '{"attributes":{"id":18,"diem":0,"diemThamDinh":3,"maCauHoi":132,"maDanhMuc":2,"noiDungTraLoi":[],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":14,"maNguoiThamDinh":14,"noiDungThamDinh":[{"id":133,"diem":2},{"id":134,"diem":1}],"ghiChuThamDinh":null,"parentId":124,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-26T03:56:21.000000Z"},"old":{"id":18,"diem":0,"diemThamDinh":0,"maCauHoi":132,"maDanhMuc":2,"noiDungTraLoi":[],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":124,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-25T15:03:21.000000Z"}}', NULL, '2024-09-25 20:56:21', '2024-09-25 20:56:21'),
+	(415, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 19, 'Modules\\Users\\Entities\\User', 14, '{"attributes":{"id":19,"diem":0,"diemThamDinh":2,"maCauHoi":135,"maDanhMuc":2,"noiDungTraLoi":[],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":14,"maNguoiThamDinh":14,"noiDungThamDinh":[{"id":136,"diem":2}],"ghiChuThamDinh":null,"parentId":124,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-26T03:56:21.000000Z"},"old":{"id":19,"diem":0,"diemThamDinh":0,"maCauHoi":135,"maDanhMuc":2,"noiDungTraLoi":[],"maDonViDanhGia":15,"maNguoiDanhGia":15,"fileDanhGia":null,"ghiChuDanhGia":null,"maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":124,"trangThai":2,"created_at":"2024-09-24T01:56:21.000000Z","updated_at":"2024-09-25T15:03:21.000000Z"}}', NULL, '2024-09-25 20:56:21', '2024-09-25 20:56:21'),
+	(416, 'default', 'created', 'Modules\\KhaoSat\\Entities\\BangDiem', 'created', 20, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":20,"diem":5,"diemThamDinh":0,"maCauHoi":2,"maDanhMuc":1,"noiDungTraLoi":[{"id":3,"diem":3},{"id":4,"diem":2}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":1,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:18.000000Z"}}', NULL, '2024-09-27 23:06:18', '2024-09-27 23:06:18'),
+	(417, 'default', 'created', 'Modules\\KhaoSat\\Entities\\BangDiem', 'created', 21, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":21,"diem":4,"diemThamDinh":0,"maCauHoi":5,"maDanhMuc":1,"noiDungTraLoi":[{"id":6,"diem":4}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":1,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:18.000000Z"}}', NULL, '2024-09-27 23:06:18', '2024-09-27 23:06:18'),
+	(418, 'default', 'created', 'Modules\\KhaoSat\\Entities\\BangDiem', 'created', 22, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":22,"diem":5,"diemThamDinh":0,"maCauHoi":7,"maDanhMuc":1,"noiDungTraLoi":[{"id":9,"diem":5}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":1,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:18.000000Z"}}', NULL, '2024-09-27 23:06:18', '2024-09-27 23:06:18'),
+	(419, 'default', 'created', 'Modules\\KhaoSat\\Entities\\BangDiem', 'created', 23, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":23,"diem":3.5,"diemThamDinh":0,"maCauHoi":10,"maDanhMuc":1,"noiDungTraLoi":[{"id":11,"diem":2.5},{"id":12,"diem":1}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":1,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:18.000000Z"}}', NULL, '2024-09-27 23:06:18', '2024-09-27 23:06:18'),
+	(420, 'default', 'created', 'Modules\\KhaoSat\\Entities\\BangDiem', 'created', 24, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":24,"diem":3.5,"diemThamDinh":0,"maCauHoi":14,"maDanhMuc":1,"noiDungTraLoi":[{"id":15,"diem":3.5}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":13,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:18.000000Z"}}', NULL, '2024-09-27 23:06:18', '2024-09-27 23:06:18'),
+	(421, 'default', 'created', 'Modules\\KhaoSat\\Entities\\BangDiem', 'created', 25, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":25,"diem":1,"diemThamDinh":0,"maCauHoi":17,"maDanhMuc":1,"noiDungTraLoi":[{"id":18,"diem":1}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":16,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:18.000000Z"}}', NULL, '2024-09-27 23:06:18', '2024-09-27 23:06:18'),
+	(422, 'default', 'created', 'Modules\\KhaoSat\\Entities\\BangDiem', 'created', 26, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":26,"diem":1,"diemThamDinh":0,"maCauHoi":20,"maDanhMuc":1,"noiDungTraLoi":[{"id":21,"diem":1}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":16,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:18.000000Z"}}', NULL, '2024-09-27 23:06:18', '2024-09-27 23:06:18'),
+	(423, 'default', 'created', 'Modules\\KhaoSat\\Entities\\BangDiem', 'created', 27, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":27,"diem":1,"diemThamDinh":0,"maCauHoi":23,"maDanhMuc":1,"noiDungTraLoi":[{"id":24,"diem":1}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":16,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:18.000000Z"}}', NULL, '2024-09-27 23:06:18', '2024-09-27 23:06:18'),
+	(424, 'default', 'created', 'Modules\\KhaoSat\\Entities\\BangDiem', 'created', 28, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":28,"diem":3,"diemThamDinh":0,"maCauHoi":26,"maDanhMuc":1,"noiDungTraLoi":[{"id":27,"diem":1.5},{"id":28,"diem":1.5}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":13,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:18.000000Z"}}', NULL, '2024-09-27 23:06:18', '2024-09-27 23:06:18'),
+	(425, 'default', 'created', 'Modules\\KhaoSat\\Entities\\BangDiem', 'created', 29, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":29,"diem":1.5,"diemThamDinh":0,"maCauHoi":29,"maDanhMuc":1,"noiDungTraLoi":[{"id":30,"diem":1.5}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":13,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:18.000000Z"}}', NULL, '2024-09-27 23:06:18', '2024-09-27 23:06:18'),
+	(426, 'default', 'created', 'Modules\\KhaoSat\\Entities\\BangDiem', 'created', 30, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":30,"diem":3,"diemThamDinh":0,"maCauHoi":31,"maDanhMuc":1,"noiDungTraLoi":[{"id":32,"diem":2},{"id":33,"diem":1}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":13,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:18.000000Z"}}', NULL, '2024-09-27 23:06:18', '2024-09-27 23:06:18'),
+	(427, 'default', 'created', 'Modules\\KhaoSat\\Entities\\BangDiem', 'created', 31, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":31,"diem":3,"diemThamDinh":0,"maCauHoi":35,"maDanhMuc":1,"noiDungTraLoi":[{"id":36,"diem":3}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":34,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:18.000000Z"}}', NULL, '2024-09-27 23:06:18', '2024-09-27 23:06:18'),
+	(428, 'default', 'created', 'Modules\\KhaoSat\\Entities\\BangDiem', 'created', 32, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":32,"diem":3,"diemThamDinh":0,"maCauHoi":39,"maDanhMuc":1,"noiDungTraLoi":[{"id":40,"diem":3}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":38,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:18.000000Z"}}', NULL, '2024-09-27 23:06:18', '2024-09-27 23:06:18'),
+	(429, 'default', 'created', 'Modules\\KhaoSat\\Entities\\BangDiem', 'created', 33, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":33,"diem":3.5,"diemThamDinh":0,"maCauHoi":41,"maDanhMuc":1,"noiDungTraLoi":[{"id":42,"diem":2},{"id":43,"diem":1.5}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":38,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:18.000000Z"}}', NULL, '2024-09-27 23:06:18', '2024-09-27 23:06:18'),
+	(430, 'default', 'created', 'Modules\\KhaoSat\\Entities\\BangDiem', 'created', 34, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":34,"diem":2.5,"diemThamDinh":0,"maCauHoi":44,"maDanhMuc":1,"noiDungTraLoi":[{"id":45,"diem":0.5},{"id":46,"diem":2}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":38,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:18.000000Z"}}', NULL, '2024-09-27 23:06:18', '2024-09-27 23:06:18'),
+	(431, 'default', 'created', 'Modules\\KhaoSat\\Entities\\BangDiem', 'created', 35, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":35,"diem":4,"diemThamDinh":0,"maCauHoi":47,"maDanhMuc":1,"noiDungTraLoi":[{"id":48,"diem":2},{"id":49,"diem":2}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":38,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:18.000000Z"}}', NULL, '2024-09-27 23:06:18', '2024-09-27 23:06:18'),
+	(432, 'default', 'created', 'Modules\\KhaoSat\\Entities\\BangDiem', 'created', 36, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":36,"diem":3,"diemThamDinh":0,"maCauHoi":51,"maDanhMuc":1,"noiDungTraLoi":[{"id":52,"diem":0.5},{"id":53,"diem":1.5},{"id":54,"diem":1}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":50,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:18.000000Z"}}', NULL, '2024-09-27 23:06:18', '2024-09-27 23:06:18'),
+	(433, 'default', 'created', 'Modules\\KhaoSat\\Entities\\BangDiem', 'created', 37, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":37,"diem":2.5,"diemThamDinh":0,"maCauHoi":55,"maDanhMuc":1,"noiDungTraLoi":[{"id":56,"diem":2.5}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":50,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:18.000000Z"}}', NULL, '2024-09-27 23:06:18', '2024-09-27 23:06:18'),
+	(434, 'default', 'created', 'Modules\\KhaoSat\\Entities\\BangDiem', 'created', 38, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":38,"diem":3,"diemThamDinh":0,"maCauHoi":57,"maDanhMuc":1,"noiDungTraLoi":[{"id":58,"diem":2},{"id":59,"diem":1}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":50,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:18.000000Z"}}', NULL, '2024-09-27 23:06:18', '2024-09-27 23:06:18'),
+	(435, 'default', 'created', 'Modules\\KhaoSat\\Entities\\BangDiem', 'created', 39, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":39,"diem":5,"diemThamDinh":0,"maCauHoi":60,"maDanhMuc":1,"noiDungTraLoi":[{"id":61,"diem":5}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":50,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:18.000000Z"}}', NULL, '2024-09-27 23:06:18', '2024-09-27 23:06:18'),
+	(436, 'default', 'created', 'Modules\\KhaoSat\\Entities\\BangDiem', 'created', 40, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":40,"diem":1,"diemThamDinh":0,"maCauHoi":64,"maDanhMuc":1,"noiDungTraLoi":[{"id":65,"diem":1},{"id":66,"diem":0}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":50,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:18.000000Z"}}', NULL, '2024-09-27 23:06:18', '2024-09-27 23:06:18'),
+	(437, 'default', 'created', 'Modules\\KhaoSat\\Entities\\BangDiem', 'created', 41, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":41,"diem":2.5,"diemThamDinh":0,"maCauHoi":68,"maDanhMuc":1,"noiDungTraLoi":[{"id":69,"diem":2.5}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":67,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:18.000000Z"}}', NULL, '2024-09-27 23:06:18', '2024-09-27 23:06:18'),
+	(438, 'default', 'created', 'Modules\\KhaoSat\\Entities\\BangDiem', 'created', 42, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":42,"diem":2.5,"diemThamDinh":0,"maCauHoi":70,"maDanhMuc":1,"noiDungTraLoi":[{"id":71,"diem":1},{"id":72,"diem":1},{"id":73,"diem":0.5}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":67,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:18.000000Z"}}', NULL, '2024-09-27 23:06:18', '2024-09-27 23:06:18'),
+	(439, 'default', 'created', 'Modules\\KhaoSat\\Entities\\BangDiem', 'created', 43, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":43,"diem":4,"diemThamDinh":0,"maCauHoi":74,"maDanhMuc":1,"noiDungTraLoi":[{"id":75,"diem":4}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":67,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:18.000000Z"}}', NULL, '2024-09-27 23:06:18', '2024-09-27 23:06:18'),
+	(440, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 20, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":20,"diem":5,"diemThamDinh":0,"maCauHoi":2,"maDanhMuc":1,"noiDungTraLoi":[{"id":3,"diem":3},{"id":4,"diem":2}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[{\\"fileUrl\\":\\"MinhChung\\\\\\\\DanhMuc_1\\\\\\\\2024\\\\\\\\DonVi_24\\\\\\\\CauHoi_2\\/MC_rUybq.doc\\",\\"fileName\\":\\"MC_rUybq.doc\\"}]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":1,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:28.000000Z"},"old":{"id":20,"diem":5,"diemThamDinh":0,"maCauHoi":2,"maDanhMuc":1,"noiDungTraLoi":[{"id":3,"diem":3},{"id":4,"diem":2}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":1,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:18.000000Z"}}', NULL, '2024-09-27 23:06:28', '2024-09-27 23:06:28'),
+	(441, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 20, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":20,"diem":5,"diemThamDinh":0,"maCauHoi":2,"maDanhMuc":1,"noiDungTraLoi":[{"id":3,"diem":3},{"id":4,"diem":2}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[{\\"fileUrl\\":\\"MinhChung\\\\\\\\DanhMuc_1\\\\\\\\2024\\\\\\\\DonVi_24\\\\\\\\CauHoi_2\\/MC_rUybq.doc\\",\\"fileName\\":\\"MC_rUybq.doc\\"},{\\"fileUrl\\":\\"MinhChung\\\\\\\\DanhMuc_1\\\\\\\\2024\\\\\\\\DonVi_24\\\\\\\\CauHoi_2\\/MC_6eXfp.docx\\",\\"fileName\\":\\"MC_6eXfp.docx\\"}]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":1,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:38.000000Z"},"old":{"id":20,"diem":5,"diemThamDinh":0,"maCauHoi":2,"maDanhMuc":1,"noiDungTraLoi":[{"id":3,"diem":3},{"id":4,"diem":2}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[{\\"fileUrl\\":\\"MinhChung\\\\\\\\DanhMuc_1\\\\\\\\2024\\\\\\\\DonVi_24\\\\\\\\CauHoi_2\\/MC_rUybq.doc\\",\\"fileName\\":\\"MC_rUybq.doc\\"}]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":1,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:28.000000Z"}}', NULL, '2024-09-27 23:06:38', '2024-09-27 23:06:38'),
+	(442, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 20, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":20,"diem":5,"diemThamDinh":0,"maCauHoi":2,"maDanhMuc":1,"noiDungTraLoi":[{"id":3,"diem":3},{"id":4,"diem":2}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[{\\"fileUrl\\":\\"MinhChung\\\\\\\\DanhMuc_1\\\\\\\\2024\\\\\\\\DonVi_24\\\\\\\\CauHoi_2\\/MC_6eXfp.docx\\",\\"fileName\\":\\"MC_6eXfp.docx\\"}]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":1,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:07:04.000000Z"},"old":{"id":20,"diem":5,"diemThamDinh":0,"maCauHoi":2,"maDanhMuc":1,"noiDungTraLoi":[{"id":3,"diem":3},{"id":4,"diem":2}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[{\\"fileUrl\\":\\"MinhChung\\\\\\\\DanhMuc_1\\\\\\\\2024\\\\\\\\DonVi_24\\\\\\\\CauHoi_2\\/MC_rUybq.doc\\",\\"fileName\\":\\"MC_rUybq.doc\\"},{\\"fileUrl\\":\\"MinhChung\\\\\\\\DanhMuc_1\\\\\\\\2024\\\\\\\\DonVi_24\\\\\\\\CauHoi_2\\/MC_6eXfp.docx\\",\\"fileName\\":\\"MC_6eXfp.docx\\"}]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":1,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:38.000000Z"}}', NULL, '2024-09-27 23:07:04', '2024-09-27 23:07:04'),
+	(443, 'default', 'created', 'Modules\\KhaoSat\\Entities\\BienBan', 'created', 5, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":5,"maDanhMuc":1,"maDonVi":24,"fileName":"{\\"fileUrl\\":\\"TongHop\\\\\\\\2024\\/TH_DonVi_24.docx\\",\\"fileName\\":\\"TH_DonVi_24.docx\\"}","maNguoiGuiDiem":24,"created_at":"2024-09-28T06:08:13.000000Z","updated_at":"2024-09-28T06:08:13.000000Z"}}', NULL, '2024-09-27 23:08:13', '2024-09-27 23:08:13'),
+	(444, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 20, 'Modules\\Users\\Entities\\User', 4, '{"attributes":{"id":20,"diem":5,"diemThamDinh":5,"maCauHoi":2,"maDanhMuc":1,"noiDungTraLoi":[{"id":3,"diem":3},{"id":4,"diem":2}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[{\\"fileUrl\\":\\"MinhChung\\\\\\\\DanhMuc_1\\\\\\\\2024\\\\\\\\DonVi_24\\\\\\\\CauHoi_2\\/MC_6eXfp.docx\\",\\"fileName\\":\\"MC_6eXfp.docx\\"}]","ghiChuDanhGia":"1","maDonViThamDinh":4,"maNguoiThamDinh":4,"noiDungThamDinh":[{"id":3,"diem":3},{"id":4,"diem":2}],"ghiChuThamDinh":"ghi ch\\u00fa","parentId":1,"trangThai":2,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T18:39:36.000000Z"},"old":{"id":20,"diem":5,"diemThamDinh":0,"maCauHoi":2,"maDanhMuc":1,"noiDungTraLoi":[{"id":3,"diem":3},{"id":4,"diem":2}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[{\\"fileUrl\\":\\"MinhChung\\\\\\\\DanhMuc_1\\\\\\\\2024\\\\\\\\DonVi_24\\\\\\\\CauHoi_2\\/MC_6eXfp.docx\\",\\"fileName\\":\\"MC_6eXfp.docx\\"}]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":1,"trangThai":2,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:08:13.000000Z"}}', NULL, '2024-09-28 11:39:36', '2024-09-28 11:39:36'),
+	(445, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 21, 'Modules\\Users\\Entities\\User', 4, '{"attributes":{"id":21,"diem":4,"diemThamDinh":5,"maCauHoi":5,"maDanhMuc":1,"noiDungTraLoi":[{"id":6,"diem":4}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":4,"maNguoiThamDinh":4,"noiDungThamDinh":[{"id":6,"diem":5}],"ghiChuThamDinh":"ghi ch\\u00fa","parentId":1,"trangThai":2,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T18:39:36.000000Z"},"old":{"id":21,"diem":4,"diemThamDinh":0,"maCauHoi":5,"maDanhMuc":1,"noiDungTraLoi":[{"id":6,"diem":4}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":1,"trangThai":2,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:08:13.000000Z"}}', NULL, '2024-09-28 11:39:36', '2024-09-28 11:39:36');
 
 -- Dumping structure for table cscc_sadec_db.bang_thong_ke
 DROP TABLE IF EXISTS `bang_thong_ke`;
@@ -418,10 +532,10 @@ DROP TABLE IF EXISTS `donvihanhchinh`;
 CREATE TABLE IF NOT EXISTS `donvihanhchinh` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `parentId` bigint NOT NULL DEFAULT '0',
-  `tenDonVi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `dienThoai` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tenDonVi` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `dienThoai` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `trangThai` tinyint NOT NULL DEFAULT '1',
   `sapXep` int DEFAULT NULL,
   `phanLoai` tinyint DEFAULT NULL,
@@ -501,43 +615,67 @@ CREATE TABLE IF NOT EXISTS `khaosat_bangdiem` (
   `diemThamDinh` float DEFAULT '0',
   `maCauHoi` bigint DEFAULT NULL,
   `maDanhMuc` bigint DEFAULT NULL,
-  `noiDungTraLoi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `noiDungTraLoi` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `maDonViDanhGia` bigint DEFAULT NULL,
   `maNguoiDanhGia` bigint DEFAULT NULL,
-  `fileDanhGia` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ghiChuDanhGia` text COLLATE utf8mb4_unicode_ci,
+  `fileDanhGia` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ghiChuDanhGia` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `maDonViThamDinh` bigint DEFAULT NULL,
   `maNguoiThamDinh` bigint DEFAULT NULL,
-  `noiDungThamDinh` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ghiChuThamDinh` text COLLATE utf8mb4_unicode_ci,
+  `noiDungThamDinh` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ghiChuThamDinh` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `parentId` bigint DEFAULT '0' COMMENT 'Mã câu hỏi cấp trên',
   `trangThai` tinyint DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
--- Dumping data for table cscc_sadec_db.khaosat_bangdiem: ~0 rows (approximately)
+-- Dumping data for table cscc_sadec_db.khaosat_bangdiem: ~43 rows (approximately)
 INSERT INTO `khaosat_bangdiem` (`id`, `diem`, `diemThamDinh`, `maCauHoi`, `maDanhMuc`, `noiDungTraLoi`, `maDonViDanhGia`, `maNguoiDanhGia`, `fileDanhGia`, `ghiChuDanhGia`, `maDonViThamDinh`, `maNguoiThamDinh`, `noiDungThamDinh`, `ghiChuThamDinh`, `parentId`, `trangThai`, `created_at`, `updated_at`) VALUES
-	(1, 4, 0.5, 77, 2, '[{"id":78,"diem":4}]', 15, 15, '[{"fileUrl":"MinhChung\\\\DanhMuc_2\\\\2024\\\\DonVi_15\\\\CauHoi_77/MC_9woOT.docx","fileName":"MC_9woOT.docx"}]', 'Ghi chú thứ 1', 14, 14, '[{"id":78,"diem":0.5}]', '1', 76, 3, '2024-09-23 18:56:21', '2024-09-25 10:07:21'),
-	(2, 5.5, 0.5, 79, 2, '[{"id":80,"diem":5.5}]', 15, 15, NULL, NULL, 10, 10, '[{"id":80,"diem":0.5}]', 'KT', 76, 3, '2024-09-23 18:56:21', '2024-09-25 10:24:59'),
-	(3, 3.5, 3, 81, 2, '[{"id":82,"diem":1.5},{"id":83,"diem":2}]', 15, 15, NULL, NULL, 14, 14, '[{"id":82,"diem":2},{"id":83,"diem":1}]', '2', 76, 3, '2024-09-23 18:56:21', '2024-09-25 10:07:21'),
-	(4, 2, 0, 85, 2, '[{"id":86,"diem":0.5},{"id":87,"diem":1.5}]', 15, 15, NULL, NULL, NULL, NULL, '[]', NULL, 84, 2, '2024-09-23 18:56:21', '2024-09-25 08:03:21'),
-	(5, 2, 0, 88, 2, '[{"id":89,"diem":2}]', 15, 15, NULL, NULL, NULL, NULL, '[]', NULL, 84, 2, '2024-09-23 18:56:21', '2024-09-25 08:03:21'),
-	(6, 1.5, 0, 90, 2, '[{"id":92,"diem":1.5}]', 15, 15, NULL, NULL, NULL, NULL, '[]', NULL, 84, 2, '2024-09-23 18:56:21', '2024-09-25 08:03:21'),
-	(7, 0, 0, 94, 2, '[]', 15, 15, NULL, NULL, NULL, NULL, '[]', NULL, 84, 2, '2024-09-23 18:56:21', '2024-09-25 08:03:21'),
-	(8, 0, 0, 99, 2, '[]', 15, 15, NULL, NULL, NULL, NULL, '[]', NULL, 98, 2, '2024-09-23 18:56:21', '2024-09-25 08:03:21'),
-	(9, 0, 0, 103, 2, '[]', 15, 15, NULL, NULL, NULL, NULL, '[]', NULL, 98, 2, '2024-09-23 18:56:21', '2024-09-25 08:03:21'),
-	(10, 0, 0, 107, 2, '[]', 15, 15, NULL, NULL, NULL, NULL, '[]', NULL, 98, 2, '2024-09-23 18:56:21', '2024-09-25 08:03:21'),
-	(11, 0, 0, 109, 2, '[]', 15, 15, NULL, NULL, NULL, NULL, '[]', NULL, 98, 2, '2024-09-23 18:56:21', '2024-09-25 08:03:21'),
-	(12, 0, 0, 113, 2, '[]', 15, 15, NULL, NULL, NULL, NULL, '[]', NULL, 112, 2, '2024-09-23 18:56:21', '2024-09-25 08:03:21'),
-	(13, 0, 0, 116, 2, '[]', 15, 15, NULL, NULL, NULL, NULL, '[]', NULL, 112, 2, '2024-09-23 18:56:21', '2024-09-25 08:03:21'),
-	(14, 0, 0, 119, 2, '[]', 15, 15, NULL, NULL, NULL, NULL, '[]', NULL, 112, 2, '2024-09-23 18:56:21', '2024-09-25 08:03:21'),
-	(15, 0, 0, 121, 2, '[]', 15, 15, NULL, NULL, NULL, NULL, '[]', NULL, 112, 2, '2024-09-23 18:56:21', '2024-09-25 08:03:21'),
-	(16, 0, 0, 125, 2, '[]', 15, 15, NULL, NULL, NULL, NULL, '[]', NULL, 124, 2, '2024-09-23 18:56:21', '2024-09-25 08:03:21'),
-	(17, 0, 0, 129, 2, '[]', 15, 15, NULL, NULL, NULL, NULL, '[]', NULL, 124, 2, '2024-09-23 18:56:21', '2024-09-25 08:03:21'),
-	(18, 0, 0, 132, 2, '[]', 15, 15, NULL, NULL, NULL, NULL, '[]', NULL, 124, 2, '2024-09-23 18:56:21', '2024-09-25 08:03:21'),
-	(19, 0, 0, 135, 2, '[]', 15, 15, NULL, NULL, NULL, NULL, '[]', NULL, 124, 2, '2024-09-23 18:56:21', '2024-09-25 08:03:21');
+	(1, 4, 0.5, 77, 2, '[{"id":78,"diem":4}]', 15, 15, '[{"fileUrl":"MinhChung\\\\DanhMuc_2\\\\2024\\\\DonVi_15\\\\CauHoi_77/MC_9woOT.docx","fileName":"MC_9woOT.docx"}]', 'Ghi chú thứ 1', 14, 14, '[{"id":78,"diem":0.5}]', '1', 76, 4, '2024-09-23 18:56:21', '2024-09-25 20:57:02'),
+	(2, 5.5, 2.5, 79, 2, '[{"id":80,"diem":5.5}]', 15, 15, NULL, NULL, 10, 10, '[{"id":80,"diem":2.5}]', 'KT', 76, 4, '2024-09-23 18:56:21', '2024-09-25 20:57:02'),
+	(3, 3.5, 3, 81, 2, '[{"id":82,"diem":1.5},{"id":83,"diem":2}]', 15, 15, NULL, NULL, 14, 14, '[{"id":82,"diem":2},{"id":83,"diem":1}]', '2', 76, 4, '2024-09-23 18:56:21', '2024-09-25 20:57:02'),
+	(4, 2, 3, 85, 2, '[{"id":86,"diem":0.5},{"id":87,"diem":1.5}]', 15, 15, NULL, NULL, 4, 4, '[{"id":86,"diem":0.5},{"id":87,"diem":2.5}]', 'tbxh', 84, 4, '2024-09-23 18:56:21', '2024-09-25 20:57:02'),
+	(5, 2, 2, 88, 2, '[{"id":89,"diem":2}]', 15, 15, NULL, NULL, 4, 4, '[{"id":89,"diem":2}]', 'tbxh', 84, 4, '2024-09-23 18:56:21', '2024-09-25 20:57:02'),
+	(6, 1.5, 3, 90, 2, '[{"id":92,"diem":1.5}]', 15, 15, NULL, NULL, 8, 8, '[{"id":91,"diem":1},{"id":92,"diem":1},{"id":93,"diem":1}]', 'tnmt', 84, 4, '2024-09-23 18:56:21', '2024-09-25 20:57:02'),
+	(7, 0, 2, 94, 2, '[]', 15, 15, NULL, NULL, 14, 14, '[{"id":95,"diem":0.5},{"id":97,"diem":0.5},{"id":96,"diem":1}]', NULL, 84, 4, '2024-09-23 18:56:21', '2024-09-25 20:57:02'),
+	(8, 0, 5, 99, 2, '[]', 15, 15, NULL, NULL, 14, 14, '[{"id":100,"diem":5}]', NULL, 98, 4, '2024-09-23 18:56:21', '2024-09-25 20:57:02'),
+	(9, 0, 4.5, 103, 2, '[]', 15, 15, NULL, NULL, 14, 14, '[{"id":105,"diem":1},{"id":104,"diem":2},{"id":106,"diem":1.5}]', NULL, 98, 4, '2024-09-23 18:56:21', '2024-09-25 20:57:02'),
+	(10, 0, 2, 107, 2, '[]', 15, 15, NULL, NULL, 14, 14, '[{"id":108,"diem":2}]', NULL, 98, 4, '2024-09-23 18:56:21', '2024-09-25 20:57:02'),
+	(11, 0, 3, 109, 2, '[]', 15, 15, NULL, NULL, 14, 14, '[{"id":110,"diem":1.5},{"id":111,"diem":1.5}]', NULL, 98, 4, '2024-09-23 18:56:21', '2024-09-25 20:57:02'),
+	(12, 0, 3, 113, 2, '[]', 15, 15, NULL, NULL, 14, 14, '[{"id":114,"diem":2},{"id":115,"diem":1}]', NULL, 112, 4, '2024-09-23 18:56:21', '2024-09-25 20:57:02'),
+	(13, 0, 3, 116, 2, '[]', 15, 15, NULL, NULL, 14, 14, '[{"id":117,"diem":2},{"id":118,"diem":1}]', NULL, 112, 4, '2024-09-23 18:56:21', '2024-09-25 20:57:02'),
+	(14, 0, 2.5, 119, 2, '[]', 15, 15, NULL, NULL, 14, 14, '[{"id":120,"diem":2.5}]', NULL, 112, 4, '2024-09-23 18:56:21', '2024-09-25 20:57:02'),
+	(15, 0, 3, 121, 2, '[]', 15, 15, NULL, NULL, 14, 14, '[{"id":122,"diem":1},{"id":123,"diem":2}]', NULL, 112, 4, '2024-09-23 18:56:21', '2024-09-25 20:57:02'),
+	(16, 0, 2.5, 125, 2, '[]', 15, 15, NULL, NULL, 14, 14, '[{"id":126,"diem":1},{"id":127,"diem":0.5},{"id":128,"diem":1}]', NULL, 124, 4, '2024-09-23 18:56:21', '2024-09-25 20:57:02'),
+	(17, 0, 0.5, 129, 2, '[]', 15, 15, NULL, NULL, 14, 14, '[{"id":130,"diem":0},{"id":131,"diem":0.5}]', NULL, 124, 4, '2024-09-23 18:56:21', '2024-09-25 20:57:02'),
+	(18, 0, 3, 132, 2, '[]', 15, 15, NULL, NULL, 14, 14, '[{"id":133,"diem":2},{"id":134,"diem":1}]', NULL, 124, 4, '2024-09-23 18:56:21', '2024-09-25 20:57:02'),
+	(19, 0, 2, 135, 2, '[]', 15, 15, NULL, NULL, 14, 14, '[{"id":136,"diem":2}]', NULL, 124, 4, '2024-09-23 18:56:21', '2024-09-25 20:57:02'),
+	(20, 5, 5, 2, 1, '[{"id":3,"diem":3},{"id":4,"diem":2}]', 24, 24, '[{"fileUrl":"MinhChung\\\\DanhMuc_1\\\\2024\\\\DonVi_24\\\\CauHoi_2/MC_6eXfp.docx","fileName":"MC_6eXfp.docx"}]', '1', 4, 4, '[{"id":3,"diem":3},{"id":4,"diem":2}]', 'ghi chú', 1, 3, '2024-09-27 23:06:18', '2024-09-28 11:52:26'),
+	(21, 4, 5, 5, 1, '[{"id":6,"diem":4}]', 24, 24, '[]', '1', 4, 4, '[{"id":6,"diem":5}]', 'ghi chú', 1, 3, '2024-09-27 23:06:18', '2024-09-28 11:52:26'),
+	(22, 5, 0, 7, 1, '[{"id":9,"diem":5}]', 24, 24, '[]', '1', NULL, NULL, '[]', NULL, 1, 2, '2024-09-27 23:06:18', '2024-09-27 23:08:13'),
+	(23, 3.5, 0, 10, 1, '[{"id":11,"diem":2.5},{"id":12,"diem":1}]', 24, 24, '[]', '1', NULL, NULL, '[]', NULL, 1, 2, '2024-09-27 23:06:18', '2024-09-27 23:08:13'),
+	(24, 3.5, 0, 14, 1, '[{"id":15,"diem":3.5}]', 24, 24, '[]', '1', NULL, NULL, '[]', NULL, 13, 2, '2024-09-27 23:06:18', '2024-09-27 23:08:13'),
+	(25, 1, 0, 17, 1, '[{"id":18,"diem":1}]', 24, 24, '[]', '1', NULL, NULL, '[]', NULL, 16, 2, '2024-09-27 23:06:18', '2024-09-27 23:08:13'),
+	(26, 1, 0, 20, 1, '[{"id":21,"diem":1}]', 24, 24, '[]', '1', NULL, NULL, '[]', NULL, 16, 2, '2024-09-27 23:06:18', '2024-09-27 23:08:13'),
+	(27, 1, 0, 23, 1, '[{"id":24,"diem":1}]', 24, 24, '[]', '1', NULL, NULL, '[]', NULL, 16, 2, '2024-09-27 23:06:18', '2024-09-27 23:08:13'),
+	(28, 3, 0, 26, 1, '[{"id":27,"diem":1.5},{"id":28,"diem":1.5}]', 24, 24, '[]', '1', NULL, NULL, '[]', NULL, 13, 2, '2024-09-27 23:06:18', '2024-09-27 23:08:13'),
+	(29, 1.5, 0, 29, 1, '[{"id":30,"diem":1.5}]', 24, 24, '[]', '1', NULL, NULL, '[]', NULL, 13, 2, '2024-09-27 23:06:18', '2024-09-27 23:08:13'),
+	(30, 3, 0, 31, 1, '[{"id":32,"diem":2},{"id":33,"diem":1}]', 24, 24, '[]', '1', NULL, NULL, '[]', NULL, 13, 2, '2024-09-27 23:06:18', '2024-09-27 23:08:13'),
+	(31, 3, 0, 35, 1, '[{"id":36,"diem":3}]', 24, 24, '[]', '1', NULL, NULL, '[]', NULL, 34, 2, '2024-09-27 23:06:18', '2024-09-27 23:08:13'),
+	(32, 3, 0, 39, 1, '[{"id":40,"diem":3}]', 24, 24, '[]', '1', NULL, NULL, '[]', NULL, 38, 2, '2024-09-27 23:06:18', '2024-09-27 23:08:13'),
+	(33, 3.5, 0, 41, 1, '[{"id":42,"diem":2},{"id":43,"diem":1.5}]', 24, 24, '[]', '1', NULL, NULL, '[]', NULL, 38, 2, '2024-09-27 23:06:18', '2024-09-27 23:08:13'),
+	(34, 2.5, 0, 44, 1, '[{"id":45,"diem":0.5},{"id":46,"diem":2}]', 24, 24, '[]', '1', NULL, NULL, '[]', NULL, 38, 2, '2024-09-27 23:06:18', '2024-09-27 23:08:13'),
+	(35, 4, 0, 47, 1, '[{"id":48,"diem":2},{"id":49,"diem":2}]', 24, 24, '[]', '1', NULL, NULL, '[]', NULL, 38, 2, '2024-09-27 23:06:18', '2024-09-27 23:08:13'),
+	(36, 3, 0, 51, 1, '[{"id":52,"diem":0.5},{"id":53,"diem":1.5},{"id":54,"diem":1}]', 24, 24, '[]', '1', NULL, NULL, '[]', NULL, 50, 2, '2024-09-27 23:06:18', '2024-09-27 23:08:13'),
+	(37, 2.5, 0, 55, 1, '[{"id":56,"diem":2.5}]', 24, 24, '[]', '1', NULL, NULL, '[]', NULL, 50, 2, '2024-09-27 23:06:18', '2024-09-27 23:08:13'),
+	(38, 3, 0, 57, 1, '[{"id":58,"diem":2},{"id":59,"diem":1}]', 24, 24, '[]', '1', NULL, NULL, '[]', NULL, 50, 2, '2024-09-27 23:06:18', '2024-09-27 23:08:13'),
+	(39, 5, 0, 60, 1, '[{"id":61,"diem":5}]', 24, 24, '[]', '1', NULL, NULL, '[]', NULL, 50, 2, '2024-09-27 23:06:18', '2024-09-27 23:08:13'),
+	(40, 1, 0, 64, 1, '[{"id":65,"diem":1},{"id":66,"diem":0}]', 24, 24, '[]', '1', NULL, NULL, '[]', NULL, 50, 2, '2024-09-27 23:06:18', '2024-09-27 23:08:13'),
+	(41, 2.5, 0, 68, 1, '[{"id":69,"diem":2.5}]', 24, 24, '[]', '1', NULL, NULL, '[]', NULL, 67, 2, '2024-09-27 23:06:18', '2024-09-27 23:08:13'),
+	(42, 2.5, 0, 70, 1, '[{"id":71,"diem":1},{"id":72,"diem":1},{"id":73,"diem":0.5}]', 24, 24, '[]', '1', NULL, NULL, '[]', NULL, 67, 2, '2024-09-27 23:06:18', '2024-09-27 23:08:13'),
+	(43, 4, 0, 74, 1, '[{"id":75,"diem":4}]', 24, 24, '[]', '1', NULL, NULL, '[]', NULL, 67, 2, '2024-09-27 23:06:18', '2024-09-27 23:08:13');
 
 -- Dumping structure for table cscc_sadec_db.khaosat_bienban
 DROP TABLE IF EXISTS `khaosat_bienban`;
@@ -545,16 +683,17 @@ CREATE TABLE IF NOT EXISTS `khaosat_bienban` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `maDanhMuc` bigint NOT NULL DEFAULT '0',
   `maDonVi` bigint NOT NULL DEFAULT '0',
-  `fileName` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'File biên bản',
+  `fileName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'File biên bản',
   `maNguoiGuiDiem` bigint DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table cscc_sadec_db.khaosat_bienban: ~0 rows (approximately)
 INSERT INTO `khaosat_bienban` (`id`, `maDanhMuc`, `maDonVi`, `fileName`, `maNguoiGuiDiem`, `created_at`, `updated_at`) VALUES
-	(4, 2, 15, '{"fileUrl":"TongHop\\\\2024/TH_DonVi_15.docx","fileName":"TH_DonVi_15.docx"}', 15, '2024-09-24 02:22:00', '2024-09-24 02:22:00');
+	(4, 2, 15, '{"fileUrl":"TongHop\\\\2024/TH_DonVi_15.docx","fileName":"TH_DonVi_15.docx"}', 15, '2024-09-24 02:22:00', '2024-09-24 02:22:00'),
+	(5, 1, 24, '{"fileUrl":"TongHop\\\\2024/TH_DonVi_24.docx","fileName":"TH_DonVi_24.docx"}', 24, '2024-09-27 23:08:13', '2024-09-27 23:08:13');
 
 -- Dumping structure for table cscc_sadec_db.khaosat_cauhoi
 DROP TABLE IF EXISTS `khaosat_cauhoi`;
@@ -562,15 +701,15 @@ CREATE TABLE IF NOT EXISTS `khaosat_cauhoi` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `parentId` bigint DEFAULT '0',
   `maDanhMuc` bigint DEFAULT '0',
-  `stt` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `tenCauHoi` text COLLATE utf8mb4_unicode_ci,
+  `stt` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tenCauHoi` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `diemNhoNhat` float DEFAULT '0',
   `buocNhay` float DEFAULT '0',
   `diemLonNhat` float DEFAULT '0',
   `loaiCauHoi` tinyint DEFAULT '1' COMMENT '1: Đánh giá, 2: Điều tra XHH',
-  `loaiDieuKien` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'AND' COMMENT 'AND, OR, MATH',
+  `loaiDieuKien` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT 'AND' COMMENT 'AND, OR, MATH',
   `danhDauCau` tinyint DEFAULT '0' COMMENT '1: là câu hỏi, 2: là câu trả lời, 0 là câu hỏi cấp trên, 3: câu đặc biệt',
-  `kieuNhapLieu` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Input, Select, Checkbox, Radio',
+  `kieuNhapLieu` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Input, Select, Checkbox, Radio',
   `sapXep` int DEFAULT '1',
   `trangThai` tinyint DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
@@ -721,44 +860,92 @@ INSERT INTO `khaosat_cauhoi` (`id`, `parentId`, `maDanhMuc`, `stt`, `tenCauHoi`,
 DROP TABLE IF EXISTS `khaosat_cauhoi_thamdinh`;
 CREATE TABLE IF NOT EXISTS `khaosat_cauhoi_thamdinh` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `maDanhMuc` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `maDanhMuc` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `maCauHoi` bigint DEFAULT NULL,
   `maDonVi` bigint DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
--- Dumping data for table cscc_sadec_db.khaosat_cauhoi_thamdinh: ~0 rows (approximately)
+-- Dumping data for table cscc_sadec_db.khaosat_cauhoi_thamdinh: ~20 rows (approximately)
 INSERT INTO `khaosat_cauhoi_thamdinh` (`id`, `maDanhMuc`, `maCauHoi`, `maDonVi`, `created_at`, `updated_at`) VALUES
-	(1, '1', 2, 4, '2024-09-25 08:58:54', '2024-09-25 08:58:54'),
-	(2, '1', 5, 4, '2024-09-25 08:58:54', '2024-09-25 08:58:54'),
-	(3, '1', 7, 7, '2024-09-25 08:58:54', '2024-09-25 08:58:54'),
-	(4, '1', 10, 7, '2024-09-25 08:58:54', '2024-09-25 08:58:54'),
-	(5, '1', 14, 7, '2024-09-25 08:58:54', '2024-09-25 08:58:54'),
-	(6, '1', 17, 6, '2024-09-25 08:58:54', '2024-09-25 08:58:54'),
-	(7, '1', 20, 6, '2024-09-25 08:58:54', '2024-09-25 08:58:54'),
-	(8, '1', 2, 4, '2024-09-25 09:00:35', '2024-09-25 09:00:35'),
-	(9, '1', 5, 4, '2024-09-25 09:00:35', '2024-09-25 09:00:35'),
-	(10, '1', 7, 7, '2024-09-25 09:00:35', '2024-09-25 09:00:35'),
-	(11, '1', 10, 7, '2024-09-25 09:00:35', '2024-09-25 09:00:35'),
-	(12, '1', 14, 7, '2024-09-25 09:00:35', '2024-09-25 09:00:35'),
-	(13, '1', 17, 6, '2024-09-25 09:00:35', '2024-09-25 09:00:35'),
-	(14, '1', 20, 6, '2024-09-25 09:00:35', '2024-09-25 09:00:35'),
-	(15, '2', 77, 14, '2024-09-25 09:00:35', '2024-09-25 09:00:35'),
-	(16, '2', 79, 10, '2024-09-25 09:00:35', '2024-09-25 09:00:35'),
-	(17, '2', 81, 14, '2024-09-25 09:00:35', '2024-09-25 09:00:35'),
-	(18, '2', 85, 4, '2024-09-25 09:00:35', '2024-09-25 09:00:35'),
-	(19, '2', 88, 4, '2024-09-25 09:00:35', '2024-09-25 09:00:35'),
-	(20, '2', 90, 8, '2024-09-25 09:00:35', '2024-09-25 09:00:35');
+	(21, '1', 2, 4, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(22, '1', 5, 4, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(23, '1', 7, 7, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(24, '1', 10, 7, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(25, '1', 14, 7, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(26, '1', 17, 6, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(27, '1', 20, 6, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(28, '1', 23, 6, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(29, '1', 26, 6, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(30, '1', 29, 6, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(31, '1', 31, 6, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(32, '1', 35, 6, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(33, '1', 39, 6, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(34, '1', 41, 6, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(35, '1', 44, 6, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(36, '1', 47, 6, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(37, '1', 51, 6, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(38, '1', 55, 6, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(39, '1', 57, 6, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(40, '1', 60, 6, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(41, '1', 64, 6, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(42, '1', 68, 6, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(43, '1', 70, 6, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(44, '1', 74, 6, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
+	(45, '1', 2, 4, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(46, '1', 5, 4, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(47, '1', 7, 7, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(48, '1', 10, 7, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(49, '1', 14, 7, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(50, '1', 17, 6, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(51, '1', 20, 6, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(52, '1', 23, 6, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(53, '1', 26, 6, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(54, '1', 29, 6, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(55, '1', 31, 6, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(56, '1', 35, 6, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(57, '1', 39, 6, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(58, '1', 41, 6, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(59, '1', 44, 6, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(60, '1', 47, 6, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(61, '1', 51, 6, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(62, '1', 55, 6, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(63, '1', 57, 6, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(64, '1', 60, 6, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(65, '1', 64, 6, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(66, '1', 68, 6, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(67, '1', 70, 6, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(68, '1', 74, 6, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(69, '2', 77, 14, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(70, '2', 79, 10, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(71, '2', 81, 14, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(72, '2', 85, 4, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(73, '2', 88, 4, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(74, '2', 90, 8, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(75, '2', 94, 14, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(76, '2', 99, 14, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(77, '2', 103, 14, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(78, '2', 107, 14, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(79, '2', 109, 14, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(80, '2', 113, 14, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(81, '2', 116, 14, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(82, '2', 119, 14, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(83, '2', 121, 14, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(84, '2', 125, 14, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(85, '2', 129, 14, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(86, '2', 132, 14, '2024-09-25 20:53:48', '2024-09-25 20:53:48'),
+	(87, '2', 135, 14, '2024-09-25 20:53:48', '2024-09-25 20:53:48');
 
 -- Dumping structure for table cscc_sadec_db.khaosat_danhmuc
 DROP TABLE IF EXISTS `khaosat_danhmuc`;
 CREATE TABLE IF NOT EXISTS `khaosat_danhmuc` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `tenDanhMuc` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tenDanhMuc` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `namApDung` int DEFAULT NULL,
-  `noiDung` text COLLATE utf8mb4_unicode_ci,
+  `noiDung` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `phanLoai` tinyint DEFAULT NULL COMMENT '1: Khóm ấp | 2: Xã phường',
   `trangThai` tinyint DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -766,9 +953,9 @@ CREATE TABLE IF NOT EXISTS `khaosat_danhmuc` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table cscc_sadec_db.khaosat_danhmuc: ~0 rows (approximately)
-INSERT INTO `khaosat_danhmuc` (`id`, `tenDanhMuc`, `namApDung`, `noiDung`, `trangThai`, `created_at`, `updated_at`) VALUES
-	(1, 'TIÊU CHUẨN DANH HIỆU KHÓM, ẤP VĂN HÓA 2024', 2024, 'Kèm theo Quyết định   /2024/QĐ-UBND ngày       tháng      năm 2024 của Ủy ban nhân dân tỉnh Đồng Tháp', 1, '2024-09-09 20:24:44', '2024-09-09 20:24:44'),
-	(2, 'TIÊU CHUẨN DANH HIỆU XÃ, PHƯỜNG, THỊ TRẤN TIÊU BIỂU 2024', 2024, 'Kèm theo Quyết định   /2024/QĐ-UBND ngày       tháng      năm 2024 của Ủy ban nhân dân tỉnh Đồng Tháp', 1, '2024-09-12 20:26:45', '2024-09-12 20:26:45');
+INSERT INTO `khaosat_danhmuc` (`id`, `tenDanhMuc`, `namApDung`, `noiDung`, `phanLoai`, `trangThai`, `created_at`, `updated_at`) VALUES
+	(1, 'TIÊU CHUẨN DANH HIỆU KHÓM, ẤP VĂN HÓA 2024', 2024, 'Kèm theo Quyết định   /2024/QĐ-UBND ngày       tháng      năm 2024 của Ủy ban nhân dân tỉnh Đồng Tháp', 2, 1, '2024-09-09 20:24:44', '2024-09-09 20:24:44'),
+	(2, 'TIÊU CHUẨN DANH HIỆU XÃ, PHƯỜNG, THỊ TRẤN TIÊU BIỂU 2024', 2024, 'Kèm theo Quyết định   /2024/QĐ-UBND ngày       tháng      năm 2024 của Ủy ban nhân dân tỉnh Đồng Tháp', 1, 1, '2024-09-12 20:26:45', '2024-09-12 20:26:45');
 
 -- Dumping structure for table cscc_sadec_db.khaosat_danhmuc_donvi
 DROP TABLE IF EXISTS `khaosat_danhmuc_donvi`;
@@ -779,7 +966,7 @@ CREATE TABLE IF NOT EXISTS `khaosat_danhmuc_donvi` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
--- Dumping data for table cscc_sadec_db.khaosat_danhmuc_donvi: ~43 rows (approximately)
+-- Dumping data for table cscc_sadec_db.khaosat_danhmuc_donvi: ~47 rows (approximately)
 INSERT INTO `khaosat_danhmuc_donvi` (`id`, `maDanhMuc`, `maDonVi`) VALUES
 	(1, 1, 60),
 	(2, 1, 58),
@@ -849,7 +1036,7 @@ CREATE TABLE IF NOT EXISTS `khaosat_diemtonghop` (
 DROP TABLE IF EXISTS `khaosat_thoigian`;
 CREATE TABLE IF NOT EXISTS `khaosat_thoigian` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `tenThoiGian` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tenThoiGian` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `batDau` timestamp NULL DEFAULT NULL,
   `ketThuc` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -868,7 +1055,7 @@ CREATE TABLE IF NOT EXISTS `khaosat_ykien` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `maDanhMuc` bigint DEFAULT NULL,
   `maCauHoi` bigint DEFAULT NULL,
-  `noiDung` text COLLATE utf8mb4_general_ci,
+  `noiDung` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `maDonVi` bigint DEFAULT NULL,
   `maNguoiYKien` bigint DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -882,7 +1069,7 @@ CREATE TABLE IF NOT EXISTS `khaosat_ykien` (
 DROP TABLE IF EXISTS `model_has_permissions`;
 CREATE TABLE IF NOT EXISTS `model_has_permissions` (
   `permission_id` bigint unsigned NOT NULL,
-  `model_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `model_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `model_id` bigint unsigned NOT NULL,
   PRIMARY KEY (`permission_id`,`model_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
@@ -893,7 +1080,7 @@ CREATE TABLE IF NOT EXISTS `model_has_permissions` (
 DROP TABLE IF EXISTS `model_has_roles`;
 CREATE TABLE IF NOT EXISTS `model_has_roles` (
   `role_id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `model_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `model_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `model_id` bigint unsigned NOT NULL,
   PRIMARY KEY (`role_id`,`model_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
@@ -967,7 +1154,7 @@ INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 DROP TABLE IF EXISTS `modules`;
 CREATE TABLE IF NOT EXISTS `modules` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -984,9 +1171,9 @@ INSERT INTO `modules` (`id`, `name`, `created_at`, `updated_at`) VALUES
 DROP TABLE IF EXISTS `permissions`;
 CREATE TABLE IF NOT EXISTS `permissions` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `display_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `guard_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `guard_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `module_id` bigint NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -1018,8 +1205,8 @@ INSERT INTO `permissions` (`id`, `name`, `display_name`, `guard_name`, `module_i
 DROP TABLE IF EXISTS `roles`;
 CREATE TABLE IF NOT EXISTS `roles` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `guard_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `guard_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -1066,9 +1253,9 @@ DROP TABLE IF EXISTS `sidebars`;
 CREATE TABLE IF NOT EXISTS `sidebars` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `parentId` bigint NOT NULL DEFAULT '0',
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order` int NOT NULL DEFAULT '1',
   `status` tinyint NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
@@ -1084,7 +1271,7 @@ INSERT INTO `sidebars` (`id`, `parentId`, `name`, `icon`, `url`, `order`, `statu
 	(4, 2, 'Người dùng', 'mdi-account-group-outline', NULL, 2, 1, '2022-04-17 01:17:25', NULL),
 	(5, 4, 'Tài khoản', 'mdi-label-outline', '/Auth/Users', 1, 1, '2022-04-17 01:17:28', NULL),
 	(6, 4, 'Phân quyền', 'mdi-label-outline', '/Auth/Roles', 2, 1, '2022-04-17 01:17:30', NULL),
-	(7, 0, 'Cải cách hành chính', NULL, NULL, 3, 1, '2022-04-17 01:17:30', NULL),
+	(7, 0, 'Đánh giá danh hiệu', NULL, NULL, 3, 1, '2022-04-17 01:17:30', NULL),
 	(8, 7, 'Đánh giá', 'mdi-counter', NULL, 1, 1, '2022-04-17 01:17:30', NULL),
 	(9, 8, 'Tự đánh giá', 'mdi-label-outline', '/Auth/KhaoSat/TuDanhGia/ChamDiem', 1, 1, '2022-04-17 01:17:30', NULL),
 	(10, 8, 'Gửi đánh giá', 'mdi-label-outline', '/Auth/KhaoSat/TuDanhGia/GuiDiem', 2, 1, '2022-04-17 01:17:30', NULL),
@@ -1116,7 +1303,7 @@ CREATE TABLE IF NOT EXISTS `sidebar_has_permissions` (
   `sidebarId` bigint NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
--- Dumping data for table cscc_sadec_db.sidebar_has_permissions: ~1.633 rows (approximately)
+-- Dumping data for table cscc_sadec_db.sidebar_has_permissions: ~2.204 rows (approximately)
 INSERT INTO `sidebar_has_permissions` (`permissionId`, `sidebarId`) VALUES
 	(5, 2),
 	(6, 2),
@@ -3327,18 +3514,18 @@ INSERT INTO `sidebar_has_permissions` (`permissionId`, `sidebarId`) VALUES
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `userName` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `fullName` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `userName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fullName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `provinceId` bigint NOT NULL DEFAULT '0',
   `districtId` bigint NOT NULL DEFAULT '0',
   `wardId` bigint NOT NULL DEFAULT '0',
   `organizationId` bigint DEFAULT NULL,
   `status` tinyint NOT NULL DEFAULT '1',
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)

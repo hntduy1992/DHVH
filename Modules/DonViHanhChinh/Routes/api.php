@@ -20,6 +20,7 @@ Route::prefix('auth/don-vi')->middleware('auth:api')->group(function () {
     Route::get('/select', [DonViHanhChinhController::class, 'danhSachSelect'])->middleware('role_or_permission:admin|organization-list');
     Route::post('/them-moi', [DonViHanhChinhController::class, 'themMoi'])->middleware('role_or_permission:admin|organization-create');
     Route::get('/id/{id}', [DonViHanhChinhController::class, 'layChiTiet'])->middleware('role_or_permission:admin|organization-create|organization-edit');
+    Route::get('/id/{id}', [DonViHanhChinhController::class, 'layChiTiet'])->middleware('role_or_permission:admin|thamdinh|xacnhan');
     Route::post('/id/{id}', [DonViHanhChinhController::class, 'capNhat'])->middleware('role_or_permission:admin|organization-create|organization-edit');
     Route::post('/xoa-don-vi', [DonViHanhChinhController::class, 'xoaDanhMuc'])->middleware('role_or_permission:admin|organization-delete');
 });
