@@ -36,10 +36,10 @@ CREATE TABLE IF NOT EXISTS `activity_log` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=446 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=444 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
--- Dumping data for table cscc_sadec_db.activity_log: ~308 rows (approximately)
-INSERT INTO `activity_log` (`id`, `log_name`, `description`, `subject_type`, `event`, `subject_id`, `causer_type`, `causer_id`, `properties`, `batch_uuid`, `created_at`, `updated_at`) VALUES
+-- Dumping data for table cscc_sadec_db.activity_log: ~410 rows (approximately)
+REPLACE INTO `activity_log` (`id`, `log_name`, `description`, `subject_type`, `event`, `subject_id`, `causer_type`, `causer_id`, `properties`, `batch_uuid`, `created_at`, `updated_at`) VALUES
 	(1, 'default', 'created', 'Modules\\KhaoSat\\Entities\\DanhMuc', 'created', 1, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":1,"tenDanhMuc":"TI\\u00caU CHU\\u1ea8N DANH HI\\u1ec6U KH\\u00d3M, \\u1ea4P V\\u0102N H\\u00d3A 2024","namApDung":2024,"noiDung":"K\\u00e8m theo Quy\\u1ebft \\u0111\\u1ecbnh   \\/2024\\/Q\\u0110-UBND ng\\u00e0y       th\\u00e1ng      n\\u0103m 2024 c\\u1ee7a \\u1ee6y ban nh\\u00e2n d\\u00e2n t\\u1ec9nh \\u0110\\u1ed3ng Th\\u00e1p","trangThai":1,"created_at":"2024-09-10T03:24:44.000000Z","updated_at":"2024-09-10T03:24:44.000000Z"}}', NULL, '2024-09-09 20:24:44', '2024-09-09 20:24:44'),
 	(2, 'default', 'created', 'Modules\\KhaoSat\\Entities\\DanhMucDonVi', 'created', 1, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":1,"maDanhMuc":1,"maDonVi":60}}', NULL, '2024-09-09 20:24:44', '2024-09-09 20:24:44'),
 	(3, 'default', 'created', 'Modules\\KhaoSat\\Entities\\DanhMucDonVi', 'created', 2, 'Modules\\Users\\Entities\\User', 1, '{"attributes":{"id":2,"maDanhMuc":1,"maDonVi":58}}', NULL, '2024-09-09 20:24:44', '2024-09-09 20:24:44'),
@@ -482,9 +482,7 @@ INSERT INTO `activity_log` (`id`, `log_name`, `description`, `subject_type`, `ev
 	(440, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 20, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":20,"diem":5,"diemThamDinh":0,"maCauHoi":2,"maDanhMuc":1,"noiDungTraLoi":[{"id":3,"diem":3},{"id":4,"diem":2}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[{\\"fileUrl\\":\\"MinhChung\\\\\\\\DanhMuc_1\\\\\\\\2024\\\\\\\\DonVi_24\\\\\\\\CauHoi_2\\/MC_rUybq.doc\\",\\"fileName\\":\\"MC_rUybq.doc\\"}]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":1,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:28.000000Z"},"old":{"id":20,"diem":5,"diemThamDinh":0,"maCauHoi":2,"maDanhMuc":1,"noiDungTraLoi":[{"id":3,"diem":3},{"id":4,"diem":2}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":1,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:18.000000Z"}}', NULL, '2024-09-27 23:06:28', '2024-09-27 23:06:28'),
 	(441, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 20, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":20,"diem":5,"diemThamDinh":0,"maCauHoi":2,"maDanhMuc":1,"noiDungTraLoi":[{"id":3,"diem":3},{"id":4,"diem":2}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[{\\"fileUrl\\":\\"MinhChung\\\\\\\\DanhMuc_1\\\\\\\\2024\\\\\\\\DonVi_24\\\\\\\\CauHoi_2\\/MC_rUybq.doc\\",\\"fileName\\":\\"MC_rUybq.doc\\"},{\\"fileUrl\\":\\"MinhChung\\\\\\\\DanhMuc_1\\\\\\\\2024\\\\\\\\DonVi_24\\\\\\\\CauHoi_2\\/MC_6eXfp.docx\\",\\"fileName\\":\\"MC_6eXfp.docx\\"}]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":1,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:38.000000Z"},"old":{"id":20,"diem":5,"diemThamDinh":0,"maCauHoi":2,"maDanhMuc":1,"noiDungTraLoi":[{"id":3,"diem":3},{"id":4,"diem":2}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[{\\"fileUrl\\":\\"MinhChung\\\\\\\\DanhMuc_1\\\\\\\\2024\\\\\\\\DonVi_24\\\\\\\\CauHoi_2\\/MC_rUybq.doc\\",\\"fileName\\":\\"MC_rUybq.doc\\"}]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":1,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:28.000000Z"}}', NULL, '2024-09-27 23:06:38', '2024-09-27 23:06:38'),
 	(442, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 20, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":20,"diem":5,"diemThamDinh":0,"maCauHoi":2,"maDanhMuc":1,"noiDungTraLoi":[{"id":3,"diem":3},{"id":4,"diem":2}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[{\\"fileUrl\\":\\"MinhChung\\\\\\\\DanhMuc_1\\\\\\\\2024\\\\\\\\DonVi_24\\\\\\\\CauHoi_2\\/MC_6eXfp.docx\\",\\"fileName\\":\\"MC_6eXfp.docx\\"}]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":1,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:07:04.000000Z"},"old":{"id":20,"diem":5,"diemThamDinh":0,"maCauHoi":2,"maDanhMuc":1,"noiDungTraLoi":[{"id":3,"diem":3},{"id":4,"diem":2}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[{\\"fileUrl\\":\\"MinhChung\\\\\\\\DanhMuc_1\\\\\\\\2024\\\\\\\\DonVi_24\\\\\\\\CauHoi_2\\/MC_rUybq.doc\\",\\"fileName\\":\\"MC_rUybq.doc\\"},{\\"fileUrl\\":\\"MinhChung\\\\\\\\DanhMuc_1\\\\\\\\2024\\\\\\\\DonVi_24\\\\\\\\CauHoi_2\\/MC_6eXfp.docx\\",\\"fileName\\":\\"MC_6eXfp.docx\\"}]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":1,"trangThai":1,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:06:38.000000Z"}}', NULL, '2024-09-27 23:07:04', '2024-09-27 23:07:04'),
-	(443, 'default', 'created', 'Modules\\KhaoSat\\Entities\\BienBan', 'created', 5, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":5,"maDanhMuc":1,"maDonVi":24,"fileName":"{\\"fileUrl\\":\\"TongHop\\\\\\\\2024\\/TH_DonVi_24.docx\\",\\"fileName\\":\\"TH_DonVi_24.docx\\"}","maNguoiGuiDiem":24,"created_at":"2024-09-28T06:08:13.000000Z","updated_at":"2024-09-28T06:08:13.000000Z"}}', NULL, '2024-09-27 23:08:13', '2024-09-27 23:08:13'),
-	(444, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 20, 'Modules\\Users\\Entities\\User', 4, '{"attributes":{"id":20,"diem":5,"diemThamDinh":5,"maCauHoi":2,"maDanhMuc":1,"noiDungTraLoi":[{"id":3,"diem":3},{"id":4,"diem":2}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[{\\"fileUrl\\":\\"MinhChung\\\\\\\\DanhMuc_1\\\\\\\\2024\\\\\\\\DonVi_24\\\\\\\\CauHoi_2\\/MC_6eXfp.docx\\",\\"fileName\\":\\"MC_6eXfp.docx\\"}]","ghiChuDanhGia":"1","maDonViThamDinh":4,"maNguoiThamDinh":4,"noiDungThamDinh":[{"id":3,"diem":3},{"id":4,"diem":2}],"ghiChuThamDinh":"ghi ch\\u00fa","parentId":1,"trangThai":2,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T18:39:36.000000Z"},"old":{"id":20,"diem":5,"diemThamDinh":0,"maCauHoi":2,"maDanhMuc":1,"noiDungTraLoi":[{"id":3,"diem":3},{"id":4,"diem":2}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[{\\"fileUrl\\":\\"MinhChung\\\\\\\\DanhMuc_1\\\\\\\\2024\\\\\\\\DonVi_24\\\\\\\\CauHoi_2\\/MC_6eXfp.docx\\",\\"fileName\\":\\"MC_6eXfp.docx\\"}]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":1,"trangThai":2,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:08:13.000000Z"}}', NULL, '2024-09-28 11:39:36', '2024-09-28 11:39:36'),
-	(445, 'default', 'updated', 'Modules\\KhaoSat\\Entities\\BangDiem', 'updated', 21, 'Modules\\Users\\Entities\\User', 4, '{"attributes":{"id":21,"diem":4,"diemThamDinh":5,"maCauHoi":5,"maDanhMuc":1,"noiDungTraLoi":[{"id":6,"diem":4}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":4,"maNguoiThamDinh":4,"noiDungThamDinh":[{"id":6,"diem":5}],"ghiChuThamDinh":"ghi ch\\u00fa","parentId":1,"trangThai":2,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T18:39:36.000000Z"},"old":{"id":21,"diem":4,"diemThamDinh":0,"maCauHoi":5,"maDanhMuc":1,"noiDungTraLoi":[{"id":6,"diem":4}],"maDonViDanhGia":24,"maNguoiDanhGia":24,"fileDanhGia":"[]","ghiChuDanhGia":"1","maDonViThamDinh":null,"maNguoiThamDinh":null,"noiDungThamDinh":[],"ghiChuThamDinh":null,"parentId":1,"trangThai":2,"created_at":"2024-09-28T06:06:18.000000Z","updated_at":"2024-09-28T06:08:13.000000Z"}}', NULL, '2024-09-28 11:39:36', '2024-09-28 11:39:36');
+	(443, 'default', 'created', 'Modules\\KhaoSat\\Entities\\BienBan', 'created', 5, 'Modules\\Users\\Entities\\User', 24, '{"attributes":{"id":5,"maDanhMuc":1,"maDonVi":24,"fileName":"{\\"fileUrl\\":\\"TongHop\\\\\\\\2024\\/TH_DonVi_24.docx\\",\\"fileName\\":\\"TH_DonVi_24.docx\\"}","maNguoiGuiDiem":24,"created_at":"2024-09-28T06:08:13.000000Z","updated_at":"2024-09-28T06:08:13.000000Z"}}', NULL, '2024-09-27 23:08:13', '2024-09-27 23:08:13');
 
 -- Dumping structure for table cscc_sadec_db.bang_thong_ke
 DROP TABLE IF EXISTS `bang_thong_ke`;
@@ -500,8 +498,8 @@ CREATE TABLE IF NOT EXISTS `bang_thong_ke` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table cscc_sadec_db.bang_thong_ke: ~22 rows (approximately)
-INSERT INTO `bang_thong_ke` (`id`, `nam`, `xp_tong_so`, `xp_dat_chuan`, `xp_ti_le`, `ka_tong_so`, `ka_dat_chuan`, `ka_ti_le`) VALUES
+-- Dumping data for table cscc_sadec_db.bang_thong_ke: ~24 rows (approximately)
+REPLACE INTO `bang_thong_ke` (`id`, `nam`, `xp_tong_so`, `xp_dat_chuan`, `xp_ti_le`, `ka_tong_so`, `ka_dat_chuan`, `ka_ti_le`) VALUES
 	(1, 2000, 8, 2, 25, 33, 18, 54.55),
 	(2, 2001, 8, 3, 37.5, 33, 22, 66.67),
 	(3, 2002, 8, 2, 25, 33, 12, 36.36),
@@ -545,7 +543,7 @@ CREATE TABLE IF NOT EXISTS `donvihanhchinh` (
 ) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table cscc_sadec_db.donvihanhchinh: ~60 rows (approximately)
-INSERT INTO `donvihanhchinh` (`id`, `parentId`, `tenDonVi`, `image`, `email`, `dienThoai`, `trangThai`, `sapXep`, `phanLoai`, `created_at`, `updated_at`) VALUES
+REPLACE INTO `donvihanhchinh` (`id`, `parentId`, `tenDonVi`, `image`, `email`, `dienThoai`, `trangThai`, `sapXep`, `phanLoai`, `created_at`, `updated_at`) VALUES
 	(1, 0, 'UBND Thành phố Sa Đéc', NULL, NULL, NULL, 1, NULL, NULL, '2022-04-30 20:58:38', '2022-05-22 23:57:52'),
 	(2, 1, 'Văn phòng HĐND và UBND Thành phố', NULL, NULL, NULL, 1, NULL, 0, '2022-04-30 21:01:55', '2022-05-22 23:58:12'),
 	(3, 1, 'Phòng Nội vụ', NULL, NULL, NULL, 1, NULL, 0, '2022-04-30 21:02:17', '2022-04-30 21:21:36'),
@@ -632,7 +630,7 @@ CREATE TABLE IF NOT EXISTS `khaosat_bangdiem` (
 ) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table cscc_sadec_db.khaosat_bangdiem: ~43 rows (approximately)
-INSERT INTO `khaosat_bangdiem` (`id`, `diem`, `diemThamDinh`, `maCauHoi`, `maDanhMuc`, `noiDungTraLoi`, `maDonViDanhGia`, `maNguoiDanhGia`, `fileDanhGia`, `ghiChuDanhGia`, `maDonViThamDinh`, `maNguoiThamDinh`, `noiDungThamDinh`, `ghiChuThamDinh`, `parentId`, `trangThai`, `created_at`, `updated_at`) VALUES
+REPLACE INTO `khaosat_bangdiem` (`id`, `diem`, `diemThamDinh`, `maCauHoi`, `maDanhMuc`, `noiDungTraLoi`, `maDonViDanhGia`, `maNguoiDanhGia`, `fileDanhGia`, `ghiChuDanhGia`, `maDonViThamDinh`, `maNguoiThamDinh`, `noiDungThamDinh`, `ghiChuThamDinh`, `parentId`, `trangThai`, `created_at`, `updated_at`) VALUES
 	(1, 4, 0.5, 77, 2, '[{"id":78,"diem":4}]', 15, 15, '[{"fileUrl":"MinhChung\\\\DanhMuc_2\\\\2024\\\\DonVi_15\\\\CauHoi_77/MC_9woOT.docx","fileName":"MC_9woOT.docx"}]', 'Ghi chú thứ 1', 14, 14, '[{"id":78,"diem":0.5}]', '1', 76, 4, '2024-09-23 18:56:21', '2024-09-25 20:57:02'),
 	(2, 5.5, 2.5, 79, 2, '[{"id":80,"diem":5.5}]', 15, 15, NULL, NULL, 10, 10, '[{"id":80,"diem":2.5}]', 'KT', 76, 4, '2024-09-23 18:56:21', '2024-09-25 20:57:02'),
 	(3, 3.5, 3, 81, 2, '[{"id":82,"diem":1.5},{"id":83,"diem":2}]', 15, 15, NULL, NULL, 14, 14, '[{"id":82,"diem":2},{"id":83,"diem":1}]', '2', 76, 4, '2024-09-23 18:56:21', '2024-09-25 20:57:02'),
@@ -652,8 +650,8 @@ INSERT INTO `khaosat_bangdiem` (`id`, `diem`, `diemThamDinh`, `maCauHoi`, `maDan
 	(17, 0, 0.5, 129, 2, '[]', 15, 15, NULL, NULL, 14, 14, '[{"id":130,"diem":0},{"id":131,"diem":0.5}]', NULL, 124, 4, '2024-09-23 18:56:21', '2024-09-25 20:57:02'),
 	(18, 0, 3, 132, 2, '[]', 15, 15, NULL, NULL, 14, 14, '[{"id":133,"diem":2},{"id":134,"diem":1}]', NULL, 124, 4, '2024-09-23 18:56:21', '2024-09-25 20:57:02'),
 	(19, 0, 2, 135, 2, '[]', 15, 15, NULL, NULL, 14, 14, '[{"id":136,"diem":2}]', NULL, 124, 4, '2024-09-23 18:56:21', '2024-09-25 20:57:02'),
-	(20, 5, 5, 2, 1, '[{"id":3,"diem":3},{"id":4,"diem":2}]', 24, 24, '[{"fileUrl":"MinhChung\\\\DanhMuc_1\\\\2024\\\\DonVi_24\\\\CauHoi_2/MC_6eXfp.docx","fileName":"MC_6eXfp.docx"}]', '1', 4, 4, '[{"id":3,"diem":3},{"id":4,"diem":2}]', 'ghi chú', 1, 3, '2024-09-27 23:06:18', '2024-09-28 11:52:26'),
-	(21, 4, 5, 5, 1, '[{"id":6,"diem":4}]', 24, 24, '[]', '1', 4, 4, '[{"id":6,"diem":5}]', 'ghi chú', 1, 3, '2024-09-27 23:06:18', '2024-09-28 11:52:26'),
+	(20, 5, 0, 2, 1, '[{"id":3,"diem":3},{"id":4,"diem":2}]', 24, 24, '[{"fileUrl":"MinhChung\\\\DanhMuc_1\\\\2024\\\\DonVi_24\\\\CauHoi_2/MC_6eXfp.docx","fileName":"MC_6eXfp.docx"}]', '1', NULL, NULL, '[]', NULL, 1, 2, '2024-09-27 23:06:18', '2024-09-27 23:08:13'),
+	(21, 4, 0, 5, 1, '[{"id":6,"diem":4}]', 24, 24, '[]', '1', NULL, NULL, '[]', NULL, 1, 2, '2024-09-27 23:06:18', '2024-09-27 23:08:13'),
 	(22, 5, 0, 7, 1, '[{"id":9,"diem":5}]', 24, 24, '[]', '1', NULL, NULL, '[]', NULL, 1, 2, '2024-09-27 23:06:18', '2024-09-27 23:08:13'),
 	(23, 3.5, 0, 10, 1, '[{"id":11,"diem":2.5},{"id":12,"diem":1}]', 24, 24, '[]', '1', NULL, NULL, '[]', NULL, 1, 2, '2024-09-27 23:06:18', '2024-09-27 23:08:13'),
 	(24, 3.5, 0, 14, 1, '[{"id":15,"diem":3.5}]', 24, 24, '[]', '1', NULL, NULL, '[]', NULL, 13, 2, '2024-09-27 23:06:18', '2024-09-27 23:08:13'),
@@ -690,8 +688,8 @@ CREATE TABLE IF NOT EXISTS `khaosat_bienban` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
--- Dumping data for table cscc_sadec_db.khaosat_bienban: ~0 rows (approximately)
-INSERT INTO `khaosat_bienban` (`id`, `maDanhMuc`, `maDonVi`, `fileName`, `maNguoiGuiDiem`, `created_at`, `updated_at`) VALUES
+-- Dumping data for table cscc_sadec_db.khaosat_bienban: ~1 rows (approximately)
+REPLACE INTO `khaosat_bienban` (`id`, `maDanhMuc`, `maDonVi`, `fileName`, `maNguoiGuiDiem`, `created_at`, `updated_at`) VALUES
 	(4, 2, 15, '{"fileUrl":"TongHop\\\\2024/TH_DonVi_15.docx","fileName":"TH_DonVi_15.docx"}', 15, '2024-09-24 02:22:00', '2024-09-24 02:22:00'),
 	(5, 1, 24, '{"fileUrl":"TongHop\\\\2024/TH_DonVi_24.docx","fileName":"TH_DonVi_24.docx"}', 24, '2024-09-27 23:08:13', '2024-09-27 23:08:13');
 
@@ -718,7 +716,7 @@ CREATE TABLE IF NOT EXISTS `khaosat_cauhoi` (
 ) ENGINE=InnoDB AUTO_INCREMENT=137 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table cscc_sadec_db.khaosat_cauhoi: ~136 rows (approximately)
-INSERT INTO `khaosat_cauhoi` (`id`, `parentId`, `maDanhMuc`, `stt`, `tenCauHoi`, `diemNhoNhat`, `buocNhay`, `diemLonNhat`, `loaiCauHoi`, `loaiDieuKien`, `danhDauCau`, `kieuNhapLieu`, `sapXep`, `trangThai`, `created_at`, `updated_at`) VALUES
+REPLACE INTO `khaosat_cauhoi` (`id`, `parentId`, `maDanhMuc`, `stt`, `tenCauHoi`, `diemNhoNhat`, `buocNhay`, `diemLonNhat`, `loaiCauHoi`, `loaiDieuKien`, `danhDauCau`, `kieuNhapLieu`, `sapXep`, `trangThai`, `created_at`, `updated_at`) VALUES
 	(1, 0, 1, '1', 'Đời sống kinh tế ổn định và phát triển', 0, 0, 20, 1, 'AND', 0, NULL, 1, 1, '2024-09-09 21:11:06', '2024-09-11 02:26:13'),
 	(2, 1, 1, '1.1', 'Tỷ lệ người trong độ tuổi lao động có việc làm và thu nhập ổn định', 0, 0, 5, 1, 'AND', 1, NULL, 1, 1, '2024-09-09 21:22:30', '2024-09-09 21:22:30'),
 	(3, 2, 1, NULL, 'Tỷ lệ người có việc làm trên dân số trong độ tuổi lao động có khả năng tham gia lao động từ 90% trở lên (nếu không đạt thì chấm 0 điểm)', 0.5, 0.5, 3, 1, 'AND', 2, 'Select', 1, 1, '2024-09-09 21:23:53', '2024-09-11 02:14:05'),
@@ -868,8 +866,8 @@ CREATE TABLE IF NOT EXISTS `khaosat_cauhoi_thamdinh` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
--- Dumping data for table cscc_sadec_db.khaosat_cauhoi_thamdinh: ~20 rows (approximately)
-INSERT INTO `khaosat_cauhoi_thamdinh` (`id`, `maDanhMuc`, `maCauHoi`, `maDonVi`, `created_at`, `updated_at`) VALUES
+-- Dumping data for table cscc_sadec_db.khaosat_cauhoi_thamdinh: ~67 rows (approximately)
+REPLACE INTO `khaosat_cauhoi_thamdinh` (`id`, `maDanhMuc`, `maCauHoi`, `maDonVi`, `created_at`, `updated_at`) VALUES
 	(21, '1', 2, 4, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
 	(22, '1', 5, 4, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
 	(23, '1', 7, 7, '2024-09-25 20:52:30', '2024-09-25 20:52:30'),
@@ -952,8 +950,8 @@ CREATE TABLE IF NOT EXISTS `khaosat_danhmuc` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
--- Dumping data for table cscc_sadec_db.khaosat_danhmuc: ~0 rows (approximately)
-INSERT INTO `khaosat_danhmuc` (`id`, `tenDanhMuc`, `namApDung`, `noiDung`, `phanLoai`, `trangThai`, `created_at`, `updated_at`) VALUES
+-- Dumping data for table cscc_sadec_db.khaosat_danhmuc: ~2 rows (approximately)
+REPLACE INTO `khaosat_danhmuc` (`id`, `tenDanhMuc`, `namApDung`, `noiDung`, `phanLoai`, `trangThai`, `created_at`, `updated_at`) VALUES
 	(1, 'TIÊU CHUẨN DANH HIỆU KHÓM, ẤP VĂN HÓA 2024', 2024, 'Kèm theo Quyết định   /2024/QĐ-UBND ngày       tháng      năm 2024 của Ủy ban nhân dân tỉnh Đồng Tháp', 2, 1, '2024-09-09 20:24:44', '2024-09-09 20:24:44'),
 	(2, 'TIÊU CHUẨN DANH HIỆU XÃ, PHƯỜNG, THỊ TRẤN TIÊU BIỂU 2024', 2024, 'Kèm theo Quyết định   /2024/QĐ-UBND ngày       tháng      năm 2024 của Ủy ban nhân dân tỉnh Đồng Tháp', 1, 1, '2024-09-12 20:26:45', '2024-09-12 20:26:45');
 
@@ -967,7 +965,7 @@ CREATE TABLE IF NOT EXISTS `khaosat_danhmuc_donvi` (
 ) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table cscc_sadec_db.khaosat_danhmuc_donvi: ~47 rows (approximately)
-INSERT INTO `khaosat_danhmuc_donvi` (`id`, `maDanhMuc`, `maDonVi`) VALUES
+REPLACE INTO `khaosat_danhmuc_donvi` (`id`, `maDanhMuc`, `maDonVi`) VALUES
 	(1, 1, 60),
 	(2, 1, 58),
 	(3, 1, 59),
@@ -1045,7 +1043,7 @@ CREATE TABLE IF NOT EXISTS `khaosat_thoigian` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table cscc_sadec_db.khaosat_thoigian: ~2 rows (approximately)
-INSERT INTO `khaosat_thoigian` (`id`, `tenThoiGian`, `batDau`, `ketThuc`, `created_at`, `updated_at`) VALUES
+REPLACE INTO `khaosat_thoigian` (`id`, `tenThoiGian`, `batDau`, `ketThuc`, `created_at`, `updated_at`) VALUES
 	(1, 'Thời gian tự đánh giá', '2024-01-01 01:00:00', '2024-12-31 23:59:00', '2024-01-01 01:00:00', '2024-01-01 01:00:00'),
 	(2, 'Thời gian thẩm định', '2024-01-01 01:00:00', '2024-12-31 23:59:00', '2024-01-01 01:00:00', '2024-01-01 01:00:00');
 
@@ -1086,7 +1084,7 @@ CREATE TABLE IF NOT EXISTS `model_has_roles` (
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table cscc_sadec_db.model_has_roles: ~62 rows (approximately)
-INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
+REPLACE INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 	(5, 'Modules\\Users\\Entities\\User', 1),
 	(5, 'Modules\\Users\\Entities\\User', 7),
 	(6, 'Modules\\Users\\Entities\\User', 15),
@@ -1161,7 +1159,7 @@ CREATE TABLE IF NOT EXISTS `modules` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table cscc_sadec_db.modules: ~4 rows (approximately)
-INSERT INTO `modules` (`id`, `name`, `created_at`, `updated_at`) VALUES
+REPLACE INTO `modules` (`id`, `name`, `created_at`, `updated_at`) VALUES
 	(1, 'Phân Quyền', '2022-04-08 11:40:21', NULL),
 	(2, 'Đơn vị hành chính', '2022-04-08 11:40:35', NULL),
 	(3, 'Người dùng', '2022-04-08 11:40:35', NULL),
@@ -1181,7 +1179,7 @@ CREATE TABLE IF NOT EXISTS `permissions` (
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table cscc_sadec_db.permissions: ~18 rows (approximately)
-INSERT INTO `permissions` (`id`, `name`, `display_name`, `guard_name`, `module_id`, `created_at`, `updated_at`) VALUES
+REPLACE INTO `permissions` (`id`, `name`, `display_name`, `guard_name`, `module_id`, `created_at`, `updated_at`) VALUES
 	(1, 'role-list', 'Danh sách', 'api', 1, '2022-04-08 11:41:07', NULL),
 	(2, 'role-create', 'Thêm mới', 'api', 1, '2022-04-08 11:41:23', NULL),
 	(3, 'role-edit', 'Chỉnh sửa', 'api', 1, '2022-04-08 11:41:49', NULL),
@@ -1213,7 +1211,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table cscc_sadec_db.roles: ~4 rows (approximately)
-INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
+REPLACE INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
 	(5, 'admin', 'api', '2022-04-16 18:56:27', '2022-04-16 18:56:27'),
 	(6, 'Tự đánh giá', 'api', '2022-04-30 21:23:35', '2022-05-03 20:10:50'),
 	(7, 'Thẩm định', 'api', '2022-04-30 21:24:19', '2022-05-03 20:11:12'),
@@ -1228,7 +1226,7 @@ CREATE TABLE IF NOT EXISTS `role_has_permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table cscc_sadec_db.role_has_permissions: ~18 rows (approximately)
-INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
+REPLACE INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 	(1, 5),
 	(2, 5),
 	(3, 5),
@@ -1264,7 +1262,7 @@ CREATE TABLE IF NOT EXISTS `sidebars` (
 ) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table cscc_sadec_db.sidebars: ~30 rows (approximately)
-INSERT INTO `sidebars` (`id`, `parentId`, `name`, `icon`, `url`, `order`, `status`, `created_at`, `updated_at`) VALUES
+REPLACE INTO `sidebars` (`id`, `parentId`, `name`, `icon`, `url`, `order`, `status`, `created_at`, `updated_at`) VALUES
 	(1, 0, 'Dashboard', 'mdi-monitor-dashboard', '/auth/dashboard', 1, 1, '2022-04-16 16:42:08', NULL),
 	(2, 0, 'Hệ thống', NULL, NULL, 2, 1, '2022-04-17 01:14:40', NULL),
 	(3, 2, 'Đơn vị hành chính', 'mdi-office-building', '/Auth/DonViHanhChinh', 1, 1, '2022-04-17 01:15:41', NULL),
@@ -1304,7 +1302,7 @@ CREATE TABLE IF NOT EXISTS `sidebar_has_permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table cscc_sadec_db.sidebar_has_permissions: ~2.204 rows (approximately)
-INSERT INTO `sidebar_has_permissions` (`permissionId`, `sidebarId`) VALUES
+REPLACE INTO `sidebar_has_permissions` (`permissionId`, `sidebarId`) VALUES
 	(5, 2),
 	(6, 2),
 	(7, 2),
@@ -3532,7 +3530,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table cscc_sadec_db.users: ~60 rows (approximately)
-INSERT INTO `users` (`id`, `userName`, `password`, `fullName`, `image`, `email`, `phone`, `provinceId`, `districtId`, `wardId`, `organizationId`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
+REPLACE INTO `users` (`id`, `userName`, `password`, `fullName`, `image`, `email`, `phone`, `provinceId`, `districtId`, `wardId`, `organizationId`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
 	(1, 'admin', 'e6e061838856bf47e1de730719fb2609', 'Administrators', NULL, NULL, NULL, 0, 0, 0, 1, 1, NULL, NULL, '2022-12-21 00:31:04'),
 	(2, 'vanphong', 'e6e061838856bf47e1de730719fb2609', 'Văn phòng HĐND và UBND Thành phố', NULL, NULL, NULL, 0, 0, 0, 2, 1, NULL, NULL, '2022-12-21 00:31:04'),
 	(3, 'nv', 'e6e061838856bf47e1de730719fb2609', 'Phòng Nội vụ', NULL, NULL, NULL, 0, 0, 0, 3, 1, NULL, NULL, '2022-12-21 00:31:04'),

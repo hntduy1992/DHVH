@@ -64,7 +64,7 @@ class TuDanhGiaController extends Controller
         ])->where('trangThai', '>=', 4)->first();
 
         if (!$trangThai) {
-            return response()->json(['success' => false, 'message' => 'Đơn vị chưa gửi đánh giá'], 404);
+            return response()->json(['success' => false, 'message' => 'Chưa nhận được kết quả thẩm định'], 404);
         }
 
         $cauHoi = CauHoi::with(['bangdiem' => function ($q) {

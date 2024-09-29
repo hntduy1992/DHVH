@@ -2,10 +2,10 @@
 
 namespace Modules\DonViHanhChinh\Http\Controllers;
 
-use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\DonViHanhChinh\Entities\DonViHanhChinh;
+
 
 class DonViHanhChinhController extends Controller
 {
@@ -22,10 +22,18 @@ class DonViHanhChinhController extends Controller
         return response()->json(['data' => $donVi->items(), 'totalRow' => $donVi->total(), 'success' => true]);
     }
 
-    public function danhSachSelect()
+    public function danhSachSelect(Request $request)
     {
-        $donVi = DonViHanhChinh::where('trangThai', 1)->orderBy('tenDonVi')->get(['id', 'tenDonVi']);
-        return response()->json(['data' => $donVi, 'success' => true]);
+        $phanLoai = intval($request->get('phanLoai'));
+        if ($phanLoai > 0) {
+            $donVi = DonViHanhChinh::query()
+                ->where('phanLoai', '=', $phanLoai)
+                ->where('trangThai', '=', 1)
+                ->orderBy('tenDonVi')
+                ->get(['id', 'tenDonVi']);
+        } else
+            $donVi = DonViHanhChinh::where('trangThai', 1)->orderBy('tenDonVi')->get(['id', 'tenDonVi']);
+        return response()->json(['data' => $donVi, 'phanLoai' => $phanLoai, 'success' => true]);
     }
 
     public function themMoi(Request $request)

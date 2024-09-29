@@ -18,4 +18,5 @@ class DanhMucDonVi extends Model
     {
         return LogOptions::defaults()->logAll();
     }
+
 }
