@@ -19,6 +19,7 @@ Route::prefix('auth/file-manager')->middleware('auth:api')->group(function () {
     Route::post('/singleUploadTongHop', [FileManagerController::class, 'singleUploadTongHop']);
     Route::delete('/singleRemove', [FileManagerController::class, 'singleRemove']);
     Route::post('/export-to-word', [FileManagerController::class, 'exportToWord']);
+    Route::post('/export-to-word/xac-nhan', [FileManagerController::class, 'exportToWordXacNhan']);
     Route::post('/export-to-word/tong-hop', [FileManagerController::class, 'exportToWordTongHop']);
 });
 
