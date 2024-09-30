@@ -1,2 +1,7 @@
 -> Chinh sua bieu mau
 -> Hien ten don vi xac nhan
+-> Cap nhat file minh chung Khi don vi goi y kien <<
+
+============Trạng thái chấm của đơn vị
+3> chờ xác nhận
+4> đã xác nhận - chờ ý kiến
