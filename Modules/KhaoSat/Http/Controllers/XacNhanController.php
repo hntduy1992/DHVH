@@ -46,8 +46,8 @@ class XacNhanController extends Controller
         foreach ($danhMuc as $item) {
             $max = $item->bangdiem?->max('trangThai');
             if ($max == 7) {
-                   $arr = $item->bangdiem->where('trangThai', 6);
-                   $max = count($arr) > 0 ? 6 : 7;
+                $arr = $item->bangdiem->where('trangThai', 6);
+                $max = count($arr) > 0 ? 6 : 7;
             }
 
 
@@ -56,7 +56,7 @@ class XacNhanController extends Controller
             $item->dathamdinh = $item->bangdiem->whereNull('maDonViThamDinh')->count() === 0 ? 1 : 0;
             $item->diemtonghop = $item->diemtong?->diem ?? 0;
             $item->trangThaiHienTai = $max;
-            $item->dinhkem = $item->bienban?->fileName ?? null;
+            $item->dinhkem = $item->bienban?->fileXacNhan ?? null;
             $item->makeHidden(['bangdiem', 'diemtong', 'bienban']);
         }
         return response()->json(['data' => $danhMuc, 'success' => true]);
@@ -174,14 +174,22 @@ class XacNhanController extends Controller
     public function kiemTraHopLe()
     {
         //Kiểm tra đơn vị đã gửi tự đánh giá hay chưa
-        $chuaGuiThamDinh = BangDiem::where([
+        $trangThai = BangDiem::where([
             'maDanhMuc' => request('maDanhMuc', -1),
             'maDonViDanhGia' => request('maDonVi', -1),
         ])->max('trangThai');
 
-        return response()->json(['data' => $chuaGuiThamDinh == 3]);
+        return response()->json(['data' => $trangThai]);
     }
 
+    public function resetDiemTongHop(Request $request): JsonResponse
+    {
+        BangDiem::where([
+            'maDanhMuc' => $request->get('maDanhMuc'),
+            'maDonViDanhGia' => $request->get('maDonVi'),
+        ])->update(['trangThai' => 5]);
+        return response()->json(['message' => 'Chuyển trạng thái thành công', 'success' => true]);
+    }
 
     public function guiDiemTongHop(Request $request): JsonResponse
     {
@@ -202,6 +210,8 @@ class XacNhanController extends Controller
             ])->update(['trangThai' => 8]);
         }
 
+
+
         return response()->json(['data' => $res, 'message' => 'Bạn đã cập nhật điểm thành công', 'success' => true]);
     }
 
@@ -213,7 +223,7 @@ class XacNhanController extends Controller
             'maDonViDanhGia' => request('maDonVi', -1),
         ])->max('trangThai');
 
-        return response()->json(['data' => $chuaGuiThamDinh == 5 || $chuaGuiThamDinh == 7]);
+        return response()->json(['data' => $chuaGuiThamDinh == 5 || $chuaGuiThamDinh == 7, 'test' => $chuaGuiThamDinh]);
     }
 
     public function traDiemTongHop()
@@ -228,7 +238,7 @@ class XacNhanController extends Controller
             BangDiem::whereIn('id', $bangDiem->pluck('id'))->update(['trangThai' => 2]);
         }
 
-        if ($bangDiem->max('trangThai') === 5 || $bangDiem->max('trangThai') === 7 ) {
+        if ($bangDiem->max('trangThai') === 5 || $bangDiem->max('trangThai') === 7) {
             BangDiem::whereIn('id', $bangDiem->pluck('id'))->update(['trangThai' => 6]);
         }
 

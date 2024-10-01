@@ -69,6 +69,7 @@ Route::prefix('auth/khao-sat')->middleware('auth:api')->group(function () {
         Route::get('/cau-hoi', [XacNhanController::class, 'cauHoi'])->middleware('role_or_permission:admin|xacnhandiem');
         Route::post('/gui-diem', [XacNhanController::class, 'luuDiem'])->middleware('role_or_permission:admin|xacnhandiem');
         Route::post('/kiem-tra-hop-le', [XacNhanController::class, 'kiemTraHopLe'])->middleware('role_or_permission:admin|xacnhandiem');
+        Route::post('/khoi-phuc-trang-thai', [XacNhanController::class, 'resetDiemTongHop'])->middleware('role_or_permission:admin|xacnhandiem');
         Route::post('/gui-diem-tong-hop', [XacNhanController::class, 'guiDiemTongHop'])->middleware('role_or_permission:admin|xacnhandiem');
         Route::post('/kiem-tra-tong-hop', [XacNhanController::class, 'kiemTraTongHop'])->middleware('role_or_permission:admin|xacnhandiem');
         Route::post('/tra-diem-tham-dinh', [XacNhanController::class, 'traDiemTongHop'])->middleware('role_or_permission:admin|xacnhandiem');

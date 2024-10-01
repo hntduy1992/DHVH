@@ -120,6 +120,7 @@ class TuDanhGiaController extends Controller
         }
         return response()->json(['data' => $bangDiem, 'message' => 'Cập nhật file minh chứng thất bại', 'success' => false]);
     }
+
     public function luuDiem(Request $request): JsonResponse
     {
 
@@ -179,22 +180,22 @@ class TuDanhGiaController extends Controller
         return response()->json(['data' => $updated, 'message' => 'Bạn đã gửi đánh giá thành công', 'success' => true]);
     }
 
-   /* public function guiYKien()
-    {
-        if (count(request('bangYKien', [])) > 0) {
-            foreach (request('bangYKien', []) as $key => $val) {
-                BangYKien::create([
-                    'maDanhMuc' => request('maDanhMuc'),
-                    'maCauHoi' => $val['id'],
-                    'noiDung' => $val['content'],
-                    'maDonVi' => auth('api')->user()->organizationId,
-                    'maNguoiYKien' => auth('api')->id()
-                ]);
-            }
-        }
-        BangDiem::where(['maDonViDanhGia' => auth('api')->user()->organizationId, 'maDanhMuc' => request('maDanhMuc', -1), 'trangThai' => 4])->update(['trangThai' => 5]);
-        return response()->json(['data' => true, 'message' => 'Bạn đã gửi đánh giá thành công', 'success' => true]);
-    } */
+    /* public function guiYKien()
+     {
+         if (count(request('bangYKien', [])) > 0) {
+             foreach (request('bangYKien', []) as $key => $val) {
+                 BangYKien::create([
+                     'maDanhMuc' => request('maDanhMuc'),
+                     'maCauHoi' => $val['id'],
+                     'noiDung' => $val['content'],
+                     'maDonVi' => auth('api')->user()->organizationId,
+                     'maNguoiYKien' => auth('api')->id()
+                 ]);
+             }
+         }
+         BangDiem::where(['maDonViDanhGia' => auth('api')->user()->organizationId, 'maDanhMuc' => request('maDanhMuc', -1), 'trangThai' => 4])->update(['trangThai' => 5]);
+         return response()->json(['data' => true, 'message' => 'Bạn đã gửi đánh giá thành công', 'success' => true]);
+     } */
     public function guiYKien()
     {
         if (count(request('bangYKien', [])) > 0) {
@@ -231,6 +232,7 @@ class TuDanhGiaController extends Controller
 
         return response()->json(['data' => true, 'message' => $mess, 'success' => true]);
     }
+
     public function kiemTraHopLe(Request $request)
     {
         $conHan = ThoiGian::whereDate('batDau', '<=', now())->whereDate('ketThuc', '>=', now())->where('id', 1)->first();
@@ -238,14 +240,17 @@ class TuDanhGiaController extends Controller
             $q->where('maDonVi', auth('api')->user()->organizationId);
         })->where(['id' => $request->get('maDanhMuc', -1), 'trangThai' => 1])->first(['id', 'tenDanhMuc']);
         $bienBan = BienBan::query()->where(['maDanhMuc' => $request->get('maDanhMuc'), 'maDonVi' => auth()->user()->organizationId])->first('fileName');
+        $trangThaiBangDiem = BangDiem::query()
+            ->where('maDanhMuc', '=', $request->get('maDanhMuc'))
+            ->where('maDonViDanhGia', '=', auth('api')->user()->organizationId)
+            ->max('trangThai');
         if ($bienBan)
-            return response()->json(['data' => ($conHan && $coQuyen
-//            && ($chuaGuiTuDanhGia == 1 || empty($chuaGuiTuDanhGia))
-            ), 'fileTongHop' => value($bienBan)->fileName]);
-
-        return response()->json(['data' => ($conHan && $coQuyen
-//            && ($chuaGuiTuDanhGia == 1 || empty($chuaGuiTuDanhGia))
-        ), 'fileTongHop' => null]);
+            return response()->json([
+                'data' => ($conHan && $coQuyen),
+                'trangThai' => $trangThaiBangDiem,
+                'fileTongHop' => value($bienBan)->fileName
+            ]);
+        return response()->json(['data' => false, 'trangThai' => $trangThaiBangDiem, 'fileTongHop' => null]);
     }
 
     public function kiemTraYKienHopLe(Request $request)
