@@ -47,6 +47,7 @@ Route::prefix('auth/khao-sat')->middleware('auth:api')->group(function () {
         Route::get('/danh-muc', [TuDanhGiaController::class, 'danhMuc'])->middleware('role_or_permission:admin|tudanhgia');
         Route::get('/cau-hoi', [TuDanhGiaController::class, 'cauHoi'])->middleware('role_or_permission:admin|tudanhgia');
         Route::get('/cau-hoi-y-kien', [TuDanhGiaController::class, 'cauHoiYKien'])->middleware('role_or_permission:admin|tudanhgia');
+        Route::post('/update-file-danh-gia', [TuDanhGiaController::class, 'updateFileDanhGia'])->middleware('role_or_permission:admin|tudanhgia');
         Route::post('/luu-diem', [TuDanhGiaController::class, 'luuDiem'])->middleware('role_or_permission:admin|tudanhgia');
         Route::post('/gui-diem', [TuDanhGiaController::class, 'guiDiem'])->middleware('role_or_permission:admin|tudanhgia');
         Route::post('/gui-y-kien', [TuDanhGiaController::class, 'guiYKien'])->middleware('role_or_permission:admin|tudanhgia');

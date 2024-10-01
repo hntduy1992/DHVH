@@ -2,6 +2,7 @@
 
 namespace Modules\KhaoSat\Http\Controllers;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -16,8 +17,13 @@ class XacNhanController extends Controller
 {
     public function danhMuc(Request $request)
     {
-        $danhMuc = DanhMuc::where(['trangThai' => 1, 'namApDung' => $request->get('namApDung', -1)])
-            ->orderBy('tenDanhMuc')->get(['id', 'tenDanhMuc']);
+
+        $maDonVi = $request->get('maDonVi');
+        $danhMuc = DanhMuc::query()->when($maDonVi, function (Builder $query, $maDonVi) {
+            $danhMucDonVis = DanhMucDonVi::query()->where('maDonVi', '=', $maDonVi)->pluck('maDanhMuc');
+            $query->whereIn('id', $danhMucDonVis);
+        })->where('trangThai', '=', 1)
+            ->where('namApDung', '=', $request->get('namApDung', -1))->get(['id', 'tenDanhMuc']);
         return response()->json(['data' => $danhMuc, 'success' => true]);
     }
 
@@ -88,7 +94,7 @@ class XacNhanController extends Controller
     public function cauHoi()
     {
         $questions = collect();
-        DanhMucDonVi::where(['maDanhMuc' => request('maDanhMuc', -1), 'maDonVi' => request('maDonVi', -1)])->firstOrFail();
+        $danhMucDonVi = DanhMucDonVi::where(['maDanhMuc' => request('maDanhMuc', -1), 'maDonVi' => request('maDonVi', -1)])->firstOrFail();
         $trangThai = BangDiem::where([
             'maDanhMuc' => request('maDanhMuc', -1),
             'maDonViDanhGia' => request('maDonVi', -1)

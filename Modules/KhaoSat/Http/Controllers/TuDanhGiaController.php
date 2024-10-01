@@ -12,6 +12,7 @@ use Modules\KhaoSat\Entities\CauHoi;
 use Modules\KhaoSat\Entities\DanhMuc;
 use Modules\KhaoSat\Entities\DanhMucDonVi;
 use Modules\KhaoSat\Entities\ThoiGian;
+use Psy\Util\Json;
 
 class TuDanhGiaController extends Controller
 {
@@ -108,6 +109,17 @@ class TuDanhGiaController extends Controller
         return;
     }
 
+    public function updateFileDanhGia(Request $request)
+    {
+        $bangDiem = BangDiem::query()->where('id', '=', (int)$request->get('id'))->first();
+        $fileDanhGia = $request->get('fileDanhGia');
+        if ($bangDiem) {
+            $bangDiem->fileDanhGia = $fileDanhGia;
+            $bangDiem->save();
+            return response()->json(['data' => $bangDiem, 'message' => 'Cập nhật file minh chứng thành công', 'success' => true]);
+        }
+        return response()->json(['data' => $bangDiem, 'message' => 'Cập nhật file minh chứng thất bại', 'success' => false]);
+    }
     public function luuDiem(Request $request): JsonResponse
     {
 
@@ -121,7 +133,7 @@ class TuDanhGiaController extends Controller
                 'diem' => $item['diem'],
                 'noiDungTraLoi' => $item['noiDungTraLoi'],
                 'maNguoiDanhGia' => auth('api')->id(),
-                'fileDanhGia' => !empty($item['fileDanhGia']) ? $item['fileDanhGia'] : null,
+                'fileDanhGia' => !empty($item['fileDanhGia']) ? $item['fileDanhGia'] : [],
                 'ghiChuDanhGia' => $item['ghiChuDanhGia'],
                 'maDonViThamDinh' => $item['maDonViThamDinh'],
                 'maNguoiThamDinh' => $item['maNguoiThamDinh'],
