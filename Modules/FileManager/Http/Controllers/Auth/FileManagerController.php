@@ -106,18 +106,10 @@ class FileManagerController extends Controller
         $table = new Table(['borderSize' => 0, 'borderColor' => 'black', 'unit' => TblWidth::AUTO]);
 
         $table->addRow();
-        $table->addCell(150, $cellRowSpan)->addText('STT', array_merge($styleFont, ['bold' => true]), array_merge($cellHCentered, ['alignment' => Jc::CENTER]));
+        $table->addCell(150, $cellRowSpan)->addText('STT', array_merge($styleFont, ['bold' => true]), $cellHCentered);
         $table->addCell(150, $cellRowSpan)->addText('Tên tiêu chi', array_merge($styleFont, ['bold' => true]), $cellHCentered);
         $table->addCell(150, $cellRowSpan)->addText('Điểm tối đa', array_merge($styleFont, ['bold' => true]), $cellHCentered);
-        $table->addCell(Converter::cmToTwip(5.32), $cellColSpan)->addText('Điểm đánh giá', array_merge($styleFont, ['bold' => true]), $cellHCentered);
-
-        $table->addRow();
-        $table->addCell(null, $cellRowContinue);
-        $table->addCell(null, $cellRowContinue);
-        $table->addCell(null, $cellRowContinue);
-        $table->addCell(Converter::cmToTwip(2.66), $cellVCentered)->addText('Điểm tự đánh giá', array_merge($styleFont, ['bold' => true]), $cellHCentered);
-        $table->addCell(Converter::cmToTwip(2.66), $cellVCentered)->addText('Điểm thẩm định', array_merge($styleFont, ['bold' => true]), $cellHCentered);
-
+        $table->addCell(150, $cellRowSpan)->addText('Điểm tự đánh giá', array_merge($styleFont, ['bold' => true]), $cellHCentered);
 
         $cauHoi = CauHoi::where(['maDanhMuc' => $request->get('danhMuc', 0), 'trangThai' => 1])
             ->orderBy('sapXep')
@@ -131,7 +123,6 @@ class FileManagerController extends Controller
         foreach ($cauHoi->where('parentId', 0) as $item) {
             $row = $bangTongHop->where('maCauHoi', $item->id)->first();
             $item->diemDanhGia = $row['diem'];
-            $item->diemThamDinh = $row['diemThamDinh'];
             $questions->push($item);
             $this->children($questions, $cauHoi, $item, $bangTongHop, $bangDiem);
         }
@@ -149,12 +140,10 @@ class FileManagerController extends Controller
                 ), array_merge($cellHCentered, ['alignment' => Jc::BOTH,]));
             $table->addCell(null, $cellVCentered)->addText(($question->danhDauCau !== 2 && $question->danhDauCau !== 3) ? $question->diemLonNhat : null, array_merge($styleFont, ['bold' => $question->parentId == 0]), $cellHCentered);
             $table->addCell(null, $cellVCentered)->addText($question->diemDanhGia, array_merge($styleFont, ['bold' => $question->parentId == 0]), $cellHCentered);
-            $table->addCell(null, $cellVCentered)->addText($question->diemThamDinh, array_merge($styleFont, ['bold' => $question->parentId == 0]), $cellHCentered);
 
             if ($question->parentId == 0) {
                 $tongDiem = $tongDiem + $question->diemLonNhat;
                 $tongDiemDanhGia = $tongDiemDanhGia + $question->diemDanhGia;
-                $tongDiemThamDinh = $tongDiemThamDinh + $question->diemThamDinh;
             }
 
         }
@@ -164,7 +153,6 @@ class FileManagerController extends Controller
         $table->addCell(null, $cellVCentered)->addText('Tổng điểm', array_merge($styleFont, ['bold' => true]), $cellHCentered);
         $table->addCell(null, $cellVCentered)->addText($tongDiem, array_merge($styleFont, ['bold' => true]), $cellHCentered);
         $table->addCell(Converter::cmToTwip(2.66), $cellVCentered)->addText($tongDiemDanhGia, array_merge($styleFont, ['bold' => true]), $cellHCentered);
-        $table->addCell(Converter::cmToTwip(2.66), $cellVCentered)->addText($tongDiemThamDinh, array_merge($styleFont, ['bold' => true]), $cellHCentered);
 
         $templateProcessor->setComplexBlock('{table}', $table);
         $char = Str::random(10);
@@ -172,7 +160,6 @@ class FileManagerController extends Controller
 
         $templateProcessor->setValue('tongDiem', $tongDiem);
         $templateProcessor->setValue('tongDiemDanhGia', $tongDiemDanhGia);
-        $templateProcessor->setValue('tongDiemThamDinh', $tongDiemThamDinh);
 
         if (!Storage::exists("/public/TuDanhGia/{$year}")) {
             Storage::makeDirectory("/public/TuDanhGia/{$year}");

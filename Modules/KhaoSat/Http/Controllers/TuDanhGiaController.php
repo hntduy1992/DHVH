@@ -5,6 +5,7 @@ namespace Modules\KhaoSat\Http\Controllers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\FileManager\Http\Controllers\Auth\FileManagerController;
 use Modules\KhaoSat\Entities\BangDiem;
 use Modules\KhaoSat\Entities\BangYKien;
 use Modules\KhaoSat\Entities\BienBan;
@@ -12,7 +13,6 @@ use Modules\KhaoSat\Entities\CauHoi;
 use Modules\KhaoSat\Entities\DanhMuc;
 use Modules\KhaoSat\Entities\DanhMucDonVi;
 use Modules\KhaoSat\Entities\ThoiGian;
-use Psy\Util\Json;
 
 class TuDanhGiaController extends Controller
 {
@@ -123,7 +123,6 @@ class TuDanhGiaController extends Controller
 
     public function luuDiem(Request $request): JsonResponse
     {
-
         collect($request->all())->each(function ($item) {
             BangDiem::updateOrCreate([
                 'maDonViDanhGia' => auth('api')->user()->organizationId,
@@ -134,7 +133,7 @@ class TuDanhGiaController extends Controller
                 'diem' => $item['diem'],
                 'noiDungTraLoi' => $item['noiDungTraLoi'],
                 'maNguoiDanhGia' => auth('api')->id(),
-                'fileDanhGia' => !empty($item['fileDanhGia']) ? $item['fileDanhGia'] : [],
+                'fileDanhGia' => $item['fileDanhGia'],
                 'ghiChuDanhGia' => $item['ghiChuDanhGia'],
                 'maDonViThamDinh' => $item['maDonViThamDinh'],
                 'maNguoiThamDinh' => $item['maNguoiThamDinh'],
@@ -143,28 +142,8 @@ class TuDanhGiaController extends Controller
                 'trangThai' => 1
             ]);
         });
-        return response()->json(['data' => $request->all(), 'message' => 'Bạn đã lưu điểm tự đánh giá thành công', 'success' => true]);
-//
-//        collect($request->all())->each(function ($item) {
-//            BangDiem::updateOrCreate([
-//                'maDonViDanhGia' => auth('api')->user()->organizationId,
-//                'maCauHoi' => $item['maCauHoi'],
-//                'parentId' => $item['parentId'],
-//                'maDanhMuc' => $item['maDanhMuc']
-//            ], [
-//                'diem' => $item['diem'],
-//                'noiDungTraLoi' => $item['noiDungTraLoi'],
-//                'maNguoiDanhGia' => auth('api')->id(),
-//                'fileDanhGia' => !empty($item['fileDanhGia']) ? $item['fileDanhGia'] : null,
-//                'ghiChuDanhGia' => $item['ghiChuDanhGia'],
-//                'maDonViThamDinh' => $item['maDonViThamDinh'],
-//                'maNguoiThamDinh' => $item['maNguoiThamDinh'],
-//                'noiDungThamDinh' => $item['noiDungThamDinh'],
-//                'ghiChuThamDinh' => $item['ghiChuThamDinh'],
-//                'trangThai' => 1
-//            ]);
-//        });
-//        return response()->json(['data' => $request->all(), 'message' => 'Bạn đã lưu điểm tự đánh giá thành công', 'success' => true]);
+
+        return response()->json([ 'message' => 'Bạn đã lưu điểm tự đánh giá thành công', 'success' => true]);
     }
 
     public function guiDiem()
@@ -180,22 +159,6 @@ class TuDanhGiaController extends Controller
         return response()->json(['data' => $updated, 'message' => 'Bạn đã gửi đánh giá thành công', 'success' => true]);
     }
 
-    /* public function guiYKien()
-     {
-         if (count(request('bangYKien', [])) > 0) {
-             foreach (request('bangYKien', []) as $key => $val) {
-                 BangYKien::create([
-                     'maDanhMuc' => request('maDanhMuc'),
-                     'maCauHoi' => $val['id'],
-                     'noiDung' => $val['content'],
-                     'maDonVi' => auth('api')->user()->organizationId,
-                     'maNguoiYKien' => auth('api')->id()
-                 ]);
-             }
-         }
-         BangDiem::where(['maDonViDanhGia' => auth('api')->user()->organizationId, 'maDanhMuc' => request('maDanhMuc', -1), 'trangThai' => 4])->update(['trangThai' => 5]);
-         return response()->json(['data' => true, 'message' => 'Bạn đã gửi đánh giá thành công', 'success' => true]);
-     } */
     public function guiYKien()
     {
         if (count(request('bangYKien', [])) > 0) {
@@ -248,9 +211,9 @@ class TuDanhGiaController extends Controller
             return response()->json([
                 'data' => ($conHan && $coQuyen),
                 'trangThai' => $trangThaiBangDiem,
-                'fileTongHop' => value($bienBan)->fileName
+                'fileBienBan' => value($bienBan)->fileName
             ]);
-        return response()->json(['data' => false, 'trangThai' => $trangThaiBangDiem, 'fileTongHop' => null]);
+        return response()->json(['data' => ($conHan && $coQuyen), 'trangThai' => $trangThaiBangDiem, 'fileBienBan' => null]);
     }
 
     public function kiemTraYKienHopLe(Request $request)

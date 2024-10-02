@@ -1,5 +1,5 @@
 -> Chinh sua bieu mau
--> Xu ly luong cham diem
+-> Xử lý gởi điểm
 
 ============Trạng thái chấm của đơn vị
 3> chờ xác nhận
