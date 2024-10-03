@@ -17,10 +17,16 @@ class ThamDinhController extends Controller
 {
     public function danhMuc(Request $request)
     {
-        $danhMuc = DanhMuc::whereHas('thamdinh', function ($q) use ($request) {
+        $maDonVi = $request->get('maDonVi');
+        $danhMuc = DanhMuc::query()->when($maDonVi, function ($q) use ($maDonVi) {
+            return $q->whereHas('donvi', function ($q) use ($maDonVi) {
+                $q->where('maDonVi', $maDonVi);
+            });
+        });
+        $danhMuc = $danhMuc->whereHas('thamdinh', function ($q) use ($request) {
             $q->where('maDonVi', auth('api')->user()->organizationId);
-        })->where(['trangThai' => 1, 'namApDung' => $request->get('namApDung', -1)])
-            ->orderBy('tenDanhMuc')->get(['id', 'tenDanhMuc']);
+        })->where(['trangThai' => 1])
+            ->orderBy('tenDanhMuc')->get(['id', 'tenDanhMuc','namApDung']);
         return response()->json(['data' => $danhMuc, 'success' => true]);
     }
 
@@ -59,7 +65,6 @@ class ThamDinhController extends Controller
             $item->trangThaiHienTai = $item->bangdiem->whereIn('maCauHoi', $cauHoiThamDinh->thamdinh?->pluck('maCauHoi'))->max('trangThai');
             $item->makeHidden(['bangdiem']);
         }
-
         return response()->json(['data' => $danhMuc, 'success' => true]);
     }
 
@@ -67,7 +72,6 @@ class ThamDinhController extends Controller
     {
         $questions = collect();
         DanhMucDonVi::where(['maDanhMuc' => request('maDanhMuc', -1), 'maDonVi' => request('maDonVi', -1)])->firstOrFail();
-
         $trangThai = BangDiem::where([
             'maDanhMuc' => request('maDanhMuc', -1),
             'maDonViDanhGia' => request('maDonVi', -1)
@@ -87,10 +91,10 @@ class ThamDinhController extends Controller
                     $q->where('maDonVi', request('maDonVi', -1));
                 }
             ])->whereHas('danhmuc', function ($q) {
-                $q->where([
-                    'id' => request('maDanhMuc', -1)
-                ]);
-            })
+            $q->where([
+                'id' => request('maDanhMuc', -1)
+            ]);
+        })
             ->with('donvithamdinh')
             // ->withCount('children')
             ->withCount(['children' => function ($q) {
@@ -160,7 +164,7 @@ class ThamDinhController extends Controller
             'maDonViThamDinh' => auth('api')->user()->organizationId,
         ])
             ->update([
-                'trangThai' => $max == 2 ? 3: 7,
+                'trangThai' => $max == 2 ? 3 : 7,
                 'maNguoiThamDinh' => auth('api')->id()
             ]);
         return response()->json(['data' => $row, 'message' => 'Bạn đã gửi điểm thẩm định thành công', 'success' => true]);

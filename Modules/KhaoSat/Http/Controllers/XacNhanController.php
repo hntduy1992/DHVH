@@ -9,6 +9,7 @@ use Illuminate\Routing\Controller;
 use Modules\DonViHanhChinh\Entities\DonViHanhChinh;
 use Modules\KhaoSat\Entities\BangDiem;
 use Modules\KhaoSat\Entities\CauHoi;
+use Modules\KhaoSat\Entities\CauHoiThamDinh;
 use Modules\KhaoSat\Entities\DanhMuc;
 use Modules\KhaoSat\Entities\DanhMucDonVi;
 use Modules\KhaoSat\Entities\DiemTongHop;
@@ -74,7 +75,7 @@ class XacNhanController extends Controller
             })
             ->where(['trangThai' => 1])
             ->orderBy('tenDonVi')->get(['id', 'tenDonVi']);
-
+        $temp = null;
         foreach ($donVi as $item) {
             $count = BangDiem::where('maDanhMuc', $request->get('categoryId', -1))
                 ->whereIn('maCauHoi', $item->thamdinh?->pluck('maCauHoi'))
@@ -83,12 +84,13 @@ class XacNhanController extends Controller
                     'maDonViDanhGia' => $request->get('donVi')
                 ])
                 ->where('trangThai', '>=', 3)
-                ->where('trangThai', '!=', 6)
+                ->orWhere('trangThai', '!=', 6)
                 ->count('id');
-            $item->trangThai = $count == $item->thamdinh?->count() ? 1 : 0;
+            $temp = $item->thamdinh;
+            $item->trangThai = $count === $item->thamdinh?->count() ? 1 : 0;
         }
 
-        return response()->json(['data' => $donVi, 'success' => true]);
+        return response()->json(['data' => $donVi,'temp'=>$temp, 'success' => true]);
     }
 
     public function cauHoi()
