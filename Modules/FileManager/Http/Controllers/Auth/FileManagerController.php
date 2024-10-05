@@ -60,12 +60,12 @@ class FileManagerController extends Controller
     public function singleRemove(Request $request)
     {
         $file = $request->get('fileUrl');
-        $file = Str::replace('\\','/',$file);
-         if (Storage::disk('public')->exists($file)){
+        $file = Str::replace('\\', '/', $file);
+        if (Storage::disk('public')->exists($file)) {
             Storage::disk('public')->delete($file);
-            return response()->json(['message'=> 'Xóa thành công file!', 'success' => true]);
+            return response()->json(['message' => 'Xóa thành công file!', 'success' => true]);
         }
-        return response()->json(['message' => "Không tìm thấy file ",'path'=>$file, 'success' => false]);
+        return response()->json(['message' => "Không tìm thấy file ", 'path' => $file, 'success' => false]);
     }
 //    public function singleUpload(Request $request): JsonResponse
 //    {
@@ -80,6 +80,103 @@ class FileManagerController extends Controller
      * @throws CreateTemporaryFileException
      */
     public function exportToWord(Request $request): JsonResponse
+    {
+        $year = Carbon::now()->year;
+
+        $url = Storage::disk('public')->path("$year/BienBanTuDanhGia.docx");
+
+        $templateProcessor = new TemplateProcessor($url);
+
+        $organ = DonViHanhChinh::where('id', $request->get('donVi', auth('api')->user()->organizationId))->first();
+
+        $templateProcessor->setValue('TenDonVi', $organ->tenDonVi);
+
+        $cellRowSpan = array('vMerge' => 'restart', 'valign' => 'center');
+        $cellRowContinue = array('vMerge' => 'continue');
+        $cellColSpan = array('gridSpan' => 2, 'valign' => 'center');
+        $cellHCentered = array(
+            'alignment' => Jc::CENTER,
+            'spaceBefore' => 0,
+            'spaceAfter' => 0,
+            'spacing' => 15,
+        );
+
+        $cellVCentered = array('valign' => 'center');
+        $styleFont = ['name' => 'Times New Roman', 'size' => 12];
+        $table = new Table(['borderSize' => 0, 'borderColor' => 'black', 'unit' => TblWidth::AUTO]);
+
+        $table->addRow();
+        $table->addCell(150, $cellRowSpan)->addText('STT', array_merge($styleFont, ['bold' => true]), $cellHCentered);
+        $table->addCell(150, $cellRowSpan)->addText('Tên tiêu chi', array_merge($styleFont, ['bold' => true]), $cellHCentered);
+        $table->addCell(150, $cellRowSpan)->addText('Điểm tối đa', array_merge($styleFont, ['bold' => true]), $cellHCentered);
+        $table->addCell(150, $cellRowSpan)->addText('Điểm tự đánh giá', array_merge($styleFont, ['bold' => true]), $cellHCentered);
+
+        $cauHoi = CauHoi::where(['maDanhMuc' => $request->get('danhMuc', 0), 'trangThai' => 1])
+            ->orderBy('sapXep')
+            ->orderBy('id')->get();
+        $questions = collect();
+
+        $bangTongHop = collect($request->get('cauHoi', []));
+        $bangDiem = collect($request->get('bangDiem', []));
+
+
+        foreach ($cauHoi->where('parentId', 0) as $item) {
+            $row = $bangTongHop->where('maCauHoi', $item->id)->first();
+            $item->diemDanhGia = $row['diem'];
+            $questions->push($item);
+            $this->children($questions, $cauHoi, $item, $bangTongHop, $bangDiem);
+        }
+
+        $tongDiem = 0;
+        $tongDiemDanhGia = 0;
+        $tongDiemThamDinh = 0;
+
+        foreach ($questions as $question) {
+            $table->addRow();
+            $table->addCell(null, $cellVCentered)->addText($question->stt, array_merge($styleFont, ['bold' => $question->parentId == 0]), array_merge($cellHCentered, ['alignment' => Jc::LEFT]));
+            $table->addCell(null)
+                ->addText($question->tenCauHoi, array_merge(
+                    $styleFont, ['bold' => $question->parentId == 0, 'italic' => $question->danhDauCau == 2, 'size' => $question->danhDauCau == 2 ? 11 : 12]
+                ), array_merge($cellHCentered, ['alignment' => Jc::BOTH,]));
+            $table->addCell(null, $cellVCentered)->addText(($question->danhDauCau !== 2 && $question->danhDauCau !== 3) ? $question->diemLonNhat : null, array_merge($styleFont, ['bold' => $question->parentId == 0]), $cellHCentered);
+            $table->addCell(null, $cellVCentered)->addText($question->diemDanhGia, array_merge($styleFont, ['bold' => $question->parentId == 0]), $cellHCentered);
+
+            if ($question->parentId == 0) {
+                $tongDiem = $tongDiem + $question->diemLonNhat;
+                $tongDiemDanhGia = $tongDiemDanhGia + $question->diemDanhGia;
+            }
+
+        }
+
+        $table->addRow();
+        $table->addCell(null, $cellRowContinue);
+        $table->addCell(null, $cellVCentered)->addText('Tổng điểm', array_merge($styleFont, ['bold' => true]), $cellHCentered);
+        $table->addCell(null, $cellVCentered)->addText($tongDiem, array_merge($styleFont, ['bold' => true]), $cellHCentered);
+        $table->addCell(Converter::cmToTwip(2.66), $cellVCentered)->addText($tongDiemDanhGia, array_merge($styleFont, ['bold' => true]), $cellHCentered);
+
+        $templateProcessor->setComplexBlock('{table}', $table);
+        $char = Str::random(10);
+        $name = Str::slug($organ->tenDonVi);
+
+        $templateProcessor->setValue('tongDiem', $tongDiem);
+        $templateProcessor->setValue('tongDiemDanhGia', $tongDiemDanhGia);
+
+        if (!Storage::exists("/public/TuDanhGia/{$year}")) {
+            Storage::makeDirectory("/public/TuDanhGia/{$year}");
+        }
+        $fileName = "./storage/TuDanhGia/{$year}/{$name}.docx";
+
+        $templateProcessor->saveAs($fileName);
+
+        return response()->json(['file' => "{$year}/{$name}.docx"]);
+
+    }
+
+    /**
+     * @throws CopyFileException
+     * @throws CreateTemporaryFileException
+     */
+    public function exportToWordBienBan(Request $request): JsonResponse
     {
         $year = Carbon::now()->year;
 
@@ -174,10 +271,10 @@ class FileManagerController extends Controller
         $templateProcessor->setValue('tongDiemDanhGia', $tongDiemDanhGia);
         $templateProcessor->setValue('tongDiemThamDinh', $tongDiemThamDinh);
 
-        if (!Storage::exists("/public/TuDanhGia/{$year}")) {
-            Storage::makeDirectory("/public/TuDanhGia/{$year}");
+        if (!Storage::exists("/public/BienBan/{$year}")) {
+            Storage::makeDirectory("/public/BienBan/{$year}");
         }
-        $fileName = "./storage/TuDanhGia/{$year}/{$name}.docx";
+        $fileName = "./storage/BienBan/{$year}/{$name}.docx";
 
         $templateProcessor->saveAs($fileName);
 
@@ -185,6 +282,118 @@ class FileManagerController extends Controller
 
     }
 
+    /**
+     * @throws CopyFileException
+     * @throws CreateTemporaryFileException
+     */
+    public function exportToWordXacNhan(Request $request): JsonResponse
+    {
+        $year = Carbon::now()->year;
+
+        $url = Storage::disk('public')->path("$year/BienBanTuDanhGia.docx");
+
+        $templateProcessor = new TemplateProcessor($url);
+
+        $organ = DonViHanhChinh::where('id', '=', $request->get('maDonVi'))->first();
+        $templateProcessor->setValue('TenDonVi', $organ->tenDonVi);
+
+        $cellRowSpan = array('vMerge' => 'restart', 'valign' => 'center');
+        $cellRowContinue = array('vMerge' => 'continue');
+        $cellColSpan = array('gridSpan' => 2, 'valign' => 'center');
+        $cellHCentered = array(
+            'alignment' => Jc::CENTER,
+            'spaceBefore' => 0,
+            'spaceAfter' => 0,
+            'spacing' => 15,
+        );
+
+        $cellVCentered = array('valign' => 'center');
+        $styleFont = ['name' => 'Times New Roman', 'size' => 12];
+        $table = new Table(['borderSize' => 0, 'borderColor' => 'black', 'unit' => TblWidth::AUTO]);
+
+        $table->addRow();
+        $table->addCell(150, $cellRowSpan)->addText('STT', array_merge($styleFont, ['bold' => true]), array_merge($cellHCentered, ['alignment' => Jc::CENTER]));
+        $table->addCell(150, $cellRowSpan)->addText('Tên tiêu chi', array_merge($styleFont, ['bold' => true]), $cellHCentered);
+        $table->addCell(150, $cellRowSpan)->addText('Điểm tối đa', array_merge($styleFont, ['bold' => true]), $cellHCentered);
+        $table->addCell(Converter::cmToTwip(5.32), $cellColSpan)->addText('Điểm đánh giá', array_merge($styleFont, ['bold' => true]), $cellHCentered);
+
+        $table->addRow();
+        $table->addCell(null, $cellRowContinue);
+        $table->addCell(null, $cellRowContinue);
+        $table->addCell(null, $cellRowContinue);
+        $table->addCell(Converter::cmToTwip(2.66), $cellVCentered)->addText('Điểm tự đánh giá', array_merge($styleFont, ['bold' => true]), $cellHCentered);
+        $table->addCell(Converter::cmToTwip(2.66), $cellVCentered)->addText('Điểm thẩm định', array_merge($styleFont, ['bold' => true]), $cellHCentered);
+
+
+        $cauHoi = CauHoi::where(['maDanhMuc' => $request->get('danhMuc', 0), 'trangThai' => 1])
+            ->orderBy('sapXep')
+            ->orderBy('id')->get();
+        $questions = collect();
+
+        $bangTongHop = collect($request->get('cauHoi', []));
+        $bangDiem = collect($request->get('bangDiem', []));
+
+
+        foreach ($cauHoi->where('parentId', 0) as $item) {
+            $row = $bangTongHop->where('maCauHoi', $item->id)->first();
+            $item->diemDanhGia = $row['diem'];
+            $item->diemThamDinh = $row['diemThamDinh'];
+            $questions->push($item);
+            $this->children($questions, $cauHoi, $item, $bangTongHop, $bangDiem);
+        }
+
+        $tongDiem = 0;
+        $tongDiemDanhGia = 0;
+        $tongDiemThamDinh = 0;
+
+        foreach ($questions as $question) {
+            $table->addRow();
+            $table->addCell(null, $cellVCentered)->addText($question->stt, array_merge($styleFont, ['bold' => $question->parentId == 0]), array_merge($cellHCentered, ['alignment' => Jc::LEFT]));
+            $table->addCell(null)
+                ->addText($question->tenCauHoi, array_merge(
+                    $styleFont, ['bold' => $question->parentId == 0, 'italic' => $question->danhDauCau == 2, 'size' => $question->danhDauCau == 2 ? 11 : 12]
+                ), array_merge($cellHCentered, ['alignment' => Jc::BOTH,]));
+            $table->addCell(null, $cellVCentered)->addText(($question->danhDauCau !== 2 && $question->danhDauCau !== 3) ? $question->diemLonNhat : null, array_merge($styleFont, ['bold' => $question->parentId == 0]), $cellHCentered);
+            $table->addCell(null, $cellVCentered)->addText($question->diemDanhGia, array_merge($styleFont, ['bold' => $question->parentId == 0]), $cellHCentered);
+            $table->addCell(null, $cellVCentered)->addText($question->diemThamDinh, array_merge($styleFont, ['bold' => $question->parentId == 0]), $cellHCentered);
+
+            if ($question->parentId == 0) {
+                $tongDiem = $tongDiem + $question->diemLonNhat;
+                $tongDiemDanhGia = $tongDiemDanhGia + $question->diemDanhGia;
+                $tongDiemThamDinh = $tongDiemThamDinh + $question->diemThamDinh;
+            }
+
+        }
+
+        $table->addRow();
+        $table->addCell(null, $cellRowContinue);
+        $table->addCell(null, $cellVCentered)->addText('Tổng điểm', array_merge($styleFont, ['bold' => true]), $cellHCentered);
+        $table->addCell(null, $cellVCentered)->addText($tongDiem, array_merge($styleFont, ['bold' => true]), $cellHCentered);
+        $table->addCell(Converter::cmToTwip(2.66), $cellVCentered)->addText($tongDiemDanhGia, array_merge($styleFont, ['bold' => true]), $cellHCentered);
+        $table->addCell(Converter::cmToTwip(2.66), $cellVCentered)->addText($tongDiemThamDinh, array_merge($styleFont, ['bold' => true]), $cellHCentered);
+
+        $templateProcessor->setComplexBlock('{table}', $table);
+        $char = Str::random(10);
+
+//
+
+        $name = Str::slug($organ->tenDonVi);
+
+        $templateProcessor->setValue('tongDiem', $tongDiem);
+        $templateProcessor->setValue('tongDiemDanhGia', $tongDiemDanhGia);
+        $templateProcessor->setValue('tongDiemThamDinh', $tongDiemThamDinh);
+
+
+        if (!Storage::exists("/public/XacNhan/{$year}")) {
+            Storage::makeDirectory("/public/XacNhan/{$year}");
+        }
+        $fileName = "./storage/XacNhan/{$year}/{$name}.docx";
+
+        $templateProcessor->saveAs($fileName);
+
+        return response()->json(['file' => "{$year}/{$name}.docx"]);
+
+    }
 
     private function children(&$questions, $items, $target, $bangTongHop, $bangDiem)
     {

@@ -47,6 +47,7 @@ Route::prefix('auth/khao-sat')->middleware('auth:api')->group(function () {
         Route::get('/danh-muc', [TuDanhGiaController::class, 'danhMuc'])->middleware('role_or_permission:admin|tudanhgia');
         Route::get('/cau-hoi', [TuDanhGiaController::class, 'cauHoi'])->middleware('role_or_permission:admin|tudanhgia');
         Route::get('/cau-hoi-y-kien', [TuDanhGiaController::class, 'cauHoiYKien'])->middleware('role_or_permission:admin|tudanhgia');
+        Route::post('/update-file-danh-gia', [TuDanhGiaController::class, 'updateFileDanhGia'])->middleware('role_or_permission:admin|tudanhgia');
         Route::post('/luu-diem', [TuDanhGiaController::class, 'luuDiem'])->middleware('role_or_permission:admin|tudanhgia');
         Route::post('/gui-diem', [TuDanhGiaController::class, 'guiDiem'])->middleware('role_or_permission:admin|tudanhgia');
         Route::post('/gui-y-kien', [TuDanhGiaController::class, 'guiYKien'])->middleware('role_or_permission:admin|tudanhgia');
@@ -68,6 +69,7 @@ Route::prefix('auth/khao-sat')->middleware('auth:api')->group(function () {
         Route::get('/cau-hoi', [XacNhanController::class, 'cauHoi'])->middleware('role_or_permission:admin|xacnhandiem');
         Route::post('/gui-diem', [XacNhanController::class, 'luuDiem'])->middleware('role_or_permission:admin|xacnhandiem');
         Route::post('/kiem-tra-hop-le', [XacNhanController::class, 'kiemTraHopLe'])->middleware('role_or_permission:admin|xacnhandiem');
+        Route::post('/khoi-phuc-trang-thai', [XacNhanController::class, 'resetDiemTongHop'])->middleware('role_or_permission:admin|xacnhandiem');
         Route::post('/gui-diem-tong-hop', [XacNhanController::class, 'guiDiemTongHop'])->middleware('role_or_permission:admin|xacnhandiem');
         Route::post('/kiem-tra-tong-hop', [XacNhanController::class, 'kiemTraTongHop'])->middleware('role_or_permission:admin|xacnhandiem');
         Route::post('/tra-diem-tham-dinh', [XacNhanController::class, 'traDiemTongHop'])->middleware('role_or_permission:admin|xacnhandiem');
