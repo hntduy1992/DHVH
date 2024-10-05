@@ -9,7 +9,6 @@ use Illuminate\Routing\Controller;
 use Modules\DonViHanhChinh\Entities\DonViHanhChinh;
 use Modules\KhaoSat\Entities\BangDiem;
 use Modules\KhaoSat\Entities\CauHoi;
-use Modules\KhaoSat\Entities\CauHoiThamDinh;
 use Modules\KhaoSat\Entities\DanhMuc;
 use Modules\KhaoSat\Entities\DanhMucDonVi;
 use Modules\KhaoSat\Entities\DiemTongHop;
@@ -65,32 +64,27 @@ class XacNhanController extends Controller
 
     public function donViXacNhan(Request $request)
     {
-        $donVi = DonViHanhChinh::whereHas('thamdinh', function ($q) use ($request) {
-            $q->where('maDanhMuc', $request->get('categoryId', -1));
+        $maDonVi = (int)$request->get('donVi');
+        $categoryId = (int)$request->get('categoryId');
+        $donVi = DonViHanhChinh::whereHas('thamdinh', function ($q) use ($categoryId) {
+            $q->where('maDanhMuc', '=', $categoryId);
         })
-            ->with('thamdinh', function ($q) use ($request) {
-                $q->where([
-                    'maDanhMuc' => $request->get('categoryId', -1)
-                ]);
+            ->with('thamdinh', function ($q) use ($categoryId) {
+                $q->where('maDanhMuc', '=', $categoryId);
             })
-            ->where(['trangThai' => 1])
+            ->where('trangThai', '=', 1)
             ->orderBy('tenDonVi')->get(['id', 'tenDonVi']);
-        $temp = null;
         foreach ($donVi as $item) {
-            $count = BangDiem::where('maDanhMuc', $request->get('categoryId', -1))
+            $count = BangDiem::query()->where('maDanhMuc', '=', $categoryId)
+                ->where('maDonViThamDinh', '=', $item->id)
+                ->where('maDonViDanhGia', '=', $maDonVi)
                 ->whereIn('maCauHoi', $item->thamdinh?->pluck('maCauHoi'))
-                ->where([
-                    'maDonViThamDinh' => $item->id,
-                    'maDonViDanhGia' => $request->get('donVi')
-                ])
                 ->where('trangThai', '>=', 3)
-                ->orWhere('trangThai', '!=', 6)
+                ->where('trangThai', '!=', 6)
                 ->count('id');
-            $temp = $item->thamdinh;
             $item->trangThai = $count === $item->thamdinh?->count() ? 1 : 0;
         }
-
-        return response()->json(['data' => $donVi,'temp'=>$temp, 'success' => true]);
+        return response()->json(['data' => $donVi,'success' => true]);
     }
 
     public function cauHoi()
